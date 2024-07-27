@@ -40,10 +40,10 @@ public partial class AdminPanel_Default : System.Web.UI.Page
 
         DataTable dtCount = balDEF_Count.SelectCount();
 
-        lblIncomeCount.Text = dtCount.Rows[0]["IncomeCount"].ToString();
-        lblExpenseCount.Text = dtCount.Rows[0]["ExpenseCount"].ToString();
-        lblHospitalCount.Text = dtCount.Rows[0]["HospitalCount"].ToString();
-        lblFinyearCount.Text = dtCount.Rows[0]["FinyearCount"].ToString();
+        lblIncomeCount.Text = string.Format(dtCount.Rows[0]["IncomeCount"].ToString(), GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint);
+        lblExpenseCount.Text = string.Format(dtCount.Rows[0]["ExpenseCount"].ToString(), GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint);
+        lblHospitalCount.Text = string.Format(dtCount.Rows[0]["HospitalCount"].ToString(), GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint);
+        lblFinyearCount.Text = string.Format(dtCount.Rows[0]["FinyearCount"].ToString(), GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint);
 
         #endregion 11.3 Total Count
 

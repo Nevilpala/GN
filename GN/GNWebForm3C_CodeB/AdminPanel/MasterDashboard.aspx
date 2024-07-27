@@ -160,39 +160,27 @@
                                                                 </div>
                                                                 <div class="portlet-body" style="display: block;">
                                                                     <div class="table-responsive">
-                                                                        <div id="TableContent1">
-                                                                            <table class="table table-bordered table-advanced table-striped table-hover" id="sample11">
+                                                                        <asp:Label ID="lblNoIncomeRecords" runat="server" Text="No Income Records Found" Visible="false" CssClass="text-danger" />
+
+                                                                        <div id="IncomeList" runat="server">
+
+                                                                            <table class="table table-bordered table-advanced table-striped table-hover">
                                                                                 <%-- Table Header --%>
                                                                                 <thead>
                                                                                     <tr class="TRDark">
-                                                                                        <tr>
-                                                                                            <%--    <th>Day</th>
-                                                                                            <th>January</th>
-                                                                                            <th>February</th>
-                                                                                            <th>March</th>
-                                                                                            <th>April</th>
-                                                                                            <th>May</th>
-                                                                                            <th>June</th>
-                                                                                            <th>July</th>
-                                                                                            <th>August</th>
-                                                                                            <th>September</th>
-                                                                                            <th>October</th>
-                                                                                            <th>November</th>
-                                                                                            <th>December</th>--%>
-                                                                                            <th class="text-center">Day</th>
-                                                                                            <th class="text-center">Jan</th>
-                                                                                            <th class="text-center">Feb</th>
-                                                                                            <th class="text-center">Mar</th>
-                                                                                            <th class="text-center">Apr</th>
-                                                                                            <th class="text-center">May</th>
-                                                                                            <th class="text-center">Jun</th>
-                                                                                            <th class="text-center">Jul</th>
-                                                                                            <th class="text-center">Aug</th>
-                                                                                            <th class="text-center">Sep</th>
-                                                                                            <th class="text-center">Oct</th>
-                                                                                            <th class="text-center">Nov</th>
-                                                                                            <th class="text-center">Dec</th>
-                                                                                        </tr>
+                                                                                        <th class="text-center">Day</th>
+                                                                                        <th class="text-center">Jan</th>
+                                                                                        <th class="text-center">Feb</th>
+                                                                                        <th class="text-center">Mar</th>
+                                                                                        <th class="text-center">Apr</th>
+                                                                                        <th class="text-center">May</th>
+                                                                                        <th class="text-center">Jun</th>
+                                                                                        <th class="text-center">Jul</th>
+                                                                                        <th class="text-center">Aug</th>
+                                                                                        <th class="text-center">Sep</th>
+                                                                                        <th class="text-center">Oct</th>
+                                                                                        <th class="text-center">Nov</th>
+                                                                                        <th class="text-center">Dec</th>
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <%-- END Table Header --%>
@@ -201,24 +189,21 @@
                                                                                         <ItemTemplate>
                                                                                             <%-- Table Rows --%>
                                                                                             <tr class="odd gradeX">
-                                                                                                <td class="day-number"><%# Container.ItemIndex + 1 %></td>
+                                                                                                <td class="day-number text-center"><%# Container.ItemIndex + 1 %></td>
 
-                                                                                                <%--<td>--%>
-                                                                                                <%--<%#  Eval("Month"+(Container.ItemIndex).ToString()) %>--%>
-                                                                                                <%--<%= Eval(monthval) !=  DBNull.Value ? "-" : Eval(monthval,GNForm3C.CV.DefaultCurren cyFormatForGrid).ToString() %>--%>
-                                                                                                <%--</td>--%>
-                                                                                                <td><%# Eval("Month1")%></td>
-                                                                                                <td><%# Eval("Month2")%></td>
-                                                                                                <td><%# Eval("Month3")%></td>
-                                                                                                <td><%# Eval("Month4")%></td>
-                                                                                                <td><%# Eval("Month5")%></td>
-                                                                                                <td><%# Eval("Month6")%></td>
-                                                                                                <td><%# Eval("Month7")%></td>
-                                                                                                <td><%# Eval("Month8")%></td>
-                                                                                                <td><%# Eval("Month9")%></td>
-                                                                                                <td><%# Eval("Month10")%></td>
-                                                                                                <td><%# Eval("Month11")%></td>
-                                                                                                <td><%# Eval("Month12")%></td>
+
+                                                                                                <td class="text-right"><%# Eval("Month1",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month2",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month3",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month4",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month5",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month6",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month7",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month8",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month9",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month10",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month11",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month12",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
                                                                                             </tr>
                                                                                             <%-- END Table Rows --%>
                                                                                         </ItemTemplate>
@@ -244,26 +229,26 @@
                                                                 </div>
                                                                 <div class="portlet-body" style="display: block;">
                                                                     <div class="table-responsive">
-                                                                        <div id="TableContent1">
-                                                                            <table class="table table-bordered table-advanced table-striped table-hover" id="sample11">
+                                                                        <asp:Label ID="lblNoExpenseRecords" runat="server" Text="No Expense Records Found" Visible="false" CssClass="text-danger" />
+
+                                                                        <div id="ExpenseList" runat="server">
+                                                                            <table class="table table-bordered table-advanced table-striped table-hover">
                                                                                 <%-- Table Header --%>
                                                                                 <thead>
                                                                                     <tr class="TRDark">
-                                                                                        <tr>
-                                                                                            <th class="text-center">Day</th>
-                                                                                            <th class="text-center">Jan</th>
-                                                                                            <th class="text-center">Feb</th>
-                                                                                            <th class="text-center">Mar</th>
-                                                                                            <th class="text-center">Apr</th>
-                                                                                            <th class="text-center">May</th>
-                                                                                            <th class="text-center">Jun</th>
-                                                                                            <th class="text-center">Jul</th>
-                                                                                            <th class="text-center">Aug</th>
-                                                                                            <th class="text-center">Sep</th>
-                                                                                            <th class="text-center">Oct</th>
-                                                                                            <th class="text-center">Nov</th>
-                                                                                            <th class="text-center">Dec</th>
-                                                                                        </tr>
+                                                                                        <th class="text-center">Day</th>
+                                                                                        <th class="text-center">Jan</th>
+                                                                                        <th class="text-center">Feb</th>
+                                                                                        <th class="text-center">Mar</th>
+                                                                                        <th class="text-center">Apr</th>
+                                                                                        <th class="text-center">May</th>
+                                                                                        <th class="text-center">Jun</th>
+                                                                                        <th class="text-center">Jul</th>
+                                                                                        <th class="text-center">Aug</th>
+                                                                                        <th class="text-center">Sep</th>
+                                                                                        <th class="text-center">Oct</th>
+                                                                                        <th class="text-center">Nov</th>
+                                                                                        <th class="text-center">Dec</th>
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <%-- END Table Header --%>
@@ -272,24 +257,20 @@
                                                                                         <ItemTemplate>
                                                                                             <%-- Table Rows --%>
                                                                                             <tr class="odd gradeX">
-                                                                                                <td class="day-number"><%# Container.ItemIndex + 1 %></td>
+                                                                                                <td class=" text-center"><%# Container.ItemIndex + 1 %></td>
 
-                                                                                                <%--<td>--%>
-                                                                                                <%--<%#  Eval("Month"+(Container.ItemIndex).ToString()) %>--%>
-                                                                                                <%--<%= Eval(monthval) !=  DBNull.Value ? "-" : Eval(monthval,GNForm3C.CV.DefaultCurren cyFormatForGrid).ToString() %>--%>
-                                                                                                <%--</td>--%>
-                                                                                                <td><%# Eval("Month1")%></td>
-                                                                                                <td><%# Eval("Month2")%></td>
-                                                                                                <td><%# Eval("Month3")%></td>
-                                                                                                <td><%# Eval("Month4")%></td>
-                                                                                                <td><%# Eval("Month5")%></td>
-                                                                                                <td><%# Eval("Month6")%></td>
-                                                                                                <td><%# Eval("Month7")%></td>
-                                                                                                <td><%# Eval("Month8")%></td>
-                                                                                                <td><%# Eval("Month9")%></td>
-                                                                                                <td><%# Eval("Month10")%></td>
-                                                                                                <td><%# Eval("Month11")%></td>
-                                                                                                <td><%# Eval("Month12")%></td>
+                                                                                                <td class="text-right"><%# Eval("Month1",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month2",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month3",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month4",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month5",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month6",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month7",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month8",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month9",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month10",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month11",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
+                                                                                                <td class="text-right"><%# Eval("Month12",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
                                                                                             </tr>
                                                                                             <%-- END Table Rows --%>
                                                                                         </ItemTemplate>
@@ -301,7 +282,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-12">
                                                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                                             <div class="portlet box red">
                                                                 <div class="portlet-title">
@@ -313,13 +294,16 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="portlet-body" style="display: block;">
+
                                                                     <div class="table-responsive">
-                                                                        <div id="TableContent2">
+                                                                        <asp:Label ID="lblNoTreatmentSummaryRecords" runat="server" Text="No Treatment Summary Records Found" Visible="false" CssClass="text-danger" />
+
+                                                                        <div id="TreatmentSummaryList" runat="server">
                                                                             <table class="table table-bordered table-advanced table-striped table-hover" id="sample12">
                                                                                 <%-- Table Header --%>
                                                                                 <thead>
                                                                                     <tr class="TRDark">
-                                                                                        <th class="text-center" style="width: 20px;">
+                                                                                        <th class="text-center " style="width: 20px;">
                                                                                             <asp:Label ID="lblSrNo" runat="server" Text="Sr."></asp:Label>
                                                                                         </th>
                                                                                         <th class="text-center">
@@ -344,7 +328,7 @@
                                                                                                 <td class="text-center">
                                                                                                     <%#Container.ItemIndex+1 %>
                                                                                                 </td>
-                                                                                                <td class="text-center">
+                                                                                                <td class="text-left">
                                                                                                     <%#Eval("Treatment") %>
                                                                                                 </td>
                                                                                                 <td class="text-center">

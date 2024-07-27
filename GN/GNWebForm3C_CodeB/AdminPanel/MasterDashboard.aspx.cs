@@ -33,7 +33,7 @@ public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
             #endregion 11.1 DropDown List Fill Section
 
             #region 11.2 Set Default Value 
-            lblSearchHeader.Text = CV.SearchHeaderText; 
+            lblSearchHeader.Text = CV.SearchHeaderText;
 
             upr.DisplayAfter = CV.UpdateProgressDisplayAfter;
 
@@ -62,15 +62,26 @@ public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
 
             DataTable dtCount = balMST_DSBBAL.SelectCount((SqlInt32)(ddlHospitalID.SelectedIndex));
 
-            lblIncomeCount.Text = dtCount.Rows[0]["IncomeCount"].ToString();
-            lblExpenseCount.Text = dtCount.Rows[0]["ExpenseCount"].ToString();
+            lblIncomeCount.Text = string.Format(GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint, Convert.ToDecimal(dtCount.Rows[0]["IncomeCount"].ToString()));
+            lblExpenseCount.Text = string.Format(GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint, Convert.ToDecimal(dtCount.Rows[0]["ExpenseCount"].ToString()));
             lblSubTreatmentCount.Text = dtCount.Rows[0]["SubTreatmentCount"].ToString();
 
 
             DataTable dtTreatmentSummary = balMST_DSBBAL.TreatmentSummaryList((SqlInt32)(ddlHospitalID.SelectedIndex));
             // Bind to Repeater
-            rpTreatment.DataSource = dtTreatmentSummary;
-            rpTreatment.DataBind();
+            if (dtTreatmentSummary.Rows.Count > 0)
+            {
+                rpTreatment.DataSource = dtTreatmentSummary;
+                rpTreatment.DataBind();
+                lblNoTreatmentSummaryRecords.Visible = false;
+                TreatmentSummaryList.Visible = true;
+            }
+
+            else
+            {
+                lblNoTreatmentSummaryRecords.Visible = true;
+                TreatmentSummaryList.Visible = false;
+            }
 
         }
 
@@ -85,7 +96,7 @@ public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
     protected void btnShow_Click(object sender, EventArgs e)
     {
         //upDashboard.Visible = true;
-        Search(1); 
+        Search(1);
 
     }
     #endregion 12.0 Search
@@ -106,23 +117,37 @@ public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
 
         MST_DSBBAL balMST_DSBBAL = new MST_DSBBAL();
         DataTable result = balMST_DSBBAL.IncomeList(HospitalID, Year);
-        DataTable calenderDataTable = BindYearlyCalender();
-        // Populate the income data into the DataTable
-        foreach (DataRow incomeRow in result.Rows)
+
+        if (result.Rows.Count > 0)
         {
-            DateTime date = Convert.ToDateTime(incomeRow["IncomeDate"]);
-            decimal amount = Convert.ToDecimal(incomeRow["Amount"].ToString());
-            int day = date.Day;
-            int month = date.Month;
-            calenderDataTable.Rows[day - 1]["Month" + month] = amount;
+            DataTable calenderDataTable = BindYearlyCalender();
+            // Populate the income data into the DataTable
+
+            foreach (DataRow incomeRow in result.Rows)
+            {
+                DateTime date = Convert.ToDateTime(incomeRow["IncomeDate"]);
+                decimal amount = Convert.ToDecimal(incomeRow["Amount"].ToString());
+                int day = date.Day;
+                int month = date.Month;
+                calenderDataTable.Rows[day - 1]["Month" + month] = amount;
+            }
+
+            // Bind to Repeater
+            rpIncome.DataSource = calenderDataTable;
+            rpIncome.DataBind();
+            lblNoIncomeRecords.Visible = false;
+            IncomeList.Visible = true;
+        }
+        else
+        {
+            lblNoIncomeRecords.Visible = true;
+            IncomeList.Visible = false;
+
         }
 
-        // Bind to Repeater
-        rpIncome.DataSource = calenderDataTable;
-        rpIncome.DataBind();
     }
     #endregion 13.1 BindIncome
-     #region 13.2 BindExpense
+    #region 13.2 BindExpense
     private void BindExpense()
     {
         #region Parameters
@@ -136,27 +161,40 @@ public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
 
         MST_DSBBAL balMST_DSBBAL = new MST_DSBBAL();
         DataTable result = balMST_DSBBAL.ExpenseList(HospitalID, Year);
-        DataTable calenderDataTable = BindYearlyCalender();
-        // Populate the income data into the DataTable
-        foreach (DataRow dr in  result.Rows)
+        if (result.Rows.Count > 0)
         {
-            DateTime date = Convert.ToDateTime(dr["ExpenseDate"]);
-            decimal amount = Convert.ToDecimal(dr["Amount"].ToString());
-            int day = date.Day;
-            int month = date.Month;
-            calenderDataTable.Rows[day - 1]["Month" + month] = amount;
-        }
+            DataTable calenderDataTable = BindYearlyCalender();
+            // Populate the income data into the DataTable
+            foreach (DataRow dr in result.Rows)
+            {
+                DateTime date = Convert.ToDateTime(dr["ExpenseDate"]);
+                decimal amount = Convert.ToDecimal(dr["Amount"].ToString());
+                int day = date.Day;
+                int month = date.Month;
+                calenderDataTable.Rows[day - 1]["Month" + month] = amount;
 
-        // Bind to Repeater
-        rpExpense.DataSource = calenderDataTable;
-        rpExpense.DataBind();
+
+            }
+
+            // Bind to Repeater
+            rpExpense.DataSource = calenderDataTable;
+            rpExpense.DataBind();
+
+            lblNoExpenseRecords.Visible = false;
+            ExpenseList.Visible = true;
+        }
+        else
+        {
+            lblNoExpenseRecords.Visible = true;
+            ExpenseList.Visible = false;
+        }
     }
 
     #endregion 13.2 BindExpense
 
     #region 13.3 BindYearlyCalender
     private DataTable BindYearlyCalender()
-    { 
+    {
         // Create a DataTable to hold daily income data
         DataTable dt = new DataTable();
         dt.AcceptChanges();
@@ -178,7 +216,7 @@ public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
             // Initialize month columns with DBNull
             for (int month = 1; month <= 12; month++)
             {
-                row["Month" + month] = DBNull.Value;
+                row["Month" + month] = 0;
             }
 
             dt.Rows.Add(row);
