@@ -4,15 +4,17 @@ using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GNForm3C.BAL;
-using System.Data.SqlTypes;
+using System.Data.SqlTypes; 
 
 public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
 {
-    #region variable
+    #region 10.0 Local Variables
 
     static Int32 PageRecordSize = CV.PageRecordSize;//Size of record per page
+    private decimal[] monthTotals = new decimal[12];
+    private System.Drawing.Color HighLightCellFilled = System.Drawing.Color.LightGray;
 
-    #endregion variable
+    #endregion 10.0 Local Variables
 
     #region 11.0 Page Load Event
     protected void Page_Load(object sender, EventArgs e)
@@ -102,6 +104,7 @@ public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
     #endregion 12.0 Search
 
     #region 13.0 BindTable
+
     #region 13.1 BindIncome
 
     private void BindIncome()
@@ -133,8 +136,13 @@ public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
             }
 
             // Bind to Repeater
-            rpIncome.DataSource = calenderDataTable;
-            rpIncome.DataBind();
+            //rpIncome.DataSource = calenderDataTable;
+            //rpIncome.DataBind();
+
+
+            gvIncome.DataSource = calenderDataTable;
+            gvIncome.DataBind();
+
             lblNoIncomeRecords.Visible = false;
             IncomeList.Visible = true;
         }
@@ -172,13 +180,14 @@ public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
                 int day = date.Day;
                 int month = date.Month;
                 calenderDataTable.Rows[day - 1]["Month" + month] = amount;
-
-
             }
 
             // Bind to Repeater
-            rpExpense.DataSource = calenderDataTable;
-            rpExpense.DataBind();
+            //rpExpense.DataSource = calenderDataTable;
+            //rpExpense.DataBind(); 
+
+            gvExpense.DataSource = calenderDataTable;
+            gvExpense.DataBind();
 
             lblNoExpenseRecords.Visible = false;
             ExpenseList.Visible = true;
@@ -237,5 +246,102 @@ public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
     #endregion 14.1 Fill DropDownList
 
     #endregion 14.0 DropDownList
+
+    #region 15.0 GridView Row Data Bound
+    #region 15.1 GridView Row Data Bound for Income
+    protected void gvIncome_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            // Loop through each month's cell to calculate totals
+            for (int i = 0; i < 12; i++)
+            {
+                string Etotal = DataBinder.Eval(e.Row.DataItem, "Month" + (i + 1)).ToString();
+                decimal value = 0;
+                if (Etotal != string.Empty)
+                {
+                    value = Convert.ToDecimal(Etotal);
+                    if (value > 0)
+                    {
+                        e.Row.Cells[i + 1].BackColor = HighLightCellFilled;
+                    }
+                }
+
+
+                monthTotals[i] += value;
+
+
+
+
+            }
+        }
+        else if (e.Row.RowType == DataControlRowType.Footer)
+        {
+
+            // Set the footer row totals
+            for (int i = 0; i < 12; i++)
+            {
+                string value = string.Format(GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint, monthTotals[i]);
+                if (Convert.ToDecimal(value) > 0)
+                {
+                    e.Row.Cells[i + 1].BackColor = HighLightCellFilled;
+                }
+                e.Row.Cells[i+1].Text = value;
+            }
+
+            // Optionally add a label for the totals
+            e.Row.Cells[0].Text = "Total";
+            e.Row.Cells[0].CssClass = "text-center"; // Apply CSS for footer label
+        }
+    }
+
+    #endregion 15.1 GridView Row Data Bound for Income
+
+    #region 15.2 GridView Row Data Bound for Expense
+    protected void gvExpense_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            // Loop through each month's cell to calculate totals
+            for (int i = 0; i < 12; i++)
+            {
+                string Etotal = DataBinder.Eval(e.Row.DataItem, "Month" + (i + 1)).ToString();
+                decimal value = 0;
+                if (Etotal != string.Empty)
+                    value = Convert.ToDecimal(Etotal);
+                if (value > 0)
+                {
+                    e.Row.Cells[i + 1].BackColor = HighLightCellFilled;
+                }
+                monthTotals[i] += value;
+
+
+            }
+        }
+        else if (e.Row.RowType == DataControlRowType.Footer)
+        {
+
+            // Set the footer row totals
+            for (int i = 0; i < 12; i++)
+            {
+                string value = string.Format(GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint, monthTotals[i]);
+                if (Convert.ToDecimal(value) > 0)
+                {
+                    e.Row.Cells[i + 1].BackColor = HighLightCellFilled; 
+                }
+                e.Row.Cells[i + 1].Text = value;
+
+            }
+
+            // Optionally add a label for the totals
+            e.Row.Cells[0].Text = "Total";
+            e.Row.Cells[0].CssClass = "text-center"; // Apply CSS for footer label
+        }
+    }
+
+    #endregion 15.2 GridView Row Data Bound for Expense
+
+
+    #endregion 15.0 GridView Row Data Bound
 
 }

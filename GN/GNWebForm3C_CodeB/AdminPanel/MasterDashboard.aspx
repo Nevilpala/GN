@@ -163,53 +163,130 @@
                                                                         <asp:Label ID="lblNoIncomeRecords" runat="server" Text="No Income Records Found" Visible="false" CssClass="text-danger" />
 
                                                                         <div id="IncomeList" runat="server">
+                                                                            <asp:GridView ID="gvIncome" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-striped table-hover"
+                                                                                ShowHeader="true" EmptyDataText="No Income Records Found"
+                                                                                OnRowDataBound="gvIncome_RowDataBound" ShowFooter="true">
 
-                                                                            <table class="table table-bordered table-advanced table-striped table-hover">
-                                                                                <%-- Table Header --%>
-                                                                                <thead>
-                                                                                    <tr class="TRDark">
-                                                                                        <th class="text-center">Day</th>
-                                                                                        <th class="text-center">Jan</th>
-                                                                                        <th class="text-center">Feb</th>
-                                                                                        <th class="text-center">Mar</th>
-                                                                                        <th class="text-center">Apr</th>
-                                                                                        <th class="text-center">May</th>
-                                                                                        <th class="text-center">Jun</th>
-                                                                                        <th class="text-center">Jul</th>
-                                                                                        <th class="text-center">Aug</th>
-                                                                                        <th class="text-center">Sep</th>
-                                                                                        <th class="text-center">Oct</th>
-                                                                                        <th class="text-center">Nov</th>
-                                                                                        <th class="text-center">Dec</th>
-                                                                                    </tr>
-                                                                                </thead>
-                                                                                <%-- END Table Header --%>
-                                                                                <tbody>
-                                                                                    <asp:Repeater ID="rpIncome" runat="server">
+                                                                                <Columns>
+                                                                                    <asp:TemplateField HeaderText="Day">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-center" />
                                                                                         <ItemTemplate>
-                                                                                            <%-- Table Rows --%>
-                                                                                            <tr class="odd gradeX">
-                                                                                                <td class="day-number text-center"><%# Container.ItemIndex + 1 %></td>
-
-
-                                                                                                <td class="text-right"><%# Eval("Month1",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month2",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month3",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month4",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month5",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month6",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month7",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month8",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month9",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month10",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month11",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month12",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                            </tr>
-                                                                                            <%-- END Table Rows --%>
+                                                                                            <%# Container.DataItemIndex + 1 %>
                                                                                         </ItemTemplate>
-                                                                                    </asp:Repeater>
-                                                                                </tbody>
-                                                                            </table>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Jan">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month1", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Feb">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month2", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Mar">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month3", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Apr">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month4", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="May">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month5", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Jun">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month6", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Jul">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month7", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Aug">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month8", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Sep">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month9", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Oct">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month10", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Nov">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month11", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Dec">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month12", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                </Columns>
+                                                                            </asp:GridView>
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -224,7 +301,6 @@
                                                                     </div>
                                                                     <div class="tools">
                                                                         <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
-                                                                        <%--<a href="Account/ACC_Income/ACC_IncomeList.aspx"><i class="fa fa-edit font-white"></i></a>--%>
                                                                     </div>
                                                                 </div>
                                                                 <div class="portlet-body" style="display: block;">
@@ -232,51 +308,129 @@
                                                                         <asp:Label ID="lblNoExpenseRecords" runat="server" Text="No Expense Records Found" Visible="false" CssClass="text-danger" />
 
                                                                         <div id="ExpenseList" runat="server">
-                                                                            <table class="table table-bordered table-advanced table-striped table-hover">
-                                                                                <%-- Table Header --%>
-                                                                                <thead>
-                                                                                    <tr class="TRDark">
-                                                                                        <th class="text-center">Day</th>
-                                                                                        <th class="text-center">Jan</th>
-                                                                                        <th class="text-center">Feb</th>
-                                                                                        <th class="text-center">Mar</th>
-                                                                                        <th class="text-center">Apr</th>
-                                                                                        <th class="text-center">May</th>
-                                                                                        <th class="text-center">Jun</th>
-                                                                                        <th class="text-center">Jul</th>
-                                                                                        <th class="text-center">Aug</th>
-                                                                                        <th class="text-center">Sep</th>
-                                                                                        <th class="text-center">Oct</th>
-                                                                                        <th class="text-center">Nov</th>
-                                                                                        <th class="text-center">Dec</th>
-                                                                                    </tr>
-                                                                                </thead>
-                                                                                <%-- END Table Header --%>
-                                                                                <tbody>
-                                                                                    <asp:Repeater ID="rpExpense" runat="server">
-                                                                                        <ItemTemplate>
-                                                                                            <%-- Table Rows --%>
-                                                                                            <tr class="odd gradeX">
-                                                                                                <td class=" text-center"><%# Container.ItemIndex + 1 %></td>
+                                                                            <asp:GridView ID="gvExpense" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-striped table-hover"
+                                                                                ShowHeader="true" EmptyDataText="No Expense Records Found"
+                                                                                OnRowDataBound="gvExpense_RowDataBound" ShowFooter="true">
 
-                                                                                                <td class="text-right"><%# Eval("Month1",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month2",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month3",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month4",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month5",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month6",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month7",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month8",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month9",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month10",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month11",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                                <td class="text-right"><%# Eval("Month12",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint)%></td>
-                                                                                            </tr>
-                                                                                            <%-- END Table Rows --%>
+                                                                                <Columns>
+                                                                                    <asp:TemplateField HeaderText="Day">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-center" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Container.DataItemIndex + 1 %>
                                                                                         </ItemTemplate>
-                                                                                    </asp:Repeater>
-                                                                                </tbody>
-                                                                            </table>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Jan">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month1", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Feb">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month2", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Mar">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month3", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Apr">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month4", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="May">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month5", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Jun">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month6", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Jul">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month7", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Aug">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month8", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Sep">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month9", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Oct">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month10", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Nov">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month11", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                    <asp:TemplateField HeaderText="Dec">
+                                                                                        <HeaderStyle CssClass="text-center" />
+                                                                                        <FooterStyle CssClass="text-right" />
+                                                                                        <ItemStyle CssClass="text-right" />
+                                                                                        <ItemTemplate>
+                                                                                            <%# Eval("Month12", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                </Columns>
+                                                                            </asp:GridView>
                                                                         </div>
                                                                     </div>
                                                                 </div>

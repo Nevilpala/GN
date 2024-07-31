@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\masterdashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\masterdashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\master\\mst_student\\mst_studentaddedit.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\master\\mst_student\\mst_studentaddedit.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\masterdashboard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\masterdashboard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\master\\mst_student\\mst_studentaddedit.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\master\\mst_student\\mst_studentaddedit.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\account\\acc_income\\acc_incomelist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_income\\acc_incomelist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\master\\mst_student\\mst_studentlist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\master\\mst_student\\mst_studentlist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,77 +22,49 @@
       "DocumentGroups": [
         {
           "DockedHeight": 377,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MasterDashboard.aspx",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\MasterDashboard.aspx",
-              "RelativeDocumentMoniker": "AdminPanel\\MasterDashboard.aspx",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\MasterDashboard.aspx",
-              "RelativeToolTip": "AdminPanel\\MasterDashboard.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-07-26T17:10:43.311Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MasterDashboard.aspx.cs",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\MasterDashboard.aspx.cs",
-              "RelativeDocumentMoniker": "AdminPanel\\MasterDashboard.aspx.cs",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\MasterDashboard.aspx.cs",
-              "RelativeToolTip": "AdminPanel\\MasterDashboard.aspx.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAQwF4AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T06:50:58.73Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Default.aspx.cs",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Default.aspx.cs",
-              "RelativeDocumentMoniker": "AdminPanel\\Default.aspx.cs",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Default.aspx.cs",
-              "RelativeToolTip": "AdminPanel\\Default.aspx.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAQwDEAAAAiAAAA",
+              "DocumentIndex": 0,
+              "Title": "MST_StudentAddEdit.aspx.cs",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Master\\MST_Student\\MST_StudentAddEdit.aspx.cs",
+              "RelativeDocumentMoniker": "AdminPanel\\Master\\MST_Student\\MST_StudentAddEdit.aspx.cs",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Master\\MST_Student\\MST_StudentAddEdit.aspx.cs",
+              "RelativeToolTip": "AdminPanel\\Master\\MST_Student\\MST_StudentAddEdit.aspx.cs",
+              "ViewState": "AQIAAGQAAAAAAAAAAAAkwHUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T06:57:21.788Z",
+              "WhenOpened": "2024-07-31T14:45:22.586Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ACC_IncomeList.aspx",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_Income\\ACC_IncomeList.aspx",
-              "RelativeDocumentMoniker": "AdminPanel\\Account\\ACC_Income\\ACC_IncomeList.aspx",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_Income\\ACC_IncomeList.aspx",
-              "RelativeToolTip": "AdminPanel\\Account\\ACC_Income\\ACC_IncomeList.aspx",
+              "DocumentIndex": 1,
+              "Title": "MST_StudentAddEdit.aspx",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Master\\MST_Student\\MST_StudentAddEdit.aspx",
+              "RelativeDocumentMoniker": "AdminPanel\\Master\\MST_Student\\MST_StudentAddEdit.aspx",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Master\\MST_Student\\MST_StudentAddEdit.aspx",
+              "RelativeToolTip": "AdminPanel\\Master\\MST_Student\\MST_StudentAddEdit.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-07-27T06:53:04.899Z",
+              "WhenOpened": "2024-07-31T14:45:21.502Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Default.aspx",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Default.aspx",
-              "RelativeDocumentMoniker": "AdminPanel\\Default.aspx",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Default.aspx",
-              "RelativeToolTip": "AdminPanel\\Default.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-07-26T17:10:51.186Z",
+              "DocumentIndex": 2,
+              "Title": "MST_StudentList.aspx.cs",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Master\\MST_Student\\MST_StudentList.aspx.cs",
+              "RelativeDocumentMoniker": "AdminPanel\\Master\\MST_Student\\MST_StudentList.aspx.cs",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Master\\MST_Student\\MST_StudentList.aspx.cs",
+              "RelativeToolTip": "AdminPanel\\Master\\MST_Student\\MST_StudentList.aspx.cs",
+              "ViewState": "AQIAAMkAAAAAAAAAAAAowJcAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-31T14:43:56.772Z",
               "EditorCaption": ""
             }
           ]
