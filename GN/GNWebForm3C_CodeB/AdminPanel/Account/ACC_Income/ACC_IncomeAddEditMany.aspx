@@ -58,53 +58,21 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">
                                     </div>
-
                                     <div class="form-group">
-                                        <div class="col-md-3">
-                                            <label class=" control-label">
-                                                <span class="required">*</span>
-                                                <asp:Label ID="lblHospitalID_XXXXX" runat="server" Text="Hospital"></asp:Label>
-                                            </label>
-                                            <div>
-                                                <asp:DropDownList ID="ddlHospitalID" CssClass="form-control select2me" runat="server" ></asp:DropDownList>
-                                                <asp:RequiredFieldValidator ID="rfvHospitalID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlHospitalID" ErrorMessage="Select Hospital" InitialValue="-99"></asp:RequiredFieldValidator>
-                                            </div>
+                                        <label class="col-md-3 control-label">
+                                            <span class="required">*</span>
+                                            <asp:Label ID="lblHospitalID_XXXXX" runat="server" Text="Hospital"></asp:Label>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <asp:DropDownList ID="ddlHospitalID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="rfvHospitalID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlHospitalID" ErrorMessage="Select Hospital" InitialValue="-99"></asp:RequiredFieldValidator>
                                         </div>
-                                        <div class="col-md-3">
-                                            <label class="  control-label">
-                                                <span class="required">*</span>
-                                                <asp:Label ID="lblIncomeTypeID_XXXXX" runat="server" Text="Income Type"></asp:Label>
-                                            </label>
-                                            <div>
-                                                <asp:DropDownList ID="ddlIncomeTypeID" CssClass="form-control select2me" runat="server" ></asp:DropDownList>
-                                                <asp:RequiredFieldValidator ID="rfvIncomeTypeID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlIncomeTypeID" ErrorMessage="Select Income Type" InitialValue="-99"></asp:RequiredFieldValidator>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-
-                                            <label class="  control-label">
-                                                <span class="required">*</span>
-                                                <asp:Label ID="lblFinYearID_XXXXX" runat="server" Text="Fin Year"></asp:Label>
-                                            </label>
-                                            <div>
-                                                <asp:DropDownList ID="ddlFinYearID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
-                                                <asp:RequiredFieldValidator ID="rfvFinYearID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlFinYearID" ErrorMessage="Select Fin Year" InitialValue="-99"></asp:RequiredFieldValidator>
-                                            </div>
-                                        </div>
-                                        <div class="col-md ">
-                                            <label class="control-label">
-                                                <asp:Label ID="Label1" runat="server" Text="&nbsp;"></asp:Label>
-                                            </label>
-
-                                            <div>
-                                                <asp:Button ID="btnShow" runat="server" SkinID="btnShow" OnClick="btnShow_Click" />
-                                                <asp:HyperLink ID="hlCancel1" runat="server" SkinID="hlCancel" NavigateUrl="~/AdminPanel/Account/ACC_Income/ACC_IncomeList.aspx"></asp:HyperLink>
-
-                                            </div>
+                                        <div class="col-md-4">
+                                            <asp:Button ID="btnShow" runat="server" SkinID="btnShow" OnClick="btnShow_Click" />
+                                            <asp:HyperLink ID="hlCancel1" runat="server" SkinID="hlCancel" NavigateUrl="~/AdminPanel/Account/ACC_Income/ACC_IncomeList.aspx"></asp:HyperLink>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </label>
@@ -140,69 +108,94 @@
                                     <div class="row" runat="server">
                                         <div class="col-md-12">
                                             <div id="TableContent">
-                                                <table class="table table-border    ed table-advanced table-striped table-hover" id="sample_1">
+                                                <table class="table table-bordered table-advanced table-striped table-hover" id="sample_1">
+
                                                     <%-- Table Header --%>
                                                     <thead>
+
                                                         <tr class="TRDark">
+
                                                             <th class="text-center" style="width: 20px;">
                                                                 <asp:Label ID="lblIsSelected" runat="server" Text="IsSelected"></asp:Label>
                                                             </th>
+
                                                             <th class="text-center" style="width: 20px;">
                                                                 <asp:Label ID="lbhSerialNo" runat="server" Text="Sr."></asp:Label>
                                                             </th>
+
+                                                            <th>
+                                                                <asp:Label ID="lbhFinYear" runat="server" Text="Fin Year"></asp:Label>
+                                                            </th>
+
+                                                            <th>
+                                                                <asp:Label ID="lbhIncomeType" runat="server" Text="Income Type"></asp:Label>
+                                                            </th>
+
                                                             <th>
                                                                 <asp:Label ID="lbhIncomeDate" runat="server" Text="Income Date"></asp:Label>
                                                             </th>
+
                                                             <th>
                                                                 <asp:Label ID="lbhAmount" runat="server" Text="Amount"></asp:Label>
                                                             </th>
+
                                                             <th>
                                                                 <asp:Label ID="lbhNote" runat="server" Text="Note"></asp:Label>
                                                             </th>
-                                                            <th>
-                                                                <asp:Label ID="lbhRemarks" runat="server" Text="Remarks"></asp:Label>
-                                                            </th>
 
                                                         </tr>
+
                                                     </thead>
                                                     <%-- END Table Header --%>
 
                                                     <tbody>
-                                                        <asp:Repeater ID="rpData" runat="server">
+
+                                                        <asp:Repeater ID="rpData" runat="server" OnItemDataBound="rpData_ItemDataBound">
+
                                                             <ItemTemplate>
+
                                                                 <%-- Table Rows --%>
                                                                 <tr class="odd gradeX">
+
                                                                     <td class="text-center">
-                                                                        <asp:CheckBox runat="server" ID="chkIsSelected" Checked='<%#Eval("IncomeDate").ToString().Trim() == String.Empty ? false : true %>' />
+                                                                        <asp:CheckBox runat="server" ID="chkIsSelected" Checked='<%#Eval("IncomeID").ToString().Trim() == String.Empty ? false : true %>' />
+                                                                        <asp:HiddenField ID="hdIncomeID" runat="server" Value='<%#Eval("IncomeID") %>' />
                                                                     </td>
+
                                                                     <td class="text-center">
                                                                         <%#Container.ItemIndex+1 %>
                                                                     </td>
+
                                                                     <td>
-                                                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
+                                                                        <asp:DropDownList ID="ddlFinYearID" CssClass="form-control select2me" runat="server" ></asp:DropDownList>
+                                                                    </td>
+
+
+                                                                    <td>
+                                                                        <asp:DropDownList ID="ddlIncomeTypeID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
+                                                                    </td>
+
+                                                                    <td>
+                                                                        <div class="input-group input-medium date date-picker" data-date-format='<%=GNForm3C.CV.DefaultHTMLDateFormat.ToString()%>'>
+                                                                            <asp:TextBox ID="dtpIncomeDate" CssClass="form-control" runat="server" placeholder="Income Date" Text='<%#Eval("IncomeDate", "{0:dd-mm-yyyy}") %>'></asp:TextBox>
                                                                             <span class="input-group-btn">
                                                                                 <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                                             </span>
-                                                                            <asp:TextBox ID="dtpIncomeDate" CssClass="form-control" runat="server" Text='<%#Eval("IncomeDate", GNForm3C.CV.DefaultDateFormatForGrid) %>'  placeholder="Income Date"></asp:TextBox>
+                                                                        </div>
+                                                                    </td>
 
-                                                                        </div> 
-                                                                            <asp:HiddenField ID="hdIncomeID" runat="server" Value='<%#Eval("IncomeID") %>' />
+                                                                    <td>
+                                                                        <asp:TextBox ID="txtAmount" CssClass="form-control" runat="server" onkeypress="return IsPositiveInteger(event)" PlaceHolder="Enter Amount" Text='<%#Eval("Amount") %>'></asp:TextBox>
+                                                                        <asp:CompareValidator ID="cvAmount" runat="server" ControlToValidate="txtAmount" ErrorMessage="Enter Valid Amount" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Double"></asp:CompareValidator>
+                                                                    </td>
 
-                                                                    </td>
                                                                     <td>
-                                                                        <asp:TextBox ID="txtAmount" CssClass="form-control" runat="server" Text='<%#Eval("Amount") %>' PlaceHolder="Enter Amount"></asp:TextBox>
-                                                                        <%--<asp:RequiredFieldValidator  ID="rfvExpenseType" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtExpenseType" ErrorMessage="Enter Expense Type"></asp:RequiredFieldValidator>--%>
-                                                                      
-                                                                    </td>
-                                                                    <td>
-                                                                        <asp:TextBox ID="txtNote" CssClass="form-control" runat="server" Text='<%#Eval("Note") %>' PlaceHolder="Enter Note"></asp:TextBox>
-                                                                    </td>
-                                                                    <td>
-                                                                        <asp:TextBox ID="txtRemarks" CssClass="form-control" runat="server" Text='<%#Eval("Remarks") %>' PlaceHolder="Enter Remarks"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtNote" CssClass="form-control" runat="server" TextMode="MultiLine" PlaceHolder="Enter Note" Text='<%#Eval("Note") %>'></asp:TextBox>
                                                                     </td>
                                                                 </tr>
                                                                 <%-- END Table Rows --%>
                                                             </ItemTemplate>
+
                                                         </asp:Repeater>
                                                     </tbody>
                                                 </table>

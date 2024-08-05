@@ -1,20 +1,19 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
+﻿using GNForm3C.DAL;
+using GNForm3C.ENT;
+using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Data;
 using System.Linq;
 using System.Web;
+ 
 
-/// <summary>
-/// Summary description for Class1
-/// </summary>
-/// 
 namespace GNForm3C.DAL
 {
-    public class MST_DSBDALBase : DataBaseConfig
+    public class MST_BranchIntakeDALBase : DataBaseConfig
     {
         #region Properties
 
@@ -35,29 +34,134 @@ namespace GNForm3C.DAL
 
         #region Constructor
 
-        public MST_DSBDALBase()
+        public MST_BranchIntakeDALBase()
         {
 
         }
 
         #endregion Constructor
 
-        #region Select
-        public DataTable SelectCount(SqlInt32 HospitalID)
+        #region InsertOperation
+        public Boolean Insert(MST_BranchIntakeENT entMST_BranchIntake)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_MST_DSB_Count");
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_MST_BranchIntake_Insert");
 
-                DataTable dtCount = new DataTable("PR_MST_DSB_Count");
-                sqlDB.AddInParameter(dbCMD, "@HospitalID", SqlDbType.Int, HospitalID);
-
+                //sqlDB.AddOutParameter(dbCMD, "@BranchIntakeID", SqlDbType.Int, 4);
+                sqlDB.AddInParameter(dbCMD, "@Branch", SqlDbType.NVarChar, entMST_BranchIntake.Branch);
+                sqlDB.AddInParameter(dbCMD, "@AdmissionYear", SqlDbType.Int, entMST_BranchIntake.AdmissionYear);
+                sqlDB.AddInParameter(dbCMD, "@Intake", SqlDbType.NVarChar, entMST_BranchIntake.Intake); 
 
                 DataBaseHelper DBH = new DataBaseHelper();
-                DBH.LoadDataTable(sqlDB, dbCMD, dtCount);
+                DBH.ExecuteNonQuery(sqlDB, dbCMD);
 
-                return dtCount;
+                //entMST_BranchIntake.BranchIntakeID = (SqlInt32)Convert.ToInt32(dbCMD.Parameters["@BranchIntakeID"].Value);
+
+                return true;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return false;
+            }
+        }
+
+        #endregion InsertOperation
+
+        #region UpdateOperation
+
+        public Boolean Update(MST_BranchIntakeENT entMST_BranchIntake)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_MST_BranchIntake_Update");
+                 
+                sqlDB.AddInParameter(dbCMD, "@Branch", SqlDbType.NVarChar, entMST_BranchIntake.Branch);
+                sqlDB.AddInParameter(dbCMD, "@AdmissionYear", SqlDbType.Int, entMST_BranchIntake.AdmissionYear);
+                sqlDB.AddInParameter(dbCMD, "@Intake", SqlDbType.NVarChar, entMST_BranchIntake.Intake);
+
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.ExecuteNonQuery(sqlDB, dbCMD);
+
+                return true;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return false;
+            }
+        }
+
+        #endregion UpdateOperation
+
+        #region DeleteOperation
+
+        public Boolean Delete(SqlInt32 BranchIntakeID)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_MST_BranchIntake_Delete"); 
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.ExecuteNonQuery(sqlDB, dbCMD);
+
+                return true;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return false;
+            }
+        }
+
+        #endregion DeleteOperation
+
+        #region SelectOperation
+
+        public DataTable SelectShow()
+        {
+
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("GetBranchIntakeMatrix"); 
+                
+                DataTable dtMST_BranchIntakeShow = new DataTable("GetBranchIntakeMatrix");
+
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.LoadDataTable(sqlDB, dbCMD, dtMST_BranchIntakeShow);
+
+                return dtMST_BranchIntakeShow;
             }
             catch (SqlException sqlex)
             {
@@ -75,104 +179,8 @@ namespace GNForm3C.DAL
             }
         }
 
-        public DataTable IncomeList(SqlInt32 HospitalID, SqlInt32 Year)
-        {
-            try
-            {
-                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_MST_DSB_IncomeDayWise");
-                //DbCommand dbCMD = sqlDB.GetStoredProcCommand("GetIncomePivot");
+        #endregion SelectOperation
 
-                DataTable dtCount = new DataTable("PR_MST_DSB_IncomeDayWise");
-                sqlDB.AddInParameter(dbCMD,"@Year",SqlDbType.Int, Year);
-                sqlDB.AddInParameter(dbCMD, "@HospitalID", SqlDbType.Int, HospitalID);
-
-                DataBaseHelper DBH = new DataBaseHelper();
-                DBH.LoadDataTable(sqlDB, dbCMD, dtCount);
-
-                return dtCount;
-            }
-            catch (SqlException sqlex)
-            {
-                Message = SQLDataExceptionMessage(sqlex);
-                if (SQLDataExceptionHandler(sqlex))
-                    throw;
-                return null;
-            }
-            catch (Exception ex)
-            {
-                Message = ExceptionMessage(ex);
-                if (ExceptionHandler(ex))
-                    throw;
-                return null;
-            }
-        }
-
-        public DataTable ExpenseList(SqlInt32 HospitalID,SqlInt32 Year)
-        {
-            try
-            {
-                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_MST_DSB_ExpenseDayWise");
-                sqlDB.AddInParameter(dbCMD, "@Year", SqlDbType.Int, Year);
-                sqlDB.AddInParameter(dbCMD, "@HospitalID", SqlDbType.Int, HospitalID);
-
-                DataTable dtCount = new DataTable("PR_DSB_ExpenseList");
-
-
-                DataBaseHelper DBH = new DataBaseHelper();
-                DBH.LoadDataTable(sqlDB, dbCMD, dtCount);
-
-                return dtCount;
-            }
-            catch (SqlException sqlex)
-            {
-                Message = SQLDataExceptionMessage(sqlex);
-                if (SQLDataExceptionHandler(sqlex))
-                    throw;
-                return null;
-            }
-            catch (Exception ex)
-            {
-                Message = ExceptionMessage(ex);
-                if (ExceptionHandler(ex))
-                    throw;
-                return null;
-            }
-        }
-
-        public DataTable TreatmentSummaryList(SqlInt32 HospitalID)
-        {
-            try
-            {
-                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_MST_DSB_TreatmentSummaryList"); 
-                sqlDB.AddInParameter(dbCMD, "@HospitalID", SqlDbType.Int, HospitalID);
-
-                DataTable dtCount = new DataTable("PR_MST_DSB_TreatmentSummaryList");
-
-
-                DataBaseHelper DBH = new DataBaseHelper();
-                DBH.LoadDataTable(sqlDB, dbCMD, dtCount);
-
-                return dtCount;
-            }
-            catch (SqlException sqlex)
-            {
-                Message = SQLDataExceptionMessage(sqlex);
-                if (SQLDataExceptionHandler(sqlex))
-                    throw;
-                return null;
-            }
-            catch (Exception ex)
-            {
-                Message = ExceptionMessage(ex);
-                if (ExceptionHandler(ex))
-                    throw;
-                return null;
-            }
-        }
-        #endregion Select
 
     }
 }

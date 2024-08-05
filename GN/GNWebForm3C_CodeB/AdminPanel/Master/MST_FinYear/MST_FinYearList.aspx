@@ -3,17 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphPageHeader" runat="Server">
-	<asp:Label ID="lblPageHeader_XXXXX" runat="server" Text="Fin Year"></asp:Label>
-	<small><asp:Label ID="lblPageHeaderInfo_XXXXX" runat="server" Text="Master"></asp:Label></small>
-	<span class="pull-right">
-        	<small>
-	            <asp:HyperLink ID="hlShowHelp" SkinID="hlShowHelp" runat="server"></asp:HyperLink>
-        	</small>
-	</span>	
+    <asp:Label ID="lblPageHeader_XXXXX" runat="server" Text="Fin Year"></asp:Label>
+    <small>
+        <asp:Label ID="lblPageHeaderInfo_XXXXX" runat="server" Text="Master"></asp:Label></small>
+    <span class="pull-right">
+        <small>
+            <asp:HyperLink ID="hlShowHelp" SkinID="hlShowHelp" runat="server"></asp:HyperLink>
+        </small>
+    </span>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphBreadcrumb" runat="Server">
     <li>
-		<i class="fa fa-home"></i>
+        <i class="fa fa-home"></i>
         <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/AdminPanel/Default.aspx" Text="Home"></asp:HyperLink>
         <i class="fa fa-angle-right"></i>
     </li>
@@ -28,9 +29,9 @@
     <asp:ScriptManager ID="sm" runat="server">
     </asp:ScriptManager>
 
-    <%-- Search --%> 
+    <%-- Search --%>
     <asp:UpdatePanel ID="upApplicationFeature" runat="server">
-        <ContentTemplate>			
+        <ContentTemplate>
             <div class="portlet light">
                 <div class="portlet-title">
                     <div class="caption">
@@ -44,38 +45,38 @@
                 <div class="portlet-body form">
                     <div role="form">
                         <div class="form-body">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="form-group">
-										<div class="input-group">
-											<span class="input-group-addon">
-												<i class="fa fa-search"></i>
-											</span>
-											<asp:TextBox ID="txtFinYearName" CssClass="First form-control" runat="server"  PlaceHolder="Enter Fin Year Name"></asp:TextBox>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
-											<span class="input-group-btn">
-												<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-											</span>
-											<asp:TextBox ID="dtpFromDate" CssClass="form-control" runat="server" placeholder="From Date"></asp:TextBox>
-										</div>	
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
-											<span class="input-group-btn">
-												<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-											</span>
-											<asp:TextBox ID="dtpToDate" CssClass="form-control" runat="server" placeholder="To Date"></asp:TextBox>
-										</div>	
-									</div>
-								</div>
-							</div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                            <asp:TextBox ID="txtFinYearName" CssClass="First form-control" runat="server" PlaceHolder="Enter Fin Year Name"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                            </span>
+                                            <asp:TextBox ID="dtpFromDate" CssClass="form-control" runat="server" placeholder="From Date"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                            </span>
+                                            <asp:TextBox ID="dtpToDate" CssClass="form-control" runat="server" placeholder="To Date"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-actions">
                             <div class="row">
@@ -114,8 +115,10 @@
                                 </label>
                             </div>
                             <div class="tools">
-                                 <div>
-									<asp:HyperLink SkinID="hlAddNew" ID="hlAddNew" NavigateUrl="~/AdminPanel/Master/MST_FinYear/MST_FinYearAddEdit.aspx" runat="server"></asp:HyperLink>
+                                <div>
+                                    <asp:HyperLink SkinID="EditPopup" ID="hlAddNe" NavigateUrl="~/AdminPanel/Master/MST_FinYear/MST_FinYearAddEditPopup.aspx" data-target="#view" data-toggle="modal" runat="server"></asp:HyperLink>
+
+                                    <asp:HyperLink SkinID="hlAddNew" ID="hlAddNew" NavigateUrl="~/AdminPanel/Master/MST_FinYear/MST_FinYearAddEdit.aspx" runat="server"></asp:HyperLink>
                                     <div class="btn-group" runat="server" id="Div_ExportOption" visible="false">
                                         <button class="btn dropdown-toggle" data-toggle="dropdown">
                                             Export <i class="fa fa-angle-down"></i>
@@ -140,15 +143,18 @@
                                             <%-- Table Header --%>
                                             <thead>
                                                 <tr class="TRDark">
-                                                    <th><asp:Label ID="lbhFinYearName" runat="server" Text="Fin Year Name"></asp:Label>
+                                                    <th>
+                                                        <asp:Label ID="lbhFinYearName" runat="server" Text="Fin Year Name"></asp:Label>
                                                     </th>
-                                                    <th class="text-center"><asp:Label ID="lbhFromDate" runat="server" Text="From Date"></asp:Label>
+                                                    <th class="text-center">
+                                                        <asp:Label ID="lbhFromDate" runat="server" Text="From Date"></asp:Label>
                                                     </th>
-                                                    <th class="text-center"><asp:Label ID="lbhToDate" runat="server" Text="To Date"></asp:Label>
+                                                    <th class="text-center">
+                                                        <asp:Label ID="lbhToDate" runat="server" Text="To Date"></asp:Label>
                                                     </th>
-													<th class="nosortsearch text-nowrap text-center">
-														<asp:Label ID="lbhAction" runat="server" Text="Action"></asp:Label>
-													</th>
+                                                    <th class="nosortsearch text-nowrap text-center">
+                                                        <asp:Label ID="lbhAction" runat="server" Text="Action"></asp:Label>
+                                                    </th>
                                                 </tr>
                                             </thead>
                                             <%-- END Table Header --%>
@@ -159,17 +165,18 @@
                                                         <%-- Table Rows --%>
                                                         <tr class="odd gradeX">
                                                             <td>
-                                                            <asp:HyperLink ID="hlViewFinYearID" NavigateUrl='<%# "~/AdminPanel/Master/MST_FinYear/MST_FinYearView.aspx?FinYearID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("FinYearID").ToString()) %>' data-target="#viewiFrameReg" CssClass="modalButton" data-toggle="modal" runat="server"><%#Eval("FinYearName") %></asp:HyperLink>
+                                                                <asp:HyperLink ID="hlViewFinYearID" NavigateUrl='<%# "~/AdminPanel/Master/MST_FinYear/MST_FinYearView.aspx?FinYearID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("FinYearID").ToString()) %>' data-target="#viewiFrameReg" CssClass="modalButton" data-toggle="modal" runat="server"><%#Eval("FinYearName") %></asp:HyperLink>
                                                             </td>
                                                             <td class="text-center">
-                                                            	<%#Eval("FromDate", GNForm3C.CV.DefaultDateFormatForGrid) %>
+                                                                <%#Eval("FromDate", GNForm3C.CV.DefaultDateFormatForGrid) %>
                                                             </td>
                                                             <td class="text-center">
-                                                            	<%#Eval("ToDate", GNForm3C.CV.DefaultDateFormatForGrid) %>
+                                                                <%#Eval("ToDate", GNForm3C.CV.DefaultDateFormatForGrid) %>
                                                             </td>
                                                             <td class="text-nowrap text-center">
+                                                                <asp:HyperLink ID="HyperLink3" SkinID="EditPopup" NavigateUrl='<%# "~/AdminPanel/Master/MST_FinYear/MST_FinYearAddEditPopup.aspx?FinYearID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("FinYearID").ToString()) %>' data-target="#view" data-toggle="modal" runat="server"></asp:HyperLink>
                                                                 <asp:HyperLink ID="hlView" SkinID="View" NavigateUrl='<%# "~/AdminPanel/Master/MST_FinYear/MST_FinYearView.aspx?FinYearID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("FinYearID").ToString()) %>' data-target="#viewiFrameReg" data-toggle="modal" runat="server"></asp:HyperLink>
-								<asp:HyperLink ID="hlEdit" SkinID="Edit" NavigateUrl='<%# "~/AdminPanel/Master/MST_FinYear/MST_FinYearAddEdit.aspx?FinYearID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("FinYearID").ToString()) %>' runat="server"></asp:HyperLink>
+                                                                <asp:HyperLink ID="hlEdit" SkinID="Edit" NavigateUrl='<%# "~/AdminPanel/Master/MST_FinYear/MST_FinYearAddEdit.aspx?FinYearID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("FinYearID").ToString()) %>' runat="server"></asp:HyperLink>
                                                                 <asp:LinkButton ID="lbtnDelete" runat="server"
                                                                     SkinID="Delete"
                                                                     OnClientClick="javascript:return confirm('Are you sure you want to delete record ? ');"
@@ -184,7 +191,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    
+
                                     <%-- Pagination --%>
                                     <div class="row">
                                         <div class="col-md-4">
@@ -214,7 +221,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-3 pull-right">
-                                            <div class="btn-group" runat="server" id="Div_GoToPageNo">                                                
+                                            <div class="btn-group" runat="server" id="Div_GoToPageNo">
                                                 <asp:TextBox ID="txtPageNo" placeholder="Page No" onkeypress="return IsNumeric(event)" runat="server" CssClass="pagination-panel-input form-control input-xsmall input-inline col-md-4" MaxLength="9"></asp:TextBox>
                                                 <asp:LinkButton ID="lbtnGoToPageNo" runat="server" CssClass="btn btn-default input-inline col-md-4" CommandName="GoPageNo" CommandArgument="0" OnClick="PageChange_Click">Go</asp:LinkButton>
                                             </div>
@@ -240,7 +247,7 @@
             <asp:AsyncPostBackTrigger ControlID="btnSearch" EventName="Click" />
             <asp:AsyncPostBackTrigger ControlID="btnClear" EventName="Click" />
             <asp:PostBackTrigger ControlID="lbtnExportExcel" />
-	    <asp:PostBackTrigger ControlID="lbtnExportPDF" />
+            <asp:PostBackTrigger ControlID="lbtnExportPDF" />
         </Triggers>
     </asp:UpdatePanel>
     <%-- END List --%>
@@ -255,7 +262,6 @@
         </ProgressTemplate>
     </asp:UpdateProgress>
     <%-- END Loading  --%>
-
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="cphScripts" runat="Server">
     <script>

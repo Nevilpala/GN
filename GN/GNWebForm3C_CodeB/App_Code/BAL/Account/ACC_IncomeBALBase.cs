@@ -138,10 +138,10 @@ namespace GNForm3C.BAL
 			return dalACC_Income.SelectPage(PageOffset, PageSize, out TotalRecords, IncomeTypeID, Amount, IncomeDate, HospitalID, FinYearID);
 		}
 
-        public DataTable SelectShow(SqlInt32 HospitalID, SqlInt32 IncomeTypeID, SqlInt32 FinYearID)
+        public DataTable SelectShow(SqlInt32 HospitalID)
         {
             ACC_IncomeDAL dalACC_Income = new ACC_IncomeDAL();
-            return dalACC_Income.SelectShow(HospitalID, IncomeTypeID, FinYearID);
+            return dalACC_Income.SelectShow(HospitalID);
         }
 
         #endregion SelectOperation

@@ -374,16 +374,14 @@ namespace GNForm3C.DAL
                 return null;
             }
         }
-        public DataTable SelectShow(SqlInt32 HospitalID, SqlInt32 IncomeTypeID, SqlInt32 FinYearID)
+        public DataTable SelectShow(SqlInt32 HospitalID)
         {
 
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_Income_SelectShow");
-                sqlDB.AddInParameter(dbCMD, "@HospitalID", SqlDbType.Int, HospitalID);
-                sqlDB.AddInParameter(dbCMD, "@IncomeTypeID", SqlDbType.Int, IncomeTypeID);
-                sqlDB.AddInParameter(dbCMD, "@FinYearID", SqlDbType.Int, FinYearID);
+                sqlDB.AddInParameter(dbCMD, "@HospitalID", SqlDbType.Int, HospitalID); 
 
                 DataTable dtACC_IncomeShow = new DataTable("PR_ACC_Income_SelectShow");
 

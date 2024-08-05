@@ -4,7 +4,7 @@ using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GNForm3C.BAL;
-using System.Data.SqlTypes; 
+using System.Data.SqlTypes;
 
 public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
 {
@@ -13,6 +13,7 @@ public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
     static Int32 PageRecordSize = CV.PageRecordSize;//Size of record per page
     private decimal[] monthTotals = new decimal[12];
     private System.Drawing.Color HighLightCellFilled = System.Drawing.Color.LightGray;
+    DataTable dtIncome;
 
     #endregion 10.0 Local Variables
 
@@ -106,7 +107,93 @@ public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
     #region 13.0 BindTable
 
     #region 13.1 BindIncome
+    public string GetColumnHeaders()
+    {
+        if (dtIncome == null || dtIncome.Columns.Count == 0)
+            return "";
 
+        string headers = "";
+        foreach (DataColumn column in dtIncome.Columns)
+        {
+            if (column.ColumnName.ToString() != "Day")
+            {
+                headers += "<th class='text-center'>" + column.ColumnName + "</th>";
+
+            }
+        }
+        return headers;
+    }
+
+    public string GetRowValues(object dataItem)
+    {
+        DataRowView row = (DataRowView)dataItem;
+        string values = "";
+        foreach (DataColumn column in row.Row.Table.Columns)
+        {
+            if (column.ColumnName.ToString() != "Day")
+            {
+                values += "<td>" + row[column.ToString()].ToString() + "</td>";
+            }
+        }
+        return values;
+    }
+
+    public string GetTotalValues()
+    {
+        if (dtIncome == null || dtIncome.Columns.Count == 0)
+            return "";
+
+        string totals = "";
+        foreach (DataColumn column in dtIncome.Columns)
+        {
+            if (column.ColumnName != "Day")
+            {
+                decimal total = 0;
+                foreach (DataRow row in dtIncome.Rows)
+                {
+                    if (row[column] != DBNull.Value)
+                    {
+                        total += Convert.ToDecimal(row[column]);
+                    }
+                }
+                totals += "<td>" + total + "</td>";
+            }
+        }
+        return totals;
+    }
+    private void BindIncomeData()
+    {
+        #region Parameters
+
+        // Get current year
+        int currentYear = DateTime.Now.Year;
+        SqlInt32 HospitalID = (SqlInt32)ddlHospitalID.SelectedIndex;
+        SqlInt32 Year = (SqlInt32)currentYear;
+
+        #endregion Parameters
+        MST_DSBBAL balMST_DSBBAL = new MST_DSBBAL();
+        dtIncome = balMST_DSBBAL.IncomeList(HospitalID, Year);
+
+        if (dtIncome.Rows.Count > 0)
+        {
+            // Populate the income data into the DataTable
+
+            //// Bind to Repeater
+            //rpIncome.DataSource = dtIncome;
+            //rpIncome.DataBind();
+
+
+            lblNoIncomeRecords.Visible = false;
+            IncomeList.Visible = true;
+        }
+        else
+        {
+            lblNoIncomeRecords.Visible = true;
+            IncomeList.Visible = false;
+
+        }
+
+    }
     private void BindIncome()
     {
         #region Parameters
@@ -286,7 +373,7 @@ public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
                 {
                     e.Row.Cells[i + 1].BackColor = HighLightCellFilled;
                 }
-                e.Row.Cells[i+1].Text = value;
+                e.Row.Cells[i + 1].Text = value;
             }
 
             // Optionally add a label for the totals
@@ -327,7 +414,7 @@ public partial class AdminPanel_MasterDashboard : System.Web.UI.Page
                 string value = string.Format(GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint, monthTotals[i]);
                 if (Convert.ToDecimal(value) > 0)
                 {
-                    e.Row.Cells[i + 1].BackColor = HighLightCellFilled; 
+                    e.Row.Cells[i + 1].BackColor = HighLightCellFilled;
                 }
                 e.Row.Cells[i + 1].Text = value;
 

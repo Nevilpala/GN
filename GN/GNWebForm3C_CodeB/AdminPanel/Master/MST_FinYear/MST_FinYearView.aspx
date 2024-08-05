@@ -82,7 +82,7 @@
 <asp:Content ID="cntScripts" ContentPlaceHolderID="cphScripts" Runat="Server">
 <script>
 $(document).keyup(function (e) {
-if (e.keyCode == 27) {;
+if (e.keyCode == 27) {
 	$("#CloseButton").trigger("click");
 }
 });

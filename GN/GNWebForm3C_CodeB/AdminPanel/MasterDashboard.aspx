@@ -19,10 +19,11 @@
     <%-- Search --%>
     <asp:UpdatePanel ID="upApplicationFeature" runat="server">
         <ContentTemplate>
+
             <div class="row">
                 <div class="col-md-12">
-                    <ucMessage:ShowMessage ID="ShowMessage1" runat="server" />
-                    <asp:ValidationSummary ID="ValidationSummary1" SkinID="VS" runat="server" />
+                    <ucMessage:ShowMessage ID="ShowMessage" runat="server" />
+                    <asp:ValidationSummary ID="ValidationSummary" SkinID="VS" runat="server" />
                 </div>
             </div>
 
@@ -486,7 +487,9 @@
                                                                                                     <%#Eval("Treatment") %>
                                                                                                 </td>
                                                                                                 <td class="text-center">
-                                                                                                    <%#Eval("Patient") %>
+                                                                                                    <a class=" " href='<%# "Account/ACC_Transaction/ACC_TransactionList.aspx?HospitalID="+ GNForm3C.CommonFunctions.EncryptBase64(ddlHospitalID.SelectedValue.ToString()) +"&TreatmentID="+GNForm3C.CommonFunctions.EncryptBase64(Eval("TreatmentID").ToString())%>'>
+                                                                                                        <%#Eval("Patient") %>
+                                                                                                    </a>
                                                                                                 </td>
                                                                                                 <td class="text-right">
                                                                                                     <%#Eval("Amount",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
