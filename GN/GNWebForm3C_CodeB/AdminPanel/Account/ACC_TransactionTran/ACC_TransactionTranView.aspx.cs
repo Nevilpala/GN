@@ -48,8 +48,8 @@ public partial class AdminPanel_Account_ACC_TransactionTran_ACC_TransactionTranV
 						if (!dr["TransactionID"].Equals(DBNull.Value))
 							lblTransactionID.Text = Convert.ToString(dr["TransactionID"]);
 
-						if (!dr["SubTreatmentID"].Equals(DBNull.Value))
-							lblSubTreatmentID.Text = Convert.ToString(dr["SubTreatmentID"]);
+						if (!dr["SubTreatmentName"].Equals(DBNull.Value))
+							lblSubTreatmentName.Text = Convert.ToString(dr["SubTreatmentName"]);
 
 						if (!dr["Quantity"].Equals(DBNull.Value))
 							lblQuantity.Text = Convert.ToString(dr["Quantity"]);

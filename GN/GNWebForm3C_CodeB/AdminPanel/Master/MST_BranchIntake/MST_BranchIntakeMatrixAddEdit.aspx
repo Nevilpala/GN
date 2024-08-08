@@ -1,120 +1,123 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default/MasterPage.master" AutoEventWireup="true" CodeFile="MST_BranchIntakeMatrixAddEdit.aspx.cs" Inherits="AdminPanel_Master_MST_BranchIntake_MST_BranchIntakeMatrixAddEdit" %>
 
-<asp:Content ID="cntPageHeader" ContentPlaceHolderID="cphPageHeader" runat="Server">
-    <asp:Label ID="lblPageHeader_XXXXX" Text="BranchIntake " runat="server"></asp:Label><small><asp:Label ID="lblPageHeaderInfo_XXXXX" Text="Master" runat="server"></asp:Label></small>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="cphPageHeader" runat="Server">
+    <asp:Label ID="lblPageHeader_XXXXX" runat="server" Text="Branch Intake"></asp:Label>
+    <small>
+        <asp:Label ID="lblPageHeaderInfo_XXXXX" runat="server" Text="Master"></asp:Label></small>
     <span class="pull-right">
         <small>
             <asp:HyperLink ID="hlShowHelp" SkinID="hlShowHelp" runat="server"></asp:HyperLink>
         </small>
     </span>
 </asp:Content>
-<asp:Content ID="cntBreadcrumb" ContentPlaceHolderID="cphBreadcrumb" runat="Server">
+    
+<asp:Content ID="Content3" ContentPlaceHolderID="cphBreadcrumb" runat="Server">
     <li>
         <i class="fa fa-home"></i>
         <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/AdminPanel/Default.aspx" Text="Home"></asp:HyperLink>
         <i class="fa fa-angle-right"></i>
     </li>
-    <li>
-        <asp:HyperLink ID="hlExpenseType" runat="server" NavigateUrl="~/AdminPanel/Master/MST_BranchIntake/MST_BranchIntakeList.aspx" Text="BranchIntake List"></asp:HyperLink>
-        <i class="fa fa-angle-right"></i>
-    </li>
     <li class="active">
-        <asp:Label ID="lblBreadCrumbLast" runat="server" Text="Branch Intake Add/Edit"></asp:Label>
+        <asp:Label ID="lblBreadCrumbLast" runat="server" Text="Branch Intake"></asp:Label>
     </li>
 </asp:Content>
-<asp:Content ID="cntPageContent" ContentPlaceHolderID="cphPageContent" runat="Server">
+
+<asp:Content ID="Content4" ContentPlaceHolderID="cphPageContent" runat="Server">
     <!--Help Text-->
     <ucHelp:ShowHelp ID="ucHelp" runat="server" />
     <!--Help Text End-->
-    <asp:ScriptManager ID="sm" runat="server">
-    </asp:ScriptManager>
-    <asp:UpdatePanel ID="upMST_BranchIntake" runat="server" EnableViewState="true" UpdateMode="Conditional" ChildrenAsTriggers="false">
 
+    <asp:ScriptManager ID="sm" runat="server"></asp:ScriptManager>
+    <asp:HiddenField ID="hfHeaders" runat="server" />
+    <%-- List --%>
+    <asp:UpdatePanel ID="upList" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
-
-            <asp:UpdatePanel ID="upList" runat="server" UpdateMode="Conditional">
-                <ContentTemplate>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <ucMessage:ShowMessage ID="ShowMessage" runat="server" ViewStateMode="Disabled" />
+            <div class="row">
+                <div class="col-md-12">
+                    <ucMessage:ShowMessage ID="ucMessage" runat="server" ViewStateMode="Disabled" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <asp:Label SkinID="lblSearchHeaderIcon" runat="server"></asp:Label>
+                                <asp:Label ID="lblSearchHeaderIcon" SkinID="" Text="Branch Intakes" runat="server"></asp:Label>
+                                <label class="control-label">&nbsp;</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            <div class="portlet light" runat="server" id="Div_ShowResult">
-                                <div class="portlet-title">
-                                    <div class="caption">
-                                        <asp:Label SkinID="lblSearchResultHeaderIcon" runat="server"></asp:Label>
-                                        <asp:Label ID="lblSearchResultHeader" SkinID="lblSearchResultHeaderText" runat="server"></asp:Label>
-                                        <label class="control-label">&nbsp;</label>
-                                    </div>
-
-                                </div>
-
-                                <div class="portlet-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <ucMessage:ShowMessage ID="ucMessage" runat="server" />
-                                            <asp:ValidationSummary ID="ValidationSummary1" SkinID="VS" runat="server" />
-                                        </div>
-                                    </div>
-                                    <div class="row" runat="server">
-                                        <div class="col-md-12">
-                                            <div id="TableContent">
-
-                                                <table class="table table-bordered table-advanced table-striped table-hover" id="sample_1">
-                                                    <%-- Table Header --%>
-                                                    <asp:Repeater ID="rpBranchIntake" runat="server" OnItemDataBound="rpBranchIntake_ItemDataBound">
-                                                        <HeaderTemplate>
-                                                            <thead>
-                                                                <tr class="TRDark">
-                                                                    <th class="text-center">Branch</th>
-                                                                    <%# GetColumnHeaders() %>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                        </HeaderTemplate>
-                                                        <ItemTemplate> 
-                                                           <%-- <tr>
-                                                                <td>
-                                                                    <asp:Label ID="lblBranch" runat="server" CssClass="form-control" Text='<%# Eval("Branch") %>' />
-                                                                </td>
-                                                                            <asp:PlaceHolder ID="phTextBoxes" runat="server"></asp:PlaceHolder>
-
-                                                                <%--<%# GetRowValues(Container.DataItem) %>--%>
-                                                          
+                        <div class="portlet-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="TableContent">
+                                        <table class="table table-bordered table-advanced table-striped " id="tblIncomeList">
+                                            <%-- Table Header --%>
+                                            <thead>
+                                                <tr class="TRDark">
+                                                    <asp:Repeater ID="rpAddmissionYearHead" runat="server">
+                                                        <ItemTemplate>
+                                                            <th class="text-center">
+                                                                <asp:Label ID="lblMonth" runat="server" Text='<%#Container.DataItem %>'></asp:Label>
+                                                            </th>
                                                         </ItemTemplate>
-                                                        <FooterTemplate>
-                                                            </tbody>
-                                                        </FooterTemplate>
                                                     </asp:Repeater>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div clasa="col-md-12">
-                                            <div class="form-actions">
-                                                <div class="row">
-                                                    <div class="col-md-offset-3 col-md-9">
-                                                        <asp:Button ID="btnSave" runat="server" SkinID="btnSave" OnClick="btnSave_Click" />
-                                                        <asp:HyperLink ID="hlCancel" runat="server" SkinID="hlCancel" NavigateUrl="~/AdminPanel/Account/ACC_Income/ACC_IncomeList.aspx"></asp:HyperLink>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
+                                                </tr>
+                                            </thead>
+                                            <%-- END Table Header --%>
+
+                                            <tbody>
+                                                <asp:Repeater ID="rpIntakeData" runat="server" OnItemDataBound="rpIntake_ItemDataBound">
+                                                    <ItemTemplate>
+                                                        <tr>
+                                                            <td>
+                                                                <asp:Label ID="lblBranch" runat="server" Text='<%# Eval("Branch") %>'></asp:Label>
+                                                            </td>
+                                                            <asp:Repeater ID="rpAddmissionYearBody" runat="server">
+                                                                <ItemTemplate>
+                                                                    <td class="text-right">
+                                                                        <asp:Label ID="lblYear" runat="server" Text='<%# Eval("Year") %>' Visible="false"></asp:Label>
+                                                                        <asp:TextBox ID="txtIntake" CssClass="form-control" runat="server" Text='<%# Eval("Intake") %>' />
+                                                                    </td>
+                                                                </ItemTemplate>
+                                                            </asp:Repeater>
+                                                        </tr>
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
+                            <div class="row">
+                                <div class="col-md-6 text-right">
+                                    <asp:Button ID="btnSave" runat="server" Text="save" OnClick="btnSave_Click" CssClass="btn btn-primary" />
+                                    <asp:Button ID="btnClear" runat="server" Text="clear" OnClick="btnClear_Click" CssClass="btn btn-secondary" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END EXAMPLE TABLE PORTLET-->
+                </div>
+            </div>
         </ContentTemplate>
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
+            <asp:AsyncPostBackTrigger ControlID="btnClear" EventName="Click" />
+        </Triggers>
     </asp:UpdatePanel>
+    <%-- END List --%>
 
     <%-- Loading  --%>
     <asp:UpdateProgress ID="upr" runat="server">
         <ProgressTemplate>
             <div class="divWaiting">
-                <asp:Label ID="lblWait" runat="server" Text="Please wait... " />
+                <asp:Label ID="lblWait" runat="server" Text=" Please wait... " />
                 <asp:Image ID="imgWait" runat="server" SkinID="UpdatePanelLoding" />
             </div>
         </ProgressTemplate>
@@ -122,3 +125,5 @@
     <%-- END Loading  --%>
 </asp:Content>
 
+<asp:Content ID="Content5" ContentPlaceHolderID="cphScripts" runat="Server">
+</asp:Content>

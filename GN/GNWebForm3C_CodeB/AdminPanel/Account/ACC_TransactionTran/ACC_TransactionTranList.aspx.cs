@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Data.SqlTypes;
+using iTextSharp.text;
 
 public partial class AdminPanel_ACC_TransactionTran_ACC_TransactionTranList : System.Web.UI.Page
 {
@@ -141,7 +142,7 @@ public partial class AdminPanel_ACC_TransactionTran_ACC_TransactionTranList : Sy
 
         ACC_TransactionTranBAL balACC_TransactionTran = new ACC_TransactionTranBAL();
 
-        DataTable dt = balACC_TransactionTran.SelectPage(Offset, PageRecordSize, out TotalRecords, TransactionID, SubTreatmentID, Patient);
+        DataTable dt = balACC_TransactionTran.SelectPage(Offset, PageRecordSize, out TotalRecords, TransactionID, SubTreatmentID, Quantity, Unit, Rate, Amount, Patient);
 
         if (PageRecordSize == 0 && dt.Rows.Count > 0)
         {
@@ -373,7 +374,7 @@ public partial class AdminPanel_ACC_TransactionTran_ACC_TransactionTranList : Sy
             Offset = (Convert.ToInt32(ViewState["CurrentPage"]) - 1) * PageRecordSize;
 
         ACC_TransactionTranBAL balACC_TransactionTran = new ACC_TransactionTranBAL();
-        DataTable dtACC_TransactionTran = balACC_TransactionTran.SelectPage(Offset, PageRecordSize, out TotalReceivedRecord, TransactionID, SubTreatmentID, Patient);
+        DataTable dtACC_TransactionTran = balACC_TransactionTran.SelectPage(Offset, PageRecordSize, out TotalReceivedRecord, TransactionID, SubTreatmentID, Quantity, Unit, Rate, Amount, Patient);
         if (dtACC_TransactionTran != null && dtACC_TransactionTran.Rows.Count > 0)
         {
             Session["ExportTable"] = dtACC_TransactionTran;

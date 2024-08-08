@@ -8,10 +8,10 @@
     <asp:ScriptManager ID="sm" runat="server">
     </asp:ScriptManager>
     <asp:UpdatePanel ID="upMST_FinYear" runat="server" EnableViewState="true" UpdateMode="Conditional" ChildrenAsTriggers="false">
-        <triggers>
+        <Triggers>
             <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
-        </triggers>
-        <contenttemplate>
+        </Triggers>
+        <ContentTemplate>
 
 
             <div class="portlet light">
@@ -42,8 +42,8 @@
                                     <asp:Label ID="lblFinYearName_XXXXX" runat="server" Text="Fin Year Name"></asp:Label>
                                 </label>
                                 <div class="col-md-6">
-                                    <asp:TextBox ID="txtFinYearName" CssClass="form-control" runat="server" PlaceHolder="Enter Fin Year Name"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvFinYearName" SetFocusOnError="True" Display="Dynamic" runat="server" ValidationGroup="vgStudent" ControlToValidate="txtFinYearName" ErrorMessage="Enter Fin Year Name"></asp:RequiredFieldValidator>
+                                    <asp:TextBox ID="txtFinYearName" CssClass="form-control" runat="server" PlaceHolder="Enter Fin Year Name" ></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="rfvFinYearName" SetFocusOnError="True" Display="Dynamic" runat="server" ValidationGroup="vgFinYear" ControlToValidate="txtFinYearName" ErrorMessage="Enter Fin Year Name"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -53,12 +53,12 @@
                                 </label>
                                 <div class="col-md-6">
                                     <div class="input-group input-medium date date-picker" data-date-format='<%=GNForm3C.CV.DefaultHTMLDateFormat.ToString()%>'>
-                                        <asp:TextBox ID="dtpFromDate" CssClass="form-control" runat="server" placeholder="From Date"></asp:TextBox>
+                                        <asp:TextBox ID="dtpFromDate" CssClass="form-control" runat="server" placeholder="From Date" ></asp:TextBox>
                                         <span class="input-group-btn">
                                             <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                         </span>
                                     </div>
-                                    <asp:RequiredFieldValidator ID="rfvFromDate" runat="server" ValidationGroup="vgStudent" ControlToValidate="dtpFromDate" ErrorMessage="Enter From Date" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvFromDate" runat="server" ValidationGroup="vgFinYear" ControlToValidate="dtpFromDate" ErrorMessage="Enter From Date" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -88,7 +88,7 @@
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-offset-3 col-md-9">
-                                    <asp:Button ID="btnSave" runat="server" SkinID="btnSave" OnClick="btnSave_Click" />
+                                    <asp:Button ID="btnSave" runat="server" SkinID="btnSave" OnClick="btnSave_Click"  />
                                     <asp:HyperLink ID="hlCancel" runat="server" SkinID="hlCancel" NavigateUrl="~/AdminPanel/Master/MST_FinYear/MST_FinYearList.aspx"></asp:HyperLink>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
                     </div>
                 </div>
             </div>
-        </contenttemplate>
+        </ContentTemplate>
     </asp:UpdatePanel>
 
 </asp:Content>
@@ -108,4 +108,7 @@
             }
         });
     </script>
+    <script>
+        
+</script>
 </asp:Content>

@@ -24,12 +24,24 @@ public partial class _Default : System.Web.UI.Page
         {
             Session.Clear();
             this.Page.Title = "Login - " + CV.DefaultCompanyName;
-           // imgLogo.ImageUrl = CV.DefaultLoginLogoPath;
-        }
+            // imgLogo.ImageUrl = CV.DefaultLoginLogoPath;
+            txtUsername.Text = "admin";
+            txtPassword.Text = "1";
+            if (!string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text))
+            {
+                lbtnLogin_Click(sender, e);
+            }
+            else
+            {
+                lbtnLogin.Focus();
 
+            }
+
+        }
+       
         #region Check Login Restricted
 
-        
+
 
         #endregion Check Login Restricted
     }
@@ -40,6 +52,7 @@ public partial class _Default : System.Web.UI.Page
 
     protected void lbtnLogin_Click(object sender, EventArgs e)
     {
+        Page.Validate();
         if (Page.IsValid)
         {
             String ErrorMsg = String.Empty;

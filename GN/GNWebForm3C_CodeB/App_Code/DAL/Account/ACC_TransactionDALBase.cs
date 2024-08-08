@@ -351,7 +351,8 @@ namespace GNForm3C.DAL
 				sqlDB.AddInParameter(dbCMD, "@PageSize", SqlDbType.Int, PageSize);
 				sqlDB.AddOutParameter(dbCMD, "@TotalRecords", SqlDbType.Int, 4);
                 sqlDB.AddInParameter(dbCMD, "@Patient", SqlDbType.VarChar, Patient);
-                sqlDB.AddInParameter(dbCMD, "@TreatmentID", SqlDbType.Int, TreatmentID); 
+                sqlDB.AddInParameter(dbCMD, "@Count", SqlDbType.Int, Count); 
+                sqlDB.AddInParameter(dbCMD, "@TreatmentID", SqlDbType.Int, TreatmentID);
                 sqlDB.AddInParameter(dbCMD, "@Amount", SqlDbType.Decimal, Amount);
                 sqlDB.AddInParameter(dbCMD, "@SerialNo", SqlDbType.Int, SerialNo);	
                 sqlDB.AddInParameter(dbCMD, "@ReferenceDoctor", SqlDbType.VarChar, ReferenceDoctor); 

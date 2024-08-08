@@ -180,7 +180,7 @@ public partial class AdminPanel_Master_MST_ReceiptType_MST_ReceiptTypeAddEdit : 
 				{
 					entMST_ReceiptType.ReceiptTypeID = CommonFunctions.DecryptBase64Int32(Request.QueryString["ReceiptTypeID"]);
 					if (balMST_ReceiptType.Update(entMST_ReceiptType))
-					{
+					{	
 						Response.Redirect("MST_ReceiptTypeList.aspx");
 					}
 					else

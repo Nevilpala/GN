@@ -116,7 +116,7 @@
                             </div>
                             <div class="tools">
                                 <div>
-                                    <asp:HyperLink SkinID="EditPopup" ID="hlAddNe" NavigateUrl="~/AdminPanel/Master/MST_FinYear/MST_FinYearAddEditPopup.aspx" data-target="#view" data-toggle="modal" runat="server"></asp:HyperLink>
+                                    <asp:HyperLink SkinID="EditPopup" ID="hlAddNe" NavigateUrl="~/AdminPanel/Master/MST_FinYear/MST_FinYearAddEditPopup.aspx" data-target="#viewiFrameReg" data-toggle="modal" runat="server"></asp:HyperLink>
 
                                     <asp:HyperLink SkinID="hlAddNew" ID="hlAddNew" NavigateUrl="~/AdminPanel/Master/MST_FinYear/MST_FinYearAddEdit.aspx" runat="server"></asp:HyperLink>
                                     <div class="btn-group" runat="server" id="Div_ExportOption" visible="false">
@@ -165,7 +165,7 @@
                                                         <%-- Table Rows --%>
                                                         <tr class="odd gradeX">
                                                             <td>
-                                                                <asp:HyperLink ID="hlViewFinYearID" NavigateUrl='<%# "~/AdminPanel/Master/MST_FinYear/MST_FinYearView.aspx?FinYearID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("FinYearID").ToString()) %>' data-target="#viewiFrameReg" CssClass="modalButton" data-toggle="modal" runat="server"><%#Eval("FinYearName") %></asp:HyperLink>
+                                                                <asp:HyperLink ID="hlViewFinYearID" NavigateUrl='<%# "~/AdminPanel/Master/MST_FinYear/MST_FinYearView.aspx?FinYearID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("FinYearID").ToString()) %>' data-target="#viewiFrameReg" CssClass="modalButton GNModalIFrame" data-toggle="modal" runat="server"><%#Eval("FinYearName") %></asp:HyperLink>
                                                             </td>
                                                             <td class="text-center">
                                                                 <%#Eval("FromDate", GNForm3C.CV.DefaultDateFormatForGrid) %>
@@ -174,7 +174,7 @@
                                                                 <%#Eval("ToDate", GNForm3C.CV.DefaultDateFormatForGrid) %>
                                                             </td>
                                                             <td class="text-nowrap text-center">
-                                                                <asp:HyperLink ID="HyperLink3" SkinID="EditPopup" NavigateUrl='<%# "~/AdminPanel/Master/MST_FinYear/MST_FinYearAddEditPopup.aspx?FinYearID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("FinYearID").ToString()) %>' data-target="#view" data-toggle="modal" runat="server"></asp:HyperLink>
+                                                                <asp:HyperLink ID="HyperLink3" SkinID="EditPopup" NavigateUrl='<%# "~/AdminPanel/Master/MST_FinYear/MST_FinYearAddEditPopup.aspx?FinYearID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("FinYearID").ToString()) %>' data-target="#viewiFrameReg" data-toggle="modal" runat="server"></asp:HyperLink>
                                                                 <asp:HyperLink ID="hlView" SkinID="View" NavigateUrl='<%# "~/AdminPanel/Master/MST_FinYear/MST_FinYearView.aspx?FinYearID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("FinYearID").ToString()) %>' data-target="#viewiFrameReg" data-toggle="modal" runat="server"></asp:HyperLink>
                                                                 <asp:HyperLink ID="hlEdit" SkinID="Edit" NavigateUrl='<%# "~/AdminPanel/Master/MST_FinYear/MST_FinYearAddEdit.aspx?FinYearID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("FinYearID").ToString()) %>' runat="server"></asp:HyperLink>
                                                                 <asp:LinkButton ID="lbtnDelete" runat="server"
@@ -271,5 +271,7 @@
         });
 
         SearchGridUI('<%=btnSearch.ClientID%>', 'sample_1', 1);
+   
+
     </script>
 </asp:Content>

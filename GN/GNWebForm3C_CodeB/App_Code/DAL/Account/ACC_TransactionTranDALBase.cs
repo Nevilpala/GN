@@ -6,371 +6,376 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using GNForm3C.ENT;
+using System.Web.UI.WebControls;
 
 namespace GNForm3C.DAL
 {
-	public abstract class ACC_TransactionTranDALBase : DataBaseConfig
-	{
-		#region Properties
+    public abstract class ACC_TransactionTranDALBase : DataBaseConfig
+    {
+        #region Properties
 
-		private string _Message;
-		public string Message
-		{
-			get
-			{
-				return _Message;
-			}
-			set
-			{
-				_Message = value;
-			}
-		}
+        private string _Message;
+        public string Message
+        {
+            get
+            {
+                return _Message;
+            }
+            set
+            {
+                _Message = value;
+            }
+        }
 
-		#endregion Properties
+        #endregion Properties
 
-		#region Constructor
+        #region Constructor
 
-		public ACC_TransactionTranDALBase()
-		{
+        public ACC_TransactionTranDALBase()
+        {
 
-		}
+        }
 
-		#endregion Constructor
+        #endregion Constructor
 
-		#region InsertOperation
+        #region InsertOperation
 
-		public Boolean Insert(ACC_TransactionTranENT entACC_TransactionTran)
-		{
-			try
-			{
-				SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-				DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_Insert");
+        public Boolean Insert(ACC_TransactionTranENT entACC_TransactionTran)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_Insert");
 
-				sqlDB.AddOutParameter(dbCMD, "@TransactionTranID", SqlDbType.Int, 4);
-				sqlDB.AddInParameter(dbCMD, "@TransactionID", SqlDbType.Int, entACC_TransactionTran.TransactionID);
-				sqlDB.AddInParameter(dbCMD, "@SubTreatmentID", SqlDbType.Int, entACC_TransactionTran.SubTreatmentID);
-				sqlDB.AddInParameter(dbCMD, "@Quantity", SqlDbType.Int, entACC_TransactionTran.Quantity);
-				sqlDB.AddInParameter(dbCMD, "@Unit", SqlDbType.NVarChar, entACC_TransactionTran.Unit);
-				sqlDB.AddInParameter(dbCMD, "@Rate", SqlDbType.Decimal, entACC_TransactionTran.Rate);
-				sqlDB.AddInParameter(dbCMD, "@Amount", SqlDbType.Decimal, entACC_TransactionTran.Amount);
-				sqlDB.AddInParameter(dbCMD, "@Remarks", SqlDbType.NVarChar, entACC_TransactionTran.Remarks);
-				sqlDB.AddInParameter(dbCMD, "@UserID", SqlDbType.Int, entACC_TransactionTran.UserID);
-				sqlDB.AddInParameter(dbCMD, "@Created", SqlDbType.DateTime, entACC_TransactionTran.Created);
-				sqlDB.AddInParameter(dbCMD, "@Modified", SqlDbType.DateTime, entACC_TransactionTran.Modified);
+                sqlDB.AddOutParameter(dbCMD, "@TransactionTranID", SqlDbType.Int, 4);
+                sqlDB.AddInParameter(dbCMD, "@TransactionID", SqlDbType.Int, entACC_TransactionTran.TransactionID);
+                sqlDB.AddInParameter(dbCMD, "@SubTreatmentID", SqlDbType.Int, entACC_TransactionTran.SubTreatmentID);
+                sqlDB.AddInParameter(dbCMD, "@Quantity", SqlDbType.Int, entACC_TransactionTran.Quantity);
+                sqlDB.AddInParameter(dbCMD, "@Unit", SqlDbType.NVarChar, entACC_TransactionTran.Unit);
+                sqlDB.AddInParameter(dbCMD, "@Rate", SqlDbType.Decimal, entACC_TransactionTran.Rate);
+                sqlDB.AddInParameter(dbCMD, "@Amount", SqlDbType.Decimal, entACC_TransactionTran.Amount);
+                sqlDB.AddInParameter(dbCMD, "@Remarks", SqlDbType.NVarChar, entACC_TransactionTran.Remarks);
+                sqlDB.AddInParameter(dbCMD, "@UserID", SqlDbType.Int, entACC_TransactionTran.UserID);
+                sqlDB.AddInParameter(dbCMD, "@Created", SqlDbType.DateTime, entACC_TransactionTran.Created);
+                sqlDB.AddInParameter(dbCMD, "@Modified", SqlDbType.DateTime, entACC_TransactionTran.Modified);
 
-				DataBaseHelper DBH = new DataBaseHelper();
-				DBH.ExecuteNonQuery(sqlDB, dbCMD);
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.ExecuteNonQuery(sqlDB, dbCMD);
 
-				entACC_TransactionTran.TransactionTranID = (SqlInt32)Convert.ToInt32(dbCMD.Parameters["@TransactionTranID"].Value);
+                entACC_TransactionTran.TransactionTranID = (SqlInt32)Convert.ToInt32(dbCMD.Parameters["@TransactionTranID"].Value);
 
-				return true;
-			}
-			catch (SqlException sqlex)
-			{
-				Message = SQLDataExceptionMessage(sqlex);
-				if (SQLDataExceptionHandler(sqlex))
-					throw;
-				return false;
-			}
-			catch (Exception ex)
-			{
-				Message = ExceptionMessage(ex);
-				if (ExceptionHandler(ex))
-					throw;
-				return false;
-			}
-		}
+                return true;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return false;
+            }
+        }
 
-		#endregion InsertOperation
+        #endregion InsertOperation
 
-		#region UpdateOperation
+        #region UpdateOperation
 
-		public Boolean Update(ACC_TransactionTranENT entACC_TransactionTran)
-		{
-			try
-			{
-				SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-				DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_Update");
+        public Boolean Update(ACC_TransactionTranENT entACC_TransactionTran)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_Update");
 
-				sqlDB.AddInParameter(dbCMD, "@TransactionTranID", SqlDbType.Int, entACC_TransactionTran.TransactionTranID);
-				sqlDB.AddInParameter(dbCMD, "@TransactionID", SqlDbType.Int, entACC_TransactionTran.TransactionID);
-				sqlDB.AddInParameter(dbCMD, "@SubTreatmentID", SqlDbType.Int, entACC_TransactionTran.SubTreatmentID);
-				sqlDB.AddInParameter(dbCMD, "@Quantity", SqlDbType.Int, entACC_TransactionTran.Quantity);
-				sqlDB.AddInParameter(dbCMD, "@Unit", SqlDbType.NVarChar, entACC_TransactionTran.Unit);
-				sqlDB.AddInParameter(dbCMD, "@Rate", SqlDbType.Decimal, entACC_TransactionTran.Rate);
-				sqlDB.AddInParameter(dbCMD, "@Amount", SqlDbType.Decimal, entACC_TransactionTran.Amount);
-				sqlDB.AddInParameter(dbCMD, "@Remarks", SqlDbType.NVarChar, entACC_TransactionTran.Remarks);
-				sqlDB.AddInParameter(dbCMD, "@UserID", SqlDbType.Int, entACC_TransactionTran.UserID);
-				sqlDB.AddInParameter(dbCMD, "@Created", SqlDbType.DateTime, entACC_TransactionTran.Created);
-				sqlDB.AddInParameter(dbCMD, "@Modified", SqlDbType.DateTime, entACC_TransactionTran.Modified);
+                sqlDB.AddInParameter(dbCMD, "@TransactionTranID", SqlDbType.Int, entACC_TransactionTran.TransactionTranID);
+                sqlDB.AddInParameter(dbCMD, "@TransactionID", SqlDbType.Int, entACC_TransactionTran.TransactionID);
+                sqlDB.AddInParameter(dbCMD, "@SubTreatmentID", SqlDbType.Int, entACC_TransactionTran.SubTreatmentID);
+                sqlDB.AddInParameter(dbCMD, "@Quantity", SqlDbType.Int, entACC_TransactionTran.Quantity);
+                sqlDB.AddInParameter(dbCMD, "@Unit", SqlDbType.NVarChar, entACC_TransactionTran.Unit);
+                sqlDB.AddInParameter(dbCMD, "@Rate", SqlDbType.Decimal, entACC_TransactionTran.Rate);
+                sqlDB.AddInParameter(dbCMD, "@Amount", SqlDbType.Decimal, entACC_TransactionTran.Amount);
+                sqlDB.AddInParameter(dbCMD, "@Remarks", SqlDbType.NVarChar, entACC_TransactionTran.Remarks);
+                sqlDB.AddInParameter(dbCMD, "@UserID", SqlDbType.Int, entACC_TransactionTran.UserID);
+                sqlDB.AddInParameter(dbCMD, "@Created", SqlDbType.DateTime, entACC_TransactionTran.Created);
+                sqlDB.AddInParameter(dbCMD, "@Modified", SqlDbType.DateTime, entACC_TransactionTran.Modified);
 
-				DataBaseHelper DBH = new DataBaseHelper();
-				DBH.ExecuteNonQuery(sqlDB, dbCMD);
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.ExecuteNonQuery(sqlDB, dbCMD);
 
-				return true;
-			}
-			catch (SqlException sqlex)
-			{
-				Message = SQLDataExceptionMessage(sqlex);
-				if (SQLDataExceptionHandler(sqlex))
-					throw;
-				return false;
-			}
-			catch (Exception ex)
-			{
-				Message = ExceptionMessage(ex);
-				if (ExceptionHandler(ex))
-					throw;
-				return false;
-			}
-		}
+                return true;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return false;
+            }
+        }
 
-		#endregion UpdateOperation
+        #endregion UpdateOperation
 
-		#region DeleteOperation
+        #region DeleteOperation
 
-		public Boolean Delete(SqlInt32 TransactionTranID)
-		{
-			try
-			{
-				SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-				DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_Delete");
+        public Boolean Delete(SqlInt32 TransactionTranID)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_Delete");
 
-				sqlDB.AddInParameter(dbCMD, "@TransactionTranID", SqlDbType.Int, TransactionTranID);
+                sqlDB.AddInParameter(dbCMD, "@TransactionTranID", SqlDbType.Int, TransactionTranID);
 
-				DataBaseHelper DBH = new DataBaseHelper();
-				DBH.ExecuteNonQuery(sqlDB, dbCMD);
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.ExecuteNonQuery(sqlDB, dbCMD);
 
-				return true;
-			}
-			catch (SqlException sqlex)
-			{
-				Message = SQLDataExceptionMessage(sqlex);
-				if (SQLDataExceptionHandler(sqlex))
-					throw;
-				return false;
-			}
-			catch (Exception ex)
-			{
-				Message = ExceptionMessage(ex);
-				if (ExceptionHandler(ex))
-					throw;
-				return false;
-			}
-		}
+                return true;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return false;
+            }
+        }
 
-		#endregion DeleteOperation
+        #endregion DeleteOperation
 
-		#region SelectOperation
+        #region SelectOperation
 
-		public ACC_TransactionTranENT SelectPK(SqlInt32 TransactionTranID)
-		{
-			try
-			{
-				SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-				DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_SelectPK");
+        public ACC_TransactionTranENT SelectPK(SqlInt32 TransactionTranID)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_SelectPK");
 
-				sqlDB.AddInParameter(dbCMD, "@TransactionTranID", SqlDbType.Int, TransactionTranID);
+                sqlDB.AddInParameter(dbCMD, "@TransactionTranID", SqlDbType.Int, TransactionTranID);
 
-				ACC_TransactionTranENT entACC_TransactionTran = new ACC_TransactionTranENT();
-				DataBaseHelper DBH = new DataBaseHelper();
-				using (IDataReader dr = DBH.ExecuteReader(sqlDB, dbCMD))
-				{
-					while (dr.Read())
-					{
-						if(!dr["TransactionTranID"].Equals(System.DBNull.Value))
-							entACC_TransactionTran.TransactionTranID = Convert.ToInt32(dr["TransactionTranID"]);
+                ACC_TransactionTranENT entACC_TransactionTran = new ACC_TransactionTranENT();
+                DataBaseHelper DBH = new DataBaseHelper();
+                using (IDataReader dr = DBH.ExecuteReader(sqlDB, dbCMD))
+                {
+                    while (dr.Read())
+                    {
+                        if (!dr["TransactionTranID"].Equals(System.DBNull.Value))
+                            entACC_TransactionTran.TransactionTranID = Convert.ToInt32(dr["TransactionTranID"]);
 
-						if(!dr["TransactionID"].Equals(System.DBNull.Value))
-							entACC_TransactionTran.TransactionID = Convert.ToInt32(dr["TransactionID"]);
+                        if (!dr["TransactionID"].Equals(System.DBNull.Value))
+                            entACC_TransactionTran.TransactionID = Convert.ToInt32(dr["TransactionID"]);
 
-						if(!dr["SubTreatmentID"].Equals(System.DBNull.Value))
-							entACC_TransactionTran.SubTreatmentID = Convert.ToInt32(dr["SubTreatmentID"]);
+                        if (!dr["SubTreatmentID"].Equals(System.DBNull.Value))
+                            entACC_TransactionTran.SubTreatmentID = Convert.ToInt32(dr["SubTreatmentID"]);
 
-						if(!dr["Quantity"].Equals(System.DBNull.Value))
-							entACC_TransactionTran.Quantity = Convert.ToInt32(dr["Quantity"]);
+                        if (!dr["Quantity"].Equals(System.DBNull.Value))
+                            entACC_TransactionTran.Quantity = Convert.ToInt32(dr["Quantity"]);
 
-						if(!dr["Unit"].Equals(System.DBNull.Value))
-							entACC_TransactionTran.Unit = Convert.ToString(dr["Unit"]);
+                        if (!dr["Unit"].Equals(System.DBNull.Value))
+                            entACC_TransactionTran.Unit = Convert.ToString(dr["Unit"]);
 
-						if(!dr["Rate"].Equals(System.DBNull.Value))
-							entACC_TransactionTran.Rate = Convert.ToDecimal(dr["Rate"]);
+                        if (!dr["Rate"].Equals(System.DBNull.Value))
+                            entACC_TransactionTran.Rate = Convert.ToDecimal(dr["Rate"]);
 
-						if(!dr["Amount"].Equals(System.DBNull.Value))
-							entACC_TransactionTran.Amount = Convert.ToDecimal(dr["Amount"]);
+                        if (!dr["Amount"].Equals(System.DBNull.Value))
+                            entACC_TransactionTran.Amount = Convert.ToDecimal(dr["Amount"]);
 
-						if(!dr["Remarks"].Equals(System.DBNull.Value))
-							entACC_TransactionTran.Remarks = Convert.ToString(dr["Remarks"]);
+                        if (!dr["Remarks"].Equals(System.DBNull.Value))
+                            entACC_TransactionTran.Remarks = Convert.ToString(dr["Remarks"]);
 
-						if(!dr["UserID"].Equals(System.DBNull.Value))
-							entACC_TransactionTran.UserID = Convert.ToInt32(dr["UserID"]);
+                        if (!dr["UserID"].Equals(System.DBNull.Value))
+                            entACC_TransactionTran.UserID = Convert.ToInt32(dr["UserID"]);
 
-						if(!dr["Created"].Equals(System.DBNull.Value))
-							entACC_TransactionTran.Created = Convert.ToDateTime(dr["Created"]);
+                        if (!dr["Created"].Equals(System.DBNull.Value))
+                            entACC_TransactionTran.Created = Convert.ToDateTime(dr["Created"]);
 
-						if(!dr["Modified"].Equals(System.DBNull.Value))
-							entACC_TransactionTran.Modified = Convert.ToDateTime(dr["Modified"]);
+                        if (!dr["Modified"].Equals(System.DBNull.Value))
+                            entACC_TransactionTran.Modified = Convert.ToDateTime(dr["Modified"]);
 
-					}
-				}
-				return entACC_TransactionTran;
-			}
-			catch (SqlException sqlex)
-			{
-				Message = SQLDataExceptionMessage(sqlex);
-				if (SQLDataExceptionHandler(sqlex))
-					throw;
-				return null;
-			}
-			catch (Exception ex)
-			{
-				Message = ExceptionMessage(ex);
-				if (ExceptionHandler(ex))
-					throw;
-				return null;
-			}
-		}
-		public DataTable SelectView(SqlInt32 TransactionTranID)
-		{
-			try
-			{
-				SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-				DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_SelectView");
+                    }
+                }
+                return entACC_TransactionTran;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return null;
+            }
+        }
+        public DataTable SelectView(SqlInt32 TransactionTranID)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_SelectView");
 
-				sqlDB.AddInParameter(dbCMD, "@TransactionTranID", SqlDbType.Int, TransactionTranID);
+                sqlDB.AddInParameter(dbCMD, "@TransactionTranID", SqlDbType.Int, TransactionTranID);
 
-				DataTable dtACC_TransactionTran = new DataTable("PR_ACC_TransactionTran_SelectView");
+                DataTable dtACC_TransactionTran = new DataTable("PR_ACC_TransactionTran_SelectView");
 
-				DataBaseHelper DBH = new DataBaseHelper();
-				DBH.LoadDataTable(sqlDB, dbCMD, dtACC_TransactionTran);
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.LoadDataTable(sqlDB, dbCMD, dtACC_TransactionTran);
 
-				return dtACC_TransactionTran;
-			}
-			catch (SqlException sqlex)
-			{
-				Message = SQLDataExceptionMessage(sqlex);
-				if (SQLDataExceptionHandler(sqlex))
-					throw;
-				return null;
-			}
-			catch (Exception ex)
-			{
-				Message = ExceptionMessage(ex);
-				if (ExceptionHandler(ex))
-					throw;
-				return null;
-			}
-		}
-		public DataTable SelectAll()
-		{
-			try
-			{
-				SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-				DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_SelectAll");
+                return dtACC_TransactionTran;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return null;
+            }
+        }
+        public DataTable SelectAll()
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_SelectAll");
 
-				DataTable dtACC_TransactionTran = new DataTable("PR_ACC_TransactionTran_SelectAll");
+                DataTable dtACC_TransactionTran = new DataTable("PR_ACC_TransactionTran_SelectAll");
 
-				DataBaseHelper DBH = new DataBaseHelper();
-				DBH.LoadDataTable(sqlDB, dbCMD, dtACC_TransactionTran);
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.LoadDataTable(sqlDB, dbCMD, dtACC_TransactionTran);
 
-				return dtACC_TransactionTran;
-			}
-			catch (SqlException sqlex)
-			{
-				Message = SQLDataExceptionMessage(sqlex);
-				if (SQLDataExceptionHandler(sqlex))
-					throw;
-				return null;
-			}
-			catch (Exception ex)
-			{
-				Message = ExceptionMessage(ex);
-				if (ExceptionHandler(ex))
-					throw;
-				return null;
-			}
-		}
-        public DataTable SelectPage(SqlInt32 PageOffset, SqlInt32 PageSize, out Int32 TotalRecords, SqlInt32 TransactionID,SqlInt32 SubTreatmentID, SqlString Patient)
-		{
-			TotalRecords = 0;
-			try
-			{
-				SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-				DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_SelectPage");
-				sqlDB.AddInParameter(dbCMD, "@PageOffset", SqlDbType.Int, PageOffset);
-				sqlDB.AddInParameter(dbCMD, "@PageSize", SqlDbType.Int, PageSize);
-				sqlDB.AddOutParameter(dbCMD, "@TotalRecords", SqlDbType.Int, 4);
-				sqlDB.AddInParameter(dbCMD, "@TransactionID", SqlDbType.Int, TransactionID);
-				sqlDB.AddInParameter(dbCMD, "@SubTreatmentID", SqlDbType.Int, SubTreatmentID);
+                return dtACC_TransactionTran;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return null;
+            }
+        }
+        public DataTable SelectPage(SqlInt32 PageOffset, SqlInt32 PageSize, out Int32 TotalRecords, SqlInt32 TransactionID, SqlInt32 SubTreatmentID, SqlInt32 Quantity, SqlString Unit, SqlDecimal Rate, SqlDecimal Amount, SqlString Patient)
+        {
+            TotalRecords = 0;
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_SelectPage");
+                sqlDB.AddInParameter(dbCMD, "@PageOffset", SqlDbType.Int, PageOffset);
+                sqlDB.AddInParameter(dbCMD, "@PageSize", SqlDbType.Int, PageSize);
+                sqlDB.AddOutParameter(dbCMD, "@TotalRecords", SqlDbType.Int, 4);
+                sqlDB.AddInParameter(dbCMD, "@TransactionID", SqlDbType.Int, TransactionID);
                 sqlDB.AddInParameter(dbCMD, "@Patient", SqlDbType.VarChar, Patient);
+                sqlDB.AddInParameter(dbCMD, "@SubTreatmentID", SqlDbType.Int, SubTreatmentID);
+                sqlDB.AddInParameter(dbCMD, "@Quantity", SqlDbType.Int, Quantity); 
+                sqlDB.AddInParameter(dbCMD, "@Unit", SqlDbType.VarChar, Unit);
+                sqlDB.AddInParameter(dbCMD, "@Rate", SqlDbType.Decimal, Rate);
+                sqlDB.AddInParameter(dbCMD, "@Amount", SqlDbType.Decimal, Amount);
 
 
 
-				DataTable dtACC_TransactionTran = new DataTable("PR_ACC_TransactionTran_SelectPage");
+                DataTable dtACC_TransactionTran = new DataTable("PR_ACC_TransactionTran_SelectPage");
 
-				DataBaseHelper DBH = new DataBaseHelper();
-				DBH.LoadDataTable(sqlDB, dbCMD, dtACC_TransactionTran);
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.LoadDataTable(sqlDB, dbCMD, dtACC_TransactionTran);
 
-				TotalRecords = Convert.ToInt32(dbCMD.Parameters["@TotalRecords"].Value);
+                TotalRecords = Convert.ToInt32(dbCMD.Parameters["@TotalRecords"].Value);
 
-				return dtACC_TransactionTran;
-			}
-			catch (SqlException sqlex)
-			{
-				Message = SQLDataExceptionMessage(sqlex);
-				if (SQLDataExceptionHandler(sqlex))
-					throw;
-				return null;
-			}
-			catch (Exception ex)
-			{
-				Message = ExceptionMessage(ex);
-				if (ExceptionHandler(ex))
-					throw;
-				return null;
-			}
-		}
+                return dtACC_TransactionTran;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return null;
+            }
+        }
 
-		#endregion SelectOperation
+        #endregion SelectOperation
 
-		#region ComboBox
+        #region ComboBox
 
-		public DataTable SelectComboBox()
-		{
-			try
-			{
-				SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-				DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_SelectComboBox");
+        public DataTable SelectComboBox()
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_ACC_TransactionTran_SelectComboBox");
 
-				DataTable dtACC_TransactionTran = new DataTable("PR_ACC_TransactionTran_SelectComboBox");
+                DataTable dtACC_TransactionTran = new DataTable("PR_ACC_TransactionTran_SelectComboBox");
 
-				DataBaseHelper DBH = new DataBaseHelper();
-				DBH.LoadDataTable(sqlDB, dbCMD, dtACC_TransactionTran);
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.LoadDataTable(sqlDB, dbCMD, dtACC_TransactionTran);
 
-				return dtACC_TransactionTran;
-			}
-			catch (SqlException sqlex)
-			{
-				Message = SQLDataExceptionMessage(sqlex);
-				if (SQLDataExceptionHandler(sqlex))
-					throw;
-				return null;
-			}
-			catch (Exception ex)
-			{
-				Message = ExceptionMessage(ex);
-				if (ExceptionHandler(ex))
-					throw;
-				return null;
-			}
-		}
+                return dtACC_TransactionTran;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return null;
+            }
+        }
 
-		#endregion ComboBox
+        #endregion ComboBox
 
-		#region AutoComplete
+        #region AutoComplete
 
 
-		#endregion AutoComplete
+        #endregion AutoComplete
 
-	}
+    }
 }

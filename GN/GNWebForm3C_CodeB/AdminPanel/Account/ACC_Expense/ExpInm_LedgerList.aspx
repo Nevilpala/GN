@@ -173,7 +173,7 @@
                                                     <td colspan="2" class="text-right">
                                                         <strong>Total Balance</strong>
                                                     </td>
-                                                    <td>
+                                                    <td class="text-right">
                                                         <asp:Label ID="lblTotalAmount" runat="server" />
                                                     </td>
                                                     <td></td>

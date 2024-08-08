@@ -27,10 +27,10 @@
 			</tr>
 			<tr>
 				<td class="TDDarkView">
-				<asp:Label ID="lblSubTreatmentID_XXXXX" Text="Sub Treatment" runat="server"></asp:Label>
+				<asp:Label ID="lblSubTreatmentName_XXXXX" Text="Sub Treatment" runat="server"></asp:Label>
 				</td>
 				<td>
-				<asp:Label ID="lblSubTreatmentID" runat="server"></asp:Label>
+				<asp:Label ID="lblSubTreatmentName" runat="server"></asp:Label>
 				</td>
 			</tr>
 			<tr>

@@ -77,6 +77,45 @@ namespace GNForm3C.DAL
             }
         }
 
+        public bool SaveBranchIntakeData(DataTable branchIntakeTable)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_MST_BranchIntake_Upsert");
+
+                SqlParameter tvpParam = new SqlParameter
+                {
+                    ParameterName = "@BranchIntakeData",
+                    SqlDbType = SqlDbType.Structured,
+                    Value = branchIntakeTable,
+                    TypeName = "dbo.BranchIntakeType"
+                };
+                dbCMD.Parameters.Add(tvpParam);
+
+                sqlDB.ExecuteNonQuery(dbCMD);
+                return true;
+
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+
+                return false;
+
+            }
+        }
+
         #endregion InsertOperation
 
         #region UpdateOperation
@@ -154,9 +193,9 @@ namespace GNForm3C.DAL
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
-                DbCommand dbCMD = sqlDB.GetStoredProcCommand("GetBranchIntakeMatrix"); 
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_MST_BranchIntake_SelectAll"); 
                 
-                DataTable dtMST_BranchIntakeShow = new DataTable("GetBranchIntakeMatrix");
+                DataTable dtMST_BranchIntakeShow = new DataTable("PR_MST_BranchIntake_SelectAll");
 
                 DataBaseHelper DBH = new DataBaseHelper();
                 DBH.LoadDataTable(sqlDB, dbCMD, dtMST_BranchIntakeShow);

@@ -108,7 +108,7 @@ public partial class AdminPanel_Master_MST_FinYear_MST_FinYearAddEditPopup : Sys
 
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        Page.Validate();
+        Page.Validate("vgFinYear");
         if (Page.IsValid)
         {
             try
@@ -133,11 +133,11 @@ public partial class AdminPanel_Master_MST_FinYear_MST_FinYearAddEditPopup : Sys
                     ucMessage.ShowError(ErrorMsg);
 
                     // Set the data-target attribute dynamically
-                    btnSave.Attributes["data-target"] = "#view";
+                    btnSave.Attributes["data-target"] = "#viewiFrameReg";
                     btnSave.Attributes["data-toggle"] = "modal";
 
                     // Use JavaScript to show the modal again
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "MasterPageView", "$('#view').modal('show');", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "MasterPageView", "$('#viewiFrameReg').modal('show');", true);
 
                     return;
                 }
@@ -188,7 +188,7 @@ public partial class AdminPanel_Master_MST_FinYear_MST_FinYearAddEditPopup : Sys
                     {
                         ucMessage.ShowError(balMST_FinYear.Message);
 
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowModal", "$('#view').modal('show');", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowModal", "$('#viewiFrameReg').modal('show');", true);
                     }
                 }
 
@@ -207,7 +207,7 @@ public partial class AdminPanel_Master_MST_FinYear_MST_FinYearAddEditPopup : Sys
                         else
                         {
                             ucMessage.ShowError(balMST_FinYear.Message); 
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowModal", "$('#view').modal('show');", true);
+                            ScriptManager.RegisterStartupScript(this, GetType(), "ShowModal", "$('#viewiFrameReg').modal('show');", true);
                         }
                     }
                 }
@@ -217,13 +217,20 @@ public partial class AdminPanel_Master_MST_FinYear_MST_FinYearAddEditPopup : Sys
             }
             catch (Exception ex)
             {
+
                 ucMessage.ShowError(ex.Message);
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowModal", "$('#view').modal('show');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "MasterPageView", "$('#viewiFrameReg').modal('show');", true);
 
                 return;
             }
         }
-      
+        else
+        { 
+            Response.Redirect("MST_FinYearList.aspx", false);
+             
+
+        }
+
 
     }
 

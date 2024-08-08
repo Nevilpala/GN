@@ -84,6 +84,32 @@ namespace GNForm3C.BAL
 
         #endregion UpdateOperation
 
+        #region Insert/Update Intake DATA
+
+        public bool SaveBranchIntakeData(DataTable branchIntakeTable)
+        {
+            try
+            {
+                MST_BranchIntakeDAL dalMST_BranchIntake = new MST_BranchIntakeDAL();
+
+                if (dalMST_BranchIntake.SaveBranchIntakeData(branchIntakeTable))
+                {
+                    return true;
+                }
+                else
+                {
+                    this.Message = dalMST_BranchIntake.Message;
+                    return false;
+                } 
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion Insert/Update Intake DATA
+
+
 
         #region DeleteOperation
 

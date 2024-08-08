@@ -2129,9 +2129,20 @@ namespace GNForm3C
 
         #endregion Conversion
 
-        
+        #region Column Name of DataTable
+        public static List<String> ColumnNamesOfDataTable(DataTable dt)
+        {
+            var columnNames = new List<string>();
+            foreach (DataColumn column in dt.Columns)
+            {
+                columnNames.Add(column.ColumnName);
+            }
 
-      
+            return columnNames;
+        }
+        #endregion Column Name of DataTable
+
+
 
     }
 }

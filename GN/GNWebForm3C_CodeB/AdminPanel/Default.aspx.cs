@@ -42,8 +42,8 @@ public partial class AdminPanel_Default : System.Web.UI.Page
 
         lblIncomeCount.Text = string.Format( GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint,Convert.ToDecimal(dtCount.Rows[0]["IncomeCount"].ToString()));
         lblExpenseCount.Text = string.Format(GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint,Convert.ToDecimal(dtCount.Rows[0]["ExpenseCount"].ToString()));
-        lblHospitalCount.Text = string.Format(GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint,Convert.ToDecimal(dtCount.Rows[0]["HospitalCount"].ToString()));
-        lblFinyearCount.Text = string.Format(GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint,Convert.ToDecimal(dtCount.Rows[0]["FinyearCount"].ToString()));
+        lblHospitalCount.Text = dtCount.Rows[0]["HospitalCount"].ToString();
+        lblFinyearCount.Text =  dtCount.Rows[0]["FinyearCount"].ToString();
 
         #endregion 11.3 Total Count
 
