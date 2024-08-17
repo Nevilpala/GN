@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ucHelp.ascx.cs" Inherits="UserControl_ucHelp" %>
-<asp:MultiView ID="mvwSysMessage" runat="server">
+<asp:MultiView ID="mvwSysMessage" runat="server" >
     <asp:View ID="vwHelp" runat="server">
         <div class="row">
             <div class="col-md-12">

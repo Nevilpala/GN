@@ -370,12 +370,47 @@ namespace GNForm3C.DAL
 			}
 		}
 
-		#endregion ComboBox
+        #endregion ComboBox
 
-		#region AutoComplete
+        #region AutoComplete
 
 
-		#endregion AutoComplete
+        #endregion AutoComplete
 
-	}
+
+        #region Report
+        public DataTable PP_HospitalWiseExpenseList(SqlDateTime FromDate, SqlDateTime ToDate,SqlInt32 HospitalID)
+        { 
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PP_HospitalWiseExpenseList"); 
+                sqlDB.AddInParameter(dbCMD, "@FromDate", SqlDbType.DateTime, FromDate);
+                sqlDB.AddInParameter(dbCMD, "@ToDate", SqlDbType.DateTime, ToDate);
+                sqlDB.AddInParameter(dbCMD, "@HospitalID", SqlDbType.Int, HospitalID);
+
+                DataTable dtACC_Expense = new DataTable("PP_HospitalWiseExpenseList");
+
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.LoadDataTable(sqlDB, dbCMD, dtACC_Expense);
+				  
+                return dtACC_Expense;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return null;
+            }
+        }
+        #endregion
+    }
 }

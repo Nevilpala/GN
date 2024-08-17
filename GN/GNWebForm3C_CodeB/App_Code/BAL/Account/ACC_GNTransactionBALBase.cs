@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using GNForm3C;
 using GNForm3C.DAL;
 using GNForm3C.ENT;
+using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
+using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace GNForm3C.BAL
 {
@@ -63,7 +67,7 @@ namespace GNForm3C.BAL
             ACC_GNTransactionDAL dalACC_GNTransaction = new ACC_GNTransactionDAL();
             SqlInt32 PatientID = dalACC_GNTransaction.InsertPatient(entMST_Patient);
 
-            if (PatientID != -1)
+            if (PatientID > 0)
             {
                 return PatientID;
             }
@@ -193,9 +197,19 @@ namespace GNForm3C.BAL
         #region SelectComboBox
         public DataTable SelectComboBox()
         {
-            ACC_GNTransactionDAL dalMST_FinYear = new ACC_GNTransactionDAL();
-            return dalMST_FinYear.SelectComboBox();
+            ACC_GNTransactionDAL dalACC_GNTransaction = new ACC_GNTransactionDAL();
+            return dalACC_GNTransaction.SelectComboBox();
         }
         #endregion
+
+
+        #region Report
+        public DataTable PatientReceiptByGNTransationID(SqlInt32 TransactionID)
+        {
+            ACC_GNTransactionDAL dalACC_GNTransaction = new ACC_GNTransactionDAL();
+            return dalACC_GNTransaction.PatientReceiptByGNTransationID(TransactionID);
+        }
+        #endregion
+
     }
 }

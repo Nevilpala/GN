@@ -3,16 +3,14 @@
 <asp:Content ID="cnthead" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="cntPageContent" ContentPlaceHolderID="cphPageContent" runat="Server">
-    <ucHelp:ShowHelp ID="ucHelp" runat="server" />
-
     <asp:ScriptManager ID="sm" runat="server">
     </asp:ScriptManager>
-    <asp:UpdatePanel ID="upMST_FinYear" runat="server" EnableViewState="true" UpdateMode="Conditional" ChildrenAsTriggers="false">
-        <Triggers>
-            <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
-        </Triggers>
-        <ContentTemplate>
 
+    <asp:UpdatePanel ID="upMST_FinYear" runat="server" UpdateMode="Conditional" EnableViedwState="true">
+        <triggers>
+            <asp:AsyncPostBackTrigger ControlID="btnSaveModel" EventName="Click" />
+        </triggers>
+        <contenttemplate>
 
             <div class="portlet light">
                 <div class="portlet-title">
@@ -28,7 +26,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <ucMessage:ShowMessage ID="ucMessage" runat="server" />
+                        <ucMessage:ShowMessage ID="ucMessage1" runat="server" />
                         <asp:ValidationSummary ID="ValidationSummary1" SkinID="VS" runat="server" />
                     </div>
                 </div>
@@ -42,8 +40,8 @@
                                     <asp:Label ID="lblFinYearName_XXXXX" runat="server" Text="Fin Year Name"></asp:Label>
                                 </label>
                                 <div class="col-md-6">
-                                    <asp:TextBox ID="txtFinYearName" CssClass="form-control" runat="server" PlaceHolder="Enter Fin Year Name" ></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvFinYearName" SetFocusOnError="True" Display="Dynamic" runat="server" ValidationGroup="vgFinYear" ControlToValidate="txtFinYearName" ErrorMessage="Enter Fin Year Name"></asp:RequiredFieldValidator>
+                                    <asp:TextBox ID="txtModelFinYearName" ValidationGroup="vgFinYear" CssClass="form-control" runat="server" PlaceHolder="Enter Fin Year Name"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="rfvFinYearName" SetFocusOnError="True" Display="Dynamic" runat="server" ValidationGroup="vgFinYear" ControlToValidate="txtModelFinYearName" ErrorMessage="Enter Fin Year Name"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -53,12 +51,12 @@
                                 </label>
                                 <div class="col-md-6">
                                     <div class="input-group input-medium date date-picker" data-date-format='<%=GNForm3C.CV.DefaultHTMLDateFormat.ToString()%>'>
-                                        <asp:TextBox ID="dtpFromDate" CssClass="form-control" runat="server" placeholder="From Date" ></asp:TextBox>
+                                        <asp:TextBox ID="dtpModelFromDate" CssClass="form-control" runat="server" placeholder="From Date" ValidationGroup="vgFinYear"></asp:TextBox>
                                         <span class="input-group-btn">
                                             <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                         </span>
                                     </div>
-                                    <asp:RequiredFieldValidator ID="rfvFromDate" runat="server" ValidationGroup="vgFinYear" ControlToValidate="dtpFromDate" ErrorMessage="Enter From Date" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvFromDate" runat="server" ValidationGroup="vgFinYear" ControlToValidate="dtpModelFromDate" ErrorMessage="Enter From Date" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -68,12 +66,12 @@
                                 </label>
                                 <div class="col-md-6">
                                     <div class="input-group input-medium date date-picker" data-date-format='<%=GNForm3C.CV.DefaultHTMLDateFormat.ToString()%>'>
-                                        <asp:TextBox ID="dtpToDate" CssClass="form-control" runat="server" placeholder="To Date"></asp:TextBox>
+                                        <asp:TextBox ID="dtpModelToDate" CssClass="form-control" runat="server" placeholder="To Date" ValidationGroup="vgFinYear"></asp:TextBox>
                                         <span class="input-group-btn">
                                             <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                         </span>
                                     </div>
-                                    <asp:RequiredFieldValidator ID="rfvToDate" runat="server" ValidationGroup="vgFinYear" ControlToValidate="dtpToDate" ErrorMessage="Enter To Date" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvToDate" runat="server" ValidationGroup="vgFinYear" ControlToValidate="dtpModelToDate" ErrorMessage="Enter To Date" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -81,14 +79,14 @@
                                     <asp:Label ID="lblRemarks_XXXXX" runat="server" Text="Remarks"></asp:Label>
                                 </label>
                                 <div class="col-md-6">
-                                    <asp:TextBox ID="txtRemarks" CssClass="form-control" runat="server" TextMode="MultiLine" PlaceHolder="Enter Remarks"></asp:TextBox>
+                                    <asp:TextBox ID="txtModelRemarks" CssClass="form-control" runat="server" TextMode="MultiLine" PlaceHolder="Enter Remarks"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-offset-3 col-md-9">
-                                    <asp:Button ID="btnSave" runat="server" SkinID="btnSave" OnClick="btnSave_Click"  />
+                                    <asp:Button ID="btnSaveModel" runat="server" SkinID="btnSave" OnClick="btnSaveModel_Click" ValidationGroup="vgFinYear" />
                                     <asp:HyperLink ID="hlCancel" runat="server" SkinID="hlCancel" NavigateUrl="~/AdminPanel/Master/MST_FinYear/MST_FinYearList.aspx"></asp:HyperLink>
                                 </div>
                             </div>
@@ -96,9 +94,9 @@
                     </div>
                 </div>
             </div>
-        </ContentTemplate>
+        </contenttemplate>
     </asp:UpdatePanel>
-
+     
 </asp:Content>
 <asp:Content ID="cntScripts" ContentPlaceHolderID="cphScripts" runat="Server">
     <script>
@@ -109,6 +107,6 @@
         });
     </script>
     <script>
-        
+
 </script>
 </asp:Content>

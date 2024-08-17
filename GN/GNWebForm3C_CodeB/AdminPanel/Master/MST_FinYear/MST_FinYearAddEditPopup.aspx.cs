@@ -44,7 +44,7 @@ public partial class AdminPanel_Master_MST_FinYear_MST_FinYearAddEditPopup : Sys
             #region 11.4 Set Control Default Value 
 
             lblFormHeader.Text = CV.PageHeaderAdd + " Fin Year";
-            txtFinYearName.Focus();
+            txtModelFinYearName.Focus();
 
             #endregion 11.4 Set Control Default Value 
 
@@ -72,7 +72,7 @@ public partial class AdminPanel_Master_MST_FinYear_MST_FinYearAddEditPopup : Sys
     #region 13.0 Fill DropDownList 
 
     private void FillDropDownList()
-    { 
+    {
     }
 
     #endregion 13.0 Fill DropDownList
@@ -89,16 +89,16 @@ public partial class AdminPanel_Master_MST_FinYear_MST_FinYearAddEditPopup : Sys
             entMST_FinYear = balMST_FinYear.SelectPK(CommonFunctions.DecryptBase64Int32(Request.QueryString["FinYearID"]));
 
             if (!entMST_FinYear.FinYearName.IsNull)
-                txtFinYearName.Text = entMST_FinYear.FinYearName.Value.ToString();
+                txtModelFinYearName.Text = entMST_FinYear.FinYearName.Value.ToString();
 
             if (!entMST_FinYear.FromDate.IsNull)
-                dtpFromDate.Text = entMST_FinYear.FromDate.Value.ToString(CV.DefaultDateFormat);
+                dtpModelFromDate.Text = entMST_FinYear.FromDate.Value.ToString(CV.DefaultDateFormat);
 
             if (!entMST_FinYear.ToDate.IsNull)
-                dtpToDate.Text = entMST_FinYear.ToDate.Value.ToString(CV.DefaultDateFormat);
+                dtpModelToDate.Text = entMST_FinYear.ToDate.Value.ToString(CV.DefaultDateFormat);
 
             if (!entMST_FinYear.Remarks.IsNull)
-                txtRemarks.Text = entMST_FinYear.Remarks.Value.ToString();
+                txtModelRemarks.Text = entMST_FinYear.Remarks.Value.ToString();
         }
     }
 
@@ -106,128 +106,136 @@ public partial class AdminPanel_Master_MST_FinYear_MST_FinYearAddEditPopup : Sys
 
     #region 15.0 Save Button Event 
 
-    protected void btnSave_Click(object sender, EventArgs e)
+    protected void btnSaveModel_Click(object sender, EventArgs e)
     {
         Page.Validate("vgFinYear");
+        
         if (Page.IsValid)
         {
             try
             {
+                bool IsValidate = true;
                 MST_FinYearBAL balMST_FinYear = new MST_FinYearBAL();
                 MST_FinYearENT entMST_FinYear = new MST_FinYearENT();
 
                 #region 15.1 Validate Fields 
 
                 String ErrorMsg = String.Empty;
-                if (txtFinYearName.Text.Trim() == string.Empty)
+                if (txtModelFinYearName.Text.Trim() == string.Empty || txtModelFinYearName.Text.Trim() == "a")
                     ErrorMsg += " - " + CommonMessage.ErrorRequiredField("Fin Year Name");
-                if (dtpFromDate.Text.Trim() == string.Empty)
+                if (dtpModelFromDate.Text.Trim() == string.Empty)
                     ErrorMsg += " - " + CommonMessage.ErrorRequiredField("From Date");
-                if (dtpToDate.Text.Trim() == string.Empty)
+                if (dtpModelToDate.Text.Trim() == string.Empty)
                     ErrorMsg += " - " + CommonMessage.ErrorRequiredField("To Date");
 
 
                 if (ErrorMsg != String.Empty)
                 {
                     ErrorMsg = CommonMessage.ErrorPleaseCorrectFollowing() + ErrorMsg;
-                    ucMessage.ShowError(ErrorMsg);
+                    ucMessage1.ShowError(ErrorMsg);
 
                     // Set the data-target attribute dynamically
-                    btnSave.Attributes["data-target"] = "#viewiFrameReg";
-                    btnSave.Attributes["data-toggle"] = "modal";
+                    //btnSaveModel.Attributes["data-target"] = "#viewiFrameReg";
+                    //btnSaveModel.Attributes["data-toggle"] = "modal";
 
                     // Use JavaScript to show the modal again
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "MasterPageView", "$('#viewiFrameReg').modal('show');", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "MasterPageView", "parent.$('#viewiFrameReg').modal('show');", true);
 
-                    return;
+                    IsValidate = false;
+
                 }
 
                 #endregion 15.1 Validate Fields
 
-                #region 15.2 Gather Data 
-
-
-
-                if (txtFinYearName.Text.Trim() != String.Empty)
-                    entMST_FinYear.FinYearName = txtFinYearName.Text.Trim();
-
-                if (dtpFromDate.Text.Trim() != String.Empty)
-                    entMST_FinYear.FromDate = Convert.ToDateTime(dtpFromDate.Text.Trim());
-
-                if (dtpToDate.Text.Trim() != String.Empty)
-                    entMST_FinYear.ToDate = Convert.ToDateTime(dtpToDate.Text.Trim());
-
-                if (txtRemarks.Text.Trim() != String.Empty)
-                    entMST_FinYear.Remarks = txtRemarks.Text.Trim();
-
-
-
-                entMST_FinYear.UserID = Convert.ToInt32(Session["UserID"]);
-
-                entMST_FinYear.Created = DateTime.Now;
-
-                entMST_FinYear.Modified = DateTime.Now;
-
-                #endregion 15.2 Gather Data 
-
-
-                #region 15.3 Insert,Update,Copy 
-
-                if (Request.QueryString["FinYearID"] != null && Request.QueryString["Copy"] == null)
+                if (IsValidate)
                 {
-                    entMST_FinYear.FinYearID = CommonFunctions.DecryptBase64Int32(Request.QueryString["FinYearID"]);
-                    if (balMST_FinYear.Update(entMST_FinYear))
-                    {
-                        // Use Response.Redirect with endResponse set to false
-                        Response.Redirect("MST_FinYearList.aspx", false);
 
-                        // Complete the request
-                        Context.ApplicationInstance.CompleteRequest();
-                    }
-                    else
-                    {
-                        ucMessage.ShowError(balMST_FinYear.Message);
+                    #region 15.2 Gather Data 
 
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowModal", "$('#viewiFrameReg').modal('show');", true);
-                    }
-                }
 
-                else
-                {
-                    if (Request.QueryString["FinYearID"] == null || Request.QueryString["Copy"] != null)
+
+                    if (txtModelFinYearName.Text.Trim() != String.Empty)
+                        entMST_FinYear.FinYearName = txtModelFinYearName.Text.Trim();
+
+                    if (dtpModelFromDate.Text.Trim() != String.Empty)
+                        entMST_FinYear.FromDate = Convert.ToDateTime(dtpModelFromDate.Text.Trim());
+
+                    if (dtpModelToDate.Text.Trim() != String.Empty)
+                        entMST_FinYear.ToDate = Convert.ToDateTime(dtpModelToDate.Text.Trim());
+
+                    if (txtModelRemarks.Text.Trim() != String.Empty)
+                        entMST_FinYear.Remarks = txtModelRemarks.Text.Trim();
+
+
+
+                    entMST_FinYear.UserID = Convert.ToInt32(Session["UserID"]);
+
+                    entMST_FinYear.Created = DateTime.Now;
+
+                    entMST_FinYear.Modified = DateTime.Now;
+
+                    #endregion 15.2 Gather Data 
+
+
+                    #region 15.3 Insert,Update,Copy 
+
+                    if (Request.QueryString["FinYearID"] != null && Request.QueryString["Copy"] == null)
                     {
-                        if (balMST_FinYear.Insert(entMST_FinYear))
+                        entMST_FinYear.FinYearID = CommonFunctions.DecryptBase64Int32(Request.QueryString["FinYearID"]);
+                        if (balMST_FinYear.Update(entMST_FinYear))
                         {
-                            ucMessage.ShowSuccess(CommonMessage.RecordSaved());
-                            ClearControls();
-                            Response.Redirect("MST_FinYearList.aspx");
-                            Context.ApplicationInstance.CompleteRequest();
+                            // Use Response.Redirect with endResponse set to false
+                            Response.Redirect("MST_FinYearList.aspx", false);
 
+                            // Complete the request
+                            Context.ApplicationInstance.CompleteRequest();
                         }
                         else
                         {
-                            ucMessage.ShowError(balMST_FinYear.Message); 
-                            ScriptManager.RegisterStartupScript(this, GetType(), "ShowModal", "$('#viewiFrameReg').modal('show');", true);
+                            ucMessage1.ShowError(balMST_FinYear.Message);
+
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowModal", "parent.$('#viewiFrameReg').modal('show');", true);
                         }
                     }
+
+                    else
+                    {
+                        if (Request.QueryString["FinYearID"] == null || Request.QueryString["Copy"] != null)
+                        {
+                            if (balMST_FinYear.Insert(entMST_FinYear))
+                            {
+                                ucMessage1.ShowSuccess(CommonMessage.RecordSaved());
+                                ClearControls();
+                                Response.Redirect("MST_FinYearList.aspx");
+                                Context.ApplicationInstance.CompleteRequest();
+
+                            }
+                            else
+                            {
+                                ucMessage1.ShowError(balMST_FinYear.Message);
+                                ScriptManager.RegisterStartupScript(this, GetType(), "ShowModal", "$('#viewiFrameReg').modal('show');", true);
+                            }
+                        }
+                    }
+
+                    #endregion 15.3 Insert,Update,Copy
                 }
 
-                #endregion 15.3 Insert,Update,Copy
 
             }
             catch (Exception ex)
             {
 
-                ucMessage.ShowError(ex.Message);
+                ucMessage1.ShowError(ex.Message);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "MasterPageView", "$('#viewiFrameReg').modal('show');", true);
 
                 return;
             }
         }
         else
-        { 
-            Response.Redirect("MST_FinYearList.aspx", false);
-             
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "MasterPageView", "parent.$('#viewiFrameReg').modal('show');", true);
+
 
         }
 
@@ -240,11 +248,11 @@ public partial class AdminPanel_Master_MST_FinYear_MST_FinYearAddEditPopup : Sys
     #region 16.0 Clear Controls 
     private void ClearControls()
     {
-        txtFinYearName.Text = String.Empty;
-        dtpFromDate.Text = String.Empty;
-        dtpToDate.Text = String.Empty;
-        txtRemarks.Text = String.Empty;
-        txtFinYearName.Focus();
+        txtModelFinYearName.Text = String.Empty;
+        dtpModelFromDate.Text = String.Empty;
+        dtpModelToDate.Text = String.Empty;
+        txtModelRemarks.Text = String.Empty;
+        txtModelFinYearName.Focus();
     }
 
 

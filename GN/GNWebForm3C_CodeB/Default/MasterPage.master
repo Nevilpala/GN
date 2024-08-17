@@ -449,6 +449,55 @@
 
                                 </ul>
                             </li>
+
+                            <li class="nav-item">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-wrench"></i>
+                                    <span class="title">Report</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu" style="display: none;">
+                                    <li class="nav-item ">
+                                        <a class="nav-link nav-toggle" href="javascript:void(0)">RPT Income <span class="arrow "></span></a>
+                                        <ul class="sub-menu">
+                                            <li class="nav-item  ">
+                                                <a href='<%=ResolveClientUrl("~/AdminPanel/Reports/RPT_ACC_Income/RPT_ACC_IncomeByFinYearList.aspx") %>' class="nav-link ">
+                                                    <span class="title">FinYear Wise Income List</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item  ">
+                                                <a href='<%=ResolveClientUrl("~/AdminPanel/Reports/RPT_ACC_Income/RPT_ACC_IncomeMatrixByFinYear.aspx") %>' class="nav-link ">
+                                                    <span class="title">FinYear Wise Income Matrix</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item  ">
+                                                <a href='<%=ResolveClientUrl("~/AdminPanel/Reports/RPT_ACC_Income/RPT_HospitalWiseIncomeTypeWiseData.aspx") %>' class="nav-link ">
+                                                    <span class="title">Hospital Wise Income </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link nav-toggle" href="javascript:void(0)">RPT Expense <span class="arrow "></span></a>
+                                        <ul class="sub-menu">
+                                            <li class="nav-item  ">
+                                                <a href='<%=ResolveClientUrl("~/AdminPanel/Reports/RPT_ACC_Expense/RPT_HospitalWiseExpenseList.aspx") %>' class="nav-link ">
+                                                    <span class="title">Hospital Wise Expense </span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item  ">
+                                                <a href='<%=ResolveClientUrl("~/AdminPanel/Reports/RPT_ACC_Expense/RPT_HospitalWiseDateWiseExpenseList.aspx") %>' class="nav-link ">
+                                                    <span class="title">Hospital Wise | DateWise Expense </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+
+
+
+                                </ul>
+                            </li>
                         </ul>
                         <!-- END SIDEBAR MENU -->
                         <!-- END SIDEBAR MENU -->
@@ -507,7 +556,8 @@
         <div class="modal fade" id="viewiFrameReg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-body">
-                    <iframe class="auto-height" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen msallowfullscreen="true" style="border: 0px; width: 100%;" onload="this.height=this.contentWindow.document.body.scrollHeight;"></iframe>
+                    <iframe class="auto-height" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen msallowfullscreen="true" style="border: 0px; width: 100%;"
+                        onload="this.height=this.contentWindow.document.body.scrollHeight;"></iframe>
                 </div>
             </div>
         </div>

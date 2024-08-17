@@ -32,6 +32,18 @@ namespace GNForm3C.ENT
                 _PatientName = value;
             }
         }
+        protected SqlString _PatientPhotoPath;
+        public SqlString PatientPhotoPath
+        {
+            get
+            {
+                return _PatientPhotoPath;
+            }
+            set
+            {
+                _PatientPhotoPath = value;
+            }
+        }
 
         protected SqlInt32 _Age;
         public SqlInt32 Age

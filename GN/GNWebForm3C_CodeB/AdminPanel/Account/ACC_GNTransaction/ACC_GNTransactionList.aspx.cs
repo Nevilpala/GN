@@ -268,6 +268,19 @@ public partial class AdminPanel_Account_ACC_GNTransaction_ACC_GNTransactionList 
 
     protected void rpData_ItemCommand(object source, RepeaterCommandEventArgs e)
     {
+
+        if(e.CommandName == "PatientReceipt")
+        { 
+            String TransactionID = e.CommandArgument.ToString().Trim();
+            String ExportType = "PDF";
+
+            if(TransactionID!=String.Empty && ExportType != String.Empty)
+            {
+                Response.Redirect("~/AdminPanel/Reports/RPT_ACC_GNTransaction/RPT_ACC_GNTransactionPatientReceipt.aspx?TransactionID=" + CommonFunctions.EncryptBase64(TransactionID.ToString()) + "&ReportType=" + CommonFunctions.EncryptBase64(ExportType));
+
+            }
+
+        }
         if (e.CommandName == "Discharge")
         {
             try
@@ -278,7 +291,7 @@ public partial class AdminPanel_Account_ACC_GNTransaction_ACC_GNTransactionList 
                 {
                     if (balACC_GNTransaction.UpdateDischargeAndTotalDays(Convert.ToInt32(e.CommandArgument)))
                     {
-                        ucMessage.ShowSuccess(CommonMessage.DeletedRecord());
+                        ucMessage.ShowSuccess(CommonMessage.RecordUpdated());
 
                         if (ViewState["CurrentPage"] != null)
                         {
@@ -474,6 +487,21 @@ public partial class AdminPanel_Account_ACC_GNTransaction_ACC_GNTransactionList 
     }
 
     #endregion 19.1 Excel Export Button Click Event
+
+    #region  19.2 Export Receipt
+
+    protected void lbtnExportReceipt_Click(object sender, EventArgs e)
+    {
+        LinkButton lbtn = (LinkButton)(sender); 
+        String TransactionID = lbtn.CommandArgument.ToString().Trim();
+        String ExportType = "PDF";
+
+        Response.Redirect("~/AdminPanel/Reports/RPT_ACC_GNTransaction/RPT_ACC_GNTransactionPatientReceipt.aspx?TransactionID=" + CommonFunctions.EncryptBase64(TransactionID.ToString()) + "&ReportType=" + CommonFunctions.EncryptBase64(ExportType),true);
+
+    }
+    #endregion  19.2 Export Receipt
+
+
 
     #endregion 19.0 Export Data   
 

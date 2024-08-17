@@ -290,6 +290,10 @@
                                                     </th>
                                                     <%--   <th><asp:Label ID="lbhTreatmentID" runat="server" Text="Treatment"></asp:Label>
                                                     </th>--%>
+
+                                                    <th>
+                                                        <asp:Label ID="lbhFinYearID" runat="server" Text="Fin Year"></asp:Label>
+                                                    </th>
                                                     <th>
                                                         <asp:Label ID="lbhAmount" runat="server" Text="Amount"></asp:Label>
                                                     </th>
@@ -325,9 +329,7 @@
                                                     <th>
                                                         <asp:Label ID="lbhHospitalID" runat="server" Text="Hospital"></asp:Label>
                                                     </th>
-                                                    <th>
-                                                        <asp:Label ID="lbhFinYearID" runat="server" Text="Fin Year"></asp:Label>
-                                                    </th>
+
                                                     <th>
                                                         <asp:Label ID="lbhReceiptTypeID" runat="server" Text="Receipt Type"></asp:Label>
                                                     </th>
@@ -346,11 +348,13 @@
                                                             <td>
                                                                 <asp:HyperLink ID="hlViewTransactionID" NavigateUrl='<%# "~/AdminPanel/Account/ACC_GNTransaction/ACC_GNTransactionView.aspx?TransactionID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("TransactionID").ToString()) %>' data-target="#viewiFrameReg" CssClass="modalButton" data-toggle="modal" runat="server"><%#Eval("PatientName") %></asp:HyperLink>
                                                             </td>
-                                                          
-                                                            <td  class="text-right">
+                                                            <td>
+                                                                <%#Eval("FinYearName") %>
+                                                            </td>
+                                                            <td class="text-right">
                                                                 <%#Eval("Amount",GNForm3C.CV.DefaultCurrencyFormatWithOutDecimalPoint) %>
                                                             </td>
-                                                           
+
                                                             <td>
                                                                 <%#Eval("ReferenceDoctor") %>
                                                             </td>
@@ -369,7 +373,7 @@
                                                             <td class="text-center">
                                                                 <%#Eval("DateOfDischarge", GNForm3C.CV.DefaultDateFormatForGrid) %>
                                                             </td>
-                                                            <td  class="text-right">
+                                                            <td class="text-right">
                                                                 <%#Eval("Deposite",GNForm3C.CV.DefaultCurrencyFormatWithOutDecimalPoint) %>
                                                             </td>
                                                             <td class="text-right">
@@ -381,9 +385,7 @@
                                                             <td>
                                                                 <%#Eval("Hospital") %>
                                                             </td>
-                                                            <td>
-                                                                <%#Eval("FinYearName") %>
-                                                            </td>
+
                                                             <td>
                                                                 <%#Eval("ReceiptTypeName") %>
                                                             </td>
@@ -395,8 +397,25 @@
                                                                     OnClientClick="javascript:return confirm('Are you sure you want to Discharge?');"
                                                                     CommandName="Discharge"
                                                                     CommandArgument='<%# Eval("TransactionID") %>'
-                                                                    Enabled='<%# Eval("DateOfDischarge") == DBNull.Value ? true : false %>'>
+                                                                    Visible='<%# Eval("DateOfDischarge") == DBNull.Value ? true : false %>'>
                                                                 </asp:LinkButton>
+                                                                <%--OnClick="lbtnExportReceipt_Click"--%>
+
+                                                                <%--     <asp:LinkButton ID="lbtnPatientReceipt"
+                                                                    runat="server"
+                                                                    SkinID="lbtnDownload"
+                                                                    CommandName="PatientReceipt"
+                                                                    CommandArgument='<%# Eval("TransactionID") %>'>
+                                                                </asp:LinkButton>--%>
+
+                                                                <asp:HyperLink
+                                                                    runat="server"
+                                                                    ID="hlprint"
+                                                                    SkinID="hlprint"
+                                                                    Visible='<%# Eval("DateOfDischarge") == DBNull.Value ? false : true %>'
+                                                                    NavigateUrl='<%# "~/AdminPanel/Reports/RPT_ACC_GNTransaction/RPT_ACC_GNTransactionPatientReceipt.aspx?TransactionID=" +   GNForm3C.CommonFunctions.EncryptBase64(Eval("TransactionID").ToString()) + "&ReportType=" + GNForm3C.CommonFunctions.EncryptBase64("PDF") %>'></asp:HyperLink>
+
+
                                                             </td>
                                                         </tr>
                                                         <%-- END Table Rows --%>
@@ -462,6 +481,8 @@
             <asp:AsyncPostBackTrigger ControlID="btnClear" EventName="Click" />
             <asp:PostBackTrigger ControlID="lbtnExportExcel" />
             <asp:PostBackTrigger ControlID="lbtnExportPDF" />
+
+            <%--<asp:PostBackTrigger ControlID="lbtnPatientReceipt" />--%>
         </Triggers>
     </asp:UpdatePanel>
     <%-- END List --%>

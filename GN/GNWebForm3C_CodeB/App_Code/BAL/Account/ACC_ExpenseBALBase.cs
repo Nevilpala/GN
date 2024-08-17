@@ -137,8 +137,16 @@ namespace GNForm3C.BAL
 			return dalACC_Expense.SelectComboBox();
 		}
 
-		#endregion ComboBox
+        #endregion ComboBox
 
-	}
+        #region Report 
+        public DataTable PP_HospitalWiseExpenseList(SqlDateTime FromDate, SqlDateTime ToDate,SqlInt32 HospitalID)
+        {
+            ACC_ExpenseDAL dalACC_Expense = new ACC_ExpenseDAL();
+            return dalACC_Expense.PP_HospitalWiseExpenseList(FromDate,ToDate, HospitalID);
+        }
+        #endregion
+
+    }
 
 }

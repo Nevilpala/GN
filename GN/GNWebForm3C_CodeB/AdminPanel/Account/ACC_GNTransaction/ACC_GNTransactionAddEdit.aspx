@@ -1,511 +1,381 @@
-﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Default/MasterPage.master" AutoEventWireup="true" CodeFile="ACC_GNTransactionAddEdit.aspx.cs" Inherits="AdminPanel_Account_ACC_GNTransaction_ACC_GNTransactionAddEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default/MasterPage.master" AutoEventWireup="true" CodeFile="ACC_GNTransactionAddEdit.aspx.cs" Inherits="AdminPanel_Account_ACC_GNTransaction_ACC_GNTransactionAddEdit" %>
 
-    <asp:Content ID="cnthead" ContentPlaceHolderID="head" runat="Server">
-    </asp:Content>
-    <asp:Content ID="cntPageHeader" ContentPlaceHolderID="cphPageHeader" runat="Server">
-        <asp:Label ID="lblPageHeader_XXXXX" Text="Transaction " runat="server"></asp:Label><small><asp:Label ID="lblPageHeaderInfo_XXXXX" Text="Account" runat="server"></asp:Label></small>
-        <span class="pull-right">
-            <small>
-                <asp:HyperLink ID="hlShowHelp" SkinID="hlShowHelp" runat="server"></asp:HyperLink>
-            </small>
-        </span>
-    </asp:Content>
-    <asp:Content ID="cntBreadcrumb" ContentPlaceHolderID="cphBreadcrumb" runat="Server">
-        <li>
-            <i class="fa fa-home"></i>
-            <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/AdminPanel/Default.aspx" Text="Home"></asp:HyperLink>
-            <i class="fa fa-angle-right"></i>
-        </li>
-        <li>
-            <asp:HyperLink ID="hlTransaction" runat="server" NavigateUrl="~/AdminPanel/Account/ACC_GNTransaction/ACC_GNTransactionList.aspx" Text="Transaction List"></asp:HyperLink>
-            <i class="fa fa-angle-right"></i>
-        </li>
-        <li class="active">
-            <asp:Label ID="lblBreadCrumbLast" runat="server" Text="Transaction Add/Edit"></asp:Label>
-        </li>
-    </asp:Content>
-    <asp:Content ID="cntPageContent" ContentPlaceHolderID="cphPageContent" runat="Server">
-        <!--Help Text-->
-        <ucHelp:ShowHelp ID="ucHelp" runat="server" />
-        <!--Help Text End-->
-        <asp:ScriptManager ID="sm" runat="server">
-        </asp:ScriptManager>
-        <asp:UpdatePanel ID="upACC_GNTransaction" runat="server" EnableViewState="true" UpdateMode="Conditional" ChildrenAsTriggers="true">
+<asp:Content ID="cnthead" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="cntPageHeader" ContentPlaceHolderID="cphPageHeader" runat="Server">
+    <asp:Label ID="lblPageHeader_XXXXX" Text="Transaction " runat="server"></asp:Label><small><asp:Label ID="lblPageHeaderInfo_XXXXX" Text="Account" runat="server"></asp:Label></small>
+    <span class="pull-right">
+        <small>
+            <asp:HyperLink ID="hlShowHelp" SkinID="hlShowHelp" runat="server"></asp:HyperLink>
+        </small>
+    </span>
+</asp:Content>
+<asp:Content ID="cntBreadcrumb" ContentPlaceHolderID="cphBreadcrumb" runat="Server">
+    <li>
+        <i class="fa fa-home"></i>
+        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/AdminPanel/Default.aspx" Text="Home"></asp:HyperLink>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+        <asp:HyperLink ID="hlTransaction" runat="server" NavigateUrl="~/AdminPanel/Account/ACC_GNTransaction/ACC_GNTransactionList.aspx" Text="Transaction List"></asp:HyperLink>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li class="active">
+        <asp:Label ID="lblBreadCrumbLast" runat="server" Text="Transaction Add/Edit"></asp:Label>
+    </li>
+</asp:Content>
+<asp:Content ID="cntPageContent" ContentPlaceHolderID="cphPageContent" runat="Server">
+    <!--Help Text-->
+    <ucHelp:ShowHelp ID="ucHelp" runat="server" />
+    <!--Help Text End-->
+    <asp:ScriptManager ID="sm" runat="server">
+    </asp:ScriptManager>
+    <asp:UpdatePanel ID="upACC_GNTransaction" runat="server" EnableViewState="true" UpdateMode="Conditional" ChildrenAsTriggers="false">
 
-            <ContentTemplate>
-                <div class="row">
-                    <div class="col-md-12">
-                        <ucMessage:ShowMessage ID="ucMessage" runat="server" />
-                        <asp:ValidationSummary ID="ValidationSummary1" SkinID="VS" runat="server" />
-                    </div>
-                </div>
+        <ContentTemplate>
+            <div class="row">
 
-                <div class="portlet light">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            <asp:Label SkinID="lblFormHeaderIcon" ID="lblFormHeaderIcon" runat="server"></asp:Label>
-                            <span class="caption-subject font-green-sharp bold uppercase">
-                                <asp:Label ID="lblFormHeader" runat="server" Text=""></asp:Label>
-                            </span>
+                <div class='<%= ddlPatientID.SelectedIndex > 0 ? "col-md-8" : "col-md-12" %>'>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                                <ContentTemplate>
+                                    <ucMessage:ShowMessage ID="ucMessage" runat="server" />
+                                    <asp:ValidationSummary ID="ValidationSummary1" SkinID="VS" runat="server" />
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:PostBackTrigger ControlID="btnSavePatient" />
+                                </Triggers>
+                            </asp:UpdatePanel>
                         </div>
                     </div>
 
-                    <div class="portlet-body form">
-                        <div class="form-horizontal" role="form">
-                            <div class="form-body">
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <asp:Label SkinID="lblFormHeaderIcon" ID="lblFormHeaderIcon" runat="server"></asp:Label>
+                                <span class="caption-subject font-green-sharp bold uppercase">
+                                    <asp:Label ID="lblFormHeader" runat="server" Text=""></asp:Label>
+                                </span>
+                            </div>
+                        </div>
 
-
-
-
-
-
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <span class="required">*</span>
-                                        <asp:Label ID="lblFinYearID_XXXXX" runat="server" Text="Fin Year"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <asp:DropDownList ID="ddlFinYearID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="rfvFinYearID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlFinYearID" ErrorMessage="Select Fin Year" InitialValue="-99"></asp:RequiredFieldValidator>
+                        <div class="portlet-body form">
+                            <div class="form-horizontal" role="form">
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">
+                                            <span class="required">*</span>
+                                            <asp:Label ID="lblFinYearID_XXXXX" runat="server" Text="Fin Year"></asp:Label>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <asp:DropDownList ValidationGroup="vgTransaction" ID="ddlFinYearID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ValidationGroup="vgTransaction" ID="rfvFinYearID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlFinYearID" ErrorMessage="Select Fin Year" InitialValue="-99"></asp:RequiredFieldValidator>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <span class="required">*</span>
-                                        <asp:Label ID="lblHospitalID_XXXXX" runat="server" Text="Hospital"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <asp:DropDownList ID="ddlHospitalID" CssClass="form-control select2me" runat="server" AutoPostBack="true" OnSelectedIndexChanged="FillTreatmentCombobox"></asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="rfvHospitalID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlHospitalID" ErrorMessage="Select Hospital" InitialValue="-99"></asp:RequiredFieldValidator>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">
+                                            <span class="required">*</span>
+                                            <asp:Label ID="lblHospitalID_XXXXX" runat="server" Text="Hospital"></asp:Label>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <asp:DropDownList ValidationGroup="vgTransaction" ID="ddlHospitalID" CssClass="form-control select2me" runat="server" AutoPostBack="true" OnSelectedIndexChanged="FillTreatmentCombobox"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ValidationGroup="vgTransaction" ID="rfvHospitalID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlHospitalID" ErrorMessage="Select Hospital" InitialValue="-99"></asp:RequiredFieldValidator>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <span class="required">*</span>
-                                        <asp:Label ID="lblPatientID_XXXXX" runat="server" Text="Patient"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <asp:DropDownList ID="ddlPatientID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="rfvPatientID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlPatientID" ErrorMessage="Select Patient" InitialValue="-90"></asp:RequiredFieldValidator>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">
+                                            <span class="required">*</span>
+                                            <asp:Label ID="lblPatientID_XXXXX" runat="server" Text="Patient"></asp:Label>
+                                        </label>
+                                        <asp:UpdatePanel ID="upPatientDDL" runat="server" UpdateMode="Conditional">
+                                            <ContentTemplate>
+                                                <div class="col-md-5">
+                                                    <asp:DropDownList ID="ddlPatientID" CssClass="form-control select2me" runat="server" AutoPostBack="true" OnSelectedIndexChanged="FillPatientView"></asp:DropDownList>
+                                                    <asp:RequiredFieldValidator ValidationGroup="vgTransaction" ID="rfvPatientID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlPatientID" ErrorMessage="Select Patient" InitialValue="-99"></asp:RequiredFieldValidator>
+                                                </div>
+                                            </ContentTemplate>
+                                            <Triggers>
+                                                <asp:PostBackTrigger ControlID="btnSavePatient" />
+                                            </Triggers>
+                                        </asp:UpdatePanel>
+                                        <div class="col-md-2">
+                                            <button type="button" class="btn btn-primary" onclick="toggleAddPatientForm()">
+                                                Add
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="col-md-2">
-                                        <button type="button" class="btn btn-primary" onclick="toggleAddPatientForm()">
-                                            Add
-                                        </button>
+
+                                    <asp:Panel ID="pnlAddPatient" runat="server" CssClass="collapse" ClientIDMode="Static">
+                                        <asp:UpdatePanel ID="upPatient" runat="server" UpdateMode="Conditional">
+
+                                            <ContentTemplate>
+                                                <div class="well" role="form" enctype="multipart/form-data">
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label" for="txtPatientName">Patient Name</label>
+                                                        <div class="col-md-5">
+                                                            <asp:TextBox ValidationGroup="vgPatient" ID="txtPatientName" runat="server" CssClass="form-control" placeholder="Enter Patient Name"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ValidationGroup="vgPatient" ID="RequiredFieldValidator2" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtPatientName" ErrorMessage="Enter Patient Name"></asp:RequiredFieldValidator>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label" for="txtAge">Age</label>
+                                                        <div class="col-md-5">
+                                                            <asp:TextBox ValidationGroup="vgPatient" ID="txtAge" runat="server" CssClass="form-control" onkeypress="return IsPositiveInteger(event)" placeholder="Enter Age"></asp:TextBox>
+                                                            <asp:CompareValidator ValidationGroup="vgPatient" ID="CompareValidator1" runat="server" ControlToValidate="txtAge" ErrorMessage="Enter Age" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Integer"></asp:CompareValidator>
+                                                            <asp:RequiredFieldValidator ValidationGroup="vgPatient" ID="RequiredFieldValidator3" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtAge" ErrorMessage="Enter Amount"></asp:RequiredFieldValidator>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label" for="dtpDOB">Date of Birth</label>
+                                                        <div class="col-md-5">
+                                                            <div class="input-group input-medium date date-picker" data-date-format='<%=GNForm3C.CV.DefaultHTMLDateFormat.ToString()%>'>
+                                                                <asp:TextBox ValidationGroup="vgPatient" ID="dtpDOB" CssClass="form-control" runat="server" placeholder="Date"></asp:TextBox>
+                                                                <span class="input-group-btn">
+                                                                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                                </span>
+                                                            </div>
+                                                            <asp:RequiredFieldValidator ValidationGroup="vgPatient" ID="rfvDOB" runat="server" ControlToValidate="dtpDOB" ErrorMessage="Enter DOB" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label" for="txtMobileNo">Mobile No</label>
+                                                        <div class="col-md-5">
+                                                            <asp:TextBox ValidationGroup="vgPatient" ID="txtMobileNo" runat="server" CssClass="form-control" onkeypress="return IsPositiveInteger(event)" placeholder="Enter Mobile No"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ValidationGroup="vgPatient" ID="RequiredFieldValidator1" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtMobileNo" ErrorMessage="Enter MobileNo"></asp:RequiredFieldValidator>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label" for="txtPrimaryDesc">Primary Description</label>
+                                                        <div class="col-md-5">
+
+                                                            <asp:TextBox ValidationGroup="vgPatient" ID="txtPrimaryDesc" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-control" placeholder="Enter Primary Description"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ValidationGroup="vgPatient" ID="rfvPrimaryDesc" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtPrimaryDesc" ErrorMessage="Enter Primary Description"></asp:RequiredFieldValidator>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 control-label" for="txtPrimaryDesc">Patient Image</label>
+                                                        <div class="col-md-5">
+                                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                                    <asp:Image ValidationGroup="vgPatient" runat="server" ImageUrl="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" AlternateText="Patient Image" />
+                                                                </div>
+                                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                                                                <div>
+                                                                    <span class="btn default btn-file">
+                                                                        <span class="fileinput-new">Select image </span>
+                                                                        <span class="fileinput-exists">Change </span>
+                                                                        <asp:FileUpload ID="fuPatientPhotoPath" runat="server" ValidationGroup="vgPatient" />
+                                                                    </span>
+                                                                    <br />
+                                                                    <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput">Remove </a>
+
+                                                                </div>
                                      
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-md-offset-3 col-md-9">
+                                                            <asp:Button ValidationGroup="vgPatient" ID="btnSavePatient" OnClick="btnSavePatient_Click" runat="server" CssClass="btn btn-primary" Text="Save" EnableViewState="false" />
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ContentTemplate>
+                                      
+                                        </asp:UpdatePanel>
+                                    </asp:Panel>
+
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">
+                                            <span class="required">*</span>
+                                            <asp:Label ID="lblTreatmentID_XXXXX" runat="server" Text="Treatment"></asp:Label>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <asp:UpdatePanel ID="upTreatmentID" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:DropDownList ValidationGroup="vgTransaction" ID="ddlTreatmentID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
+                                                    <asp:RequiredFieldValidator ValidationGroup="vgTransaction" ID="rfvTreatmentID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlTreatmentID" ErrorMessage="Select Treatment" InitialValue="-99"></asp:RequiredFieldValidator>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlHospitalID" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
+                                        </div>
                                     </div>
-                                </div> 
-                                <asp:UpdatePanel ID="upPatient" runat="server" UpdateMode="Conditional">
 
-                                    <ContentTemplate>
-                                        <asp:Panel ID="pnlAddPatient" runat="server" CssClass="collapse" ClientIDMode="Static">
-                                            <div class="well">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">
+                                            <span class="required">*</span>
 
-                                                <div class="form-group" id="formGroup" style="display: none;">
-                                                    <div class="col-md-3"></div>
-                                                    <div class="portlet box green col-md-5">
-                                                        <div class="portlet-title">
-                                                            <div class="caption">
-                                                                <i class="fa fa-bullhorn"></i>Add Patient
-           
-                                                            </div>
-                                                            <div class="tools">
-                                                                <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="portlet-body">
-                                                            <div id="newPatientForm">
-                                                                <div class="form-group">
-                                                                    <label class="col-md-3 control-label margin-top-20">Patient Name</label>
-                                                                    <div class="col-md-5">
-                                                                        <asp:TextBox type="text" ID="TextBox1" CssClass="form-control margin-top-20" runat="server"></asp:TextBox>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-md-3 control-label">Age</label>
-                                                                    <div class="col-md-5">
-                                                                        <asp:TextBox type="text" ID="TextBox2" CssClass="form-control" runat="server"></asp:TextBox>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-md-3 control-label">Date of Birth</label>
-                                                                    <div class="col-md-5">
-                                                                        <asp:TextBox type="date" ID="TextBox3" CssClass="form-control" runat="server"></asp:TextBox>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-md-3 control-label">Mobile Number</label>
-                                                                    <div class="col-md-5">
-                                                                        <asp:TextBox type="text" ID="TextBox4" CssClass="form-control" runat="server"></asp:TextBox>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-md-3 control-label">Primary Description</label>
-                                                                    <div class="col-md-5">
-                                                                        <asp:TextBox type="text" ID="TextBox5" CssClass="form-control" runat="server"></asp:TextBox>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 control-label" for="txtPatientName">Patient Name</label>
-                                                    <div class="col-md-5">
-                                                        <asp:TextBox ID="txtPatientName" runat="server" CssClass="form-control" placeholder="Enter Patient Name"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 control-label" for="txtAge">Age</label>
-                                                    <div class="col-md-5">
-                                                        <asp:TextBox ID="txtAge" runat="server" CssClass="form-control" TextMode="Number" placeholder="Enter Age"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 control-label" for="dtpDOB">Date of Birth</label>
-                                                    <div class="col-md-5">
-                                                        <asp:TextBox ID="dtpDOB" runat="server" CssClass="form-control" TextMode="Date" placeholder="Enter Date of Birth"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 control-label" for="txtMobileNo">Mobile No</label>
-                                                    <div class="col-md-5">
-                                                        <asp:TextBox ID="txtMobileNo" runat="server" CssClass="form-control" placeholder="Enter Mobile No"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="col-md-3 control-label" for="txtPrimaryDesc">Primary Description</label>
-                                                    <div class="col-md-5">
-                                                        <asp:TextBox ID="txtPrimaryDesc" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-control" placeholder="Enter Primary Description"></asp:TextBox>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <div class="col-md-offset-3 col-md-9">
-                                                        <asp:Button ID="btnSavePatient" runat="server" CssClass="btn btn-primary" Text="Save" OnClientClick="saveNewPatient(); return true;" OnClick="FillPatientCombobox" />
-                                                    </div>
-                                                </div>
+                                            <asp:Label ID="lblQuantity_XXXXX" runat="server" Text="Quantity"></asp:Label>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <asp:TextBox ValidationGroup="vgTransaction" ID="txtQuantity" CssClass="form-control" runat="server" onkeypress="return IsPositiveInteger(event)" PlaceHolder="Enter Quantity" Text="1"></asp:TextBox>
+                                            <asp:CompareValidator ValidationGroup="vgTransaction" ID="cvQuantity" runat="server" ControlToValidate="txtQuantity" ErrorMessage="Enter Quantity" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Integer"></asp:CompareValidator>
+                                            <asp:RequiredFieldValidator ValidationGroup="vgTransaction" ID="RequiredFieldValidator4" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtQuantity" ErrorMessage="Enter Amount"></asp:RequiredFieldValidator>
+                                       
                                             </div>
-                                        </asp:Panel>
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
+                                    </div>
 
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <span class="required">*</span>
-                                        <asp:Label ID="lblTreatmentID_XXXXX" runat="server" Text="Treatment"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <asp:DropDownList ID="ddlTreatmentID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="rfvTreatmentID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlTreatmentID" ErrorMessage="Select Treatment" InitialValue="-99"></asp:RequiredFieldValidator>
-                                    </div>
-                                </div>
-                                <%--   <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <asp:Label ID="lblNoOfDays_XXXXX" runat="server" Text="No Of Days"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <asp:TextBox ID="txtNoOfDays" CssClass="form-control" runat="server" onkeypress="return IsPositiveInteger(event)" PlaceHolder="Enter No Of Days"></asp:TextBox>
-                                        <asp:CompareValidator ID="cvNoOfDays" runat="server" ControlToValidate="txtNoOfDays" ErrorMessage="Enter Valid No Of Days" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Integer"></asp:CompareValidator>
-                                    </div>
-                                </div>--%>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <asp:Label ID="lblQuantity_XXXXX" runat="server" Text="Quantity"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <asp:TextBox ID="txtQuantity" CssClass="form-control" runat="server" onkeypress="return IsPositiveInteger(event)" PlaceHolder="Enter Quantity"></asp:TextBox>
-                                        <asp:CompareValidator ID="cvQuantity" runat="server" ControlToValidate="txtQuantity" ErrorMessage="Enter Quantity" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Integer"></asp:CompareValidator>
-                                    </div>
-                                </div>
-                                <%-- <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <asp:Label ID="lblRate_XXXXX" runat="server" Text="Rate"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <asp:TextBox ID="txtRate" CssClass="form-control" runat="server" onkeypress="return IsPositiveInteger(event)" PlaceHolder="Enter Rate"></asp:TextBox>
-                                        <asp:CompareValidator ID="cvRate" runat="server" ControlToValidate="txtRate" ErrorMessage="Enter Valid Rate" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Integer"></asp:CompareValidator>
-                                    </div>
-                                </div>--%>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <span class="required">*</span>
-                                        <asp:Label ID="lblAmount_XXXXX" runat="server" Text="Amount"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <asp:TextBox ID="txtAmount" CssClass="form-control" runat="server" onkeypress="return IsPositiveInteger(event)" PlaceHolder="Enter Amount"></asp:TextBox>
-                                        <asp:CompareValidator ID="cvAmount" runat="server" ControlToValidate="txtAmount" ErrorMessage="Enter Valid Amount" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Double"></asp:CompareValidator>
-                                        <asp:RequiredFieldValidator ID="rfvAmount" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtAmount" ErrorMessage="Enter Amount"></asp:RequiredFieldValidator>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <span class="required">*</span>
-                                        <asp:Label ID="lblDate_XXXXX" runat="server" Text="Date"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <div class="input-group input-medium date date-picker" data-date-format='<%=GNForm3C.CV.DefaultHTMLDateFormat.ToString()%>'>
-                                            <asp:TextBox ID="dtpDate" CssClass="form-control" runat="server" placeholder="Date" ReadOnly="true"></asp:TextBox>
-                                            <span class="input-group-btn">
-                                                <button class="btn default" type="button" disabled><i class="fa fa-calendar"></i></button>
-                                            </span>
-                                        </div>
-                                        <asp:RequiredFieldValidator ID="rfvDate" runat="server" ControlToValidate="dtpDate" ErrorMessage="Enter Date" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <asp:Label ID="lblDateOfAdmission_XXXXX" runat="server" Text="Date Of Admission"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <div class="input-group input-medium date date-picker" data-date-format='<%=GNForm3C.CV.DefaultHTMLDateFormat.ToString()%>'>
-                                            <asp:TextBox ID="dtpDateOfAdmission" CssClass="form-control" runat="server" placeholder="Date Of Admission" ReadOnly="true"></asp:TextBox>
-                                            <span class="input-group-btn">
-                                                <button class="btn default" type="button" disabled><i class="fa fa-calendar"></i></button>
-                                            </span>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">
+                                            <span class="required">*</span>
+                                            <asp:Label ID="lblAmount_XXXXX" runat="server" Text="Amount"></asp:Label>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <asp:TextBox ValidationGroup="vgTransaction" ID="txtAmount" CssClass="form-control" runat="server" onkeypress="return IsPositiveInteger(event)" PlaceHolder="Enter Amount"></asp:TextBox>
+                                            <asp:CompareValidator ValidationGroup="vgTransaction" ID="cvAmount" runat="server" ControlToValidate="txtAmount" ErrorMessage="Enter Valid Amount" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Double"></asp:CompareValidator>
+                                            <asp:RequiredFieldValidator ValidationGroup="vgTransaction" ID="rfvAmount" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtAmount" ErrorMessage="Enter Amount"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <asp:Label ID="lblDateOfDischarge_XXXXX" runat="server" Text="Date Of Discharge"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <div class="input-group input-medium date date-picker" data-date-format='<%=GNForm3C.CV.DefaultHTMLDateFormat.ToString()%>'>
-                                            <asp:TextBox ID="dtpDateOfDischarge" CssClass="form-control" runat="server" placeholder="Date Of Discharge"></asp:TextBox>
-                                            <span class="input-group-btn">
-                                                <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-                                            </span>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">
+                                            <span class="required">*</span>
+                                            <asp:Label ID="lblDate_XXXXX" runat="server" Text="Date"></asp:Label>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <div class="input-group input-medium date date-picker" data-date-format='<%=GNForm3C.CV.DefaultHTMLDateFormat.ToString()%>'>
+                                                <asp:TextBox ValidationGroup="vgTransaction" ID="dtpDate" CssClass="form-control" runat="server" placeholder="Date" ReadOnly="true"></asp:TextBox>
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button" disabled><i class="fa fa-calendar"></i></button>
+                                                </span>
+                                            </div>
+                                            <asp:RequiredFieldValidator ValidationGroup="vgTransaction" ID="rfvDate" runat="server" ControlToValidate="dtpDate" ErrorMessage="Enter Date" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">
+                                            <asp:Label ID="lblDateOfAdmission_XXXXX" runat="server" Text="Date Of Admission"></asp:Label>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <div class="input-group input-medium date date-picker" data-date-format='<%=GNForm3C.CV.DefaultHTMLDateFormat.ToString()%>'>
+                                                <asp:TextBox ValidationGroup="vgTransaction" ID="dtpDateOfAdmission" CssClass="form-control" runat="server" placeholder="Date Of Admission" ReadOnly="true"></asp:TextBox>
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button" disabled><i class="fa fa-calendar"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">
+                                            <asp:Label ID="lblDateOfDischarge_XXXXX" runat="server" Text="Date Of Discharge"></asp:Label>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <div class="input-group input-medium date date-picker" data-date-format='<%=GNForm3C.CV.DefaultHTMLDateFormat.ToString()%>'>
+                                                <asp:TextBox ValidationGroup="vgTransaction" ID="dtpDateOfDischarge" CssClass="form-control" runat="server" placeholder="Date Of Discharge"></asp:TextBox>
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">
+                                            <asp:Label ID="lblReferenceDoctor_XXXXX" runat="server" Text="Reference Doctor"></asp:Label>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <asp:TextBox ValidationGroup="vgTransaction" ID="txtReferenceDoctor" CssClass="form-control" runat="server" PlaceHolder="Enter Reference Doctor"></asp:TextBox>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">
+                                            <asp:Label ID="lblReceiptTypeID_XXXXX" runat="server" Text="Receipt Type"></asp:Label>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <asp:DropDownList ValidationGroup="vgTransaction" ID="ddlReceiptTypeID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">
+                                            <asp:Label ID="lblDeposite_XXXXX" runat="server" Text="Deposite"></asp:Label>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <asp:TextBox ValidationGroup="vgTransaction" ID="txtDeposite" CssClass="form-control" runat="server" onkeypress="return IsPositiveInteger(event)" PlaceHolder="Enter Deposite"></asp:TextBox>
+                                            <asp:CompareValidator ValidationGroup="vgTransaction" ID="cvDeposite" runat="server" ControlToValidate="txtDeposite" ErrorMessage="Enter Valid Deposite" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Double"></asp:CompareValidator>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">
+                                            <asp:Label ID="lblNetAmount_XXXXX" runat="server" Text="Net Amount"></asp:Label>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <asp:TextBox ValidationGroup="vgTransaction" ID="txtNetAmount" CssClass="form-control" runat="server" onkeypress="return IsPositiveInteger(event)" PlaceHolder="0" ReadOnly="true"></asp:TextBox>
+                                            <asp:CompareValidator ValidationGroup="vgTransaction" ID="cvNetAmount" runat="server" ControlToValidate="txtNetAmount" ErrorMessage="Enter Valid Net Amount" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Double"></asp:CompareValidator>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">
+                                            <asp:Label ID="lblRemarks_XXXXX" runat="server" Text="Remarks"></asp:Label>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <asp:TextBox ValidationGroup="vgTransaction" ID="txtRemarks" CssClass="form-control" runat="server" TextMode="MultiLine" PlaceHolder="Enter Remarks"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">
+                                            <asp:Label ID="lblCount_XXXXX" runat="server" Text="Count"></asp:Label>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <asp:TextBox ValidationGroup="vgTransaction" ID="txtCount" CssClass="form-control" runat="server" onkeypress="return IsPositiveInteger(event)" PlaceHolder="Enter Count"></asp:TextBox>
+                                            <asp:CompareValidator ValidationGroup="vgTransaction" ID="cvCount" runat="server" ControlToValidate="txtCount" ErrorMessage="Enter Valid Count" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Integer"></asp:CompareValidator>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <asp:Label ID="lblReferenceDoctor_XXXXX" runat="server" Text="Reference Doctor"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <asp:TextBox ID="txtReferenceDoctor" CssClass="form-control" runat="server" PlaceHolder="Enter Reference Doctor"></asp:TextBox>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <asp:Label ID="lblReceiptTypeID_XXXXX" runat="server" Text="Receipt Type"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <asp:DropDownList ID="ddlReceiptTypeID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
-                                    </div>
-                                </div>
-
-
-
-
-
-
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <asp:Label ID="lblDeposite_XXXXX" runat="server" Text="Deposite"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <asp:TextBox ID="txtDeposite" CssClass="form-control" runat="server" onkeypress="return IsPositiveInteger(event)" PlaceHolder="Enter Deposite"></asp:TextBox>
-                                        <asp:CompareValidator ID="cvDeposite" runat="server" ControlToValidate="txtDeposite" ErrorMessage="Enter Valid Deposite" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Double"></asp:CompareValidator>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <asp:Label ID="lblNetAmount_XXXXX" runat="server" Text="Net Amount"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <asp:TextBox ID="txtNetAmount" CssClass="form-control" runat="server" onkeypress="return IsPositiveInteger(event)" PlaceHolder="0" ReadOnly="true"></asp:TextBox>
-                                        <asp:CompareValidator ID="cvNetAmount" runat="server" ControlToValidate="txtNetAmount" ErrorMessage="Enter Valid Net Amount" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Double"></asp:CompareValidator>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <asp:Label ID="lblRemarks_XXXXX" runat="server" Text="Remarks"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <asp:TextBox ID="txtRemarks" CssClass="form-control" runat="server" TextMode="MultiLine" PlaceHolder="Enter Remarks"></asp:TextBox>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">
-                                        <asp:Label ID="lblCount_XXXXX" runat="server" Text="Count"></asp:Label>
-                                    </label>
-                                    <div class="col-md-5">
-                                        <asp:TextBox ID="txtCount" CssClass="form-control" runat="server" onkeypress="return IsPositiveInteger(event)" PlaceHolder="Enter Count"></asp:TextBox>
-                                        <asp:CompareValidator ID="cvCount" runat="server" ControlToValidate="txtCount" ErrorMessage="Enter Valid Count" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Integer"></asp:CompareValidator>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-actions">
-                                <div class="row">
-                                    <div class="col-md-offset-3 col-md-9">
-                                        <asp:Button ID="btnSave" runat="server" SkinID="btnSave" OnClick="btnSave_Click" />
-                                        <asp:HyperLink ID="hlCancel" runat="server" SkinID="hlCancel" NavigateUrl="~/AdminPanel/Account/ACC_GNTransaction/ACC_GNTransactionList.aspx"></asp:HyperLink>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <asp:Button ValidationGroup="vgTransaction" ID="btnSave" runat="server" SkinID="btnSave" OnClick="btnSave_Click" />
+                                            <asp:HyperLink ID="hlCancel" runat="server" SkinID="hlCancel" NavigateUrl="~/AdminPanel/Account/ACC_GNTransaction/ACC_GNTransactionList.aspx"></asp:HyperLink>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </ContentTemplate>
-            <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="ddlHospitalID" />
-                <%--<asp:AsyncPostBackTrigger ControlID="ddlPatientID" />--%>
-                <%--<asp:PostBackTrigger ControlID="ddlPatientID" />--%>
-                <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
-                <%--<asp:AsyncPostBackTrigger ControlID="btnSavePatient" EventName="Click" />--%>
 
-
-            </Triggers>
-        </asp:UpdatePanel>
-        <%-- Loading  --%>
-        <asp:UpdateProgress ID="upr" runat="server">
-            <ProgressTemplate>
-                <div class="divWaiting">
-                    <asp:Label ID="lblWait" runat="server" Text="Please wait... " />
-                    <asp:Image ID="imgWait" runat="server" SkinID="UpdatePanelLoding" />
+                <div class="col-md-4">
+                    <ucPatient:ShowPatient ID="ucPatient" runat="server" />
                 </div>
-            </ProgressTemplate>
-        </asp:UpdateProgress>
-        <%-- END Loading  --%>
-    </asp:Content>
+            </div>
+        </ContentTemplate>
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
+            <asp:AsyncPostBackTrigger ControlID="ddlPatientID" />
+            <asp:PostBackTrigger ControlID="btnSavePatient" />
+
+        </Triggers>
+    </asp:UpdatePanel>
+    <%-- Loading  --%>
+    <asp:UpdateProgress ID="upr" runat="server">
+        <ProgressTemplate>
+            <div class="divWaiting">
+                <asp:Label ID="lblWait" runat="server" Text="Please wait... " />
+                <asp:Image ID="imgWait" runat="server" SkinID="UpdatePanelLoding" />
+            </div>
+        </ProgressTemplate>
+    </asp:UpdateProgress>
+    <%-- END Loading  --%>
+</asp:Content>
 
 
-    <asp:Content ID="cntScripts" ContentPlaceHolderID="cphScripts" runat="Server">
-        <script>
-            $(document).ready(function () {
-                //refreshPatientDropdown(); // Load dropdown on page load
-            });
-
-            function toggleAddPatientForm() {
-                $('#pnlAddPatient').collapse('toggle');
-            }
-
-            function validateForm() {
-                var isValid = true;
-                var errorMessage = "";
-
-                var patientName = $('#<%= txtPatientName.ClientID %>').val();
-                var age = $('#<%= txtAge.ClientID %>').val();
-                var dob = $('#<%= dtpDOB.ClientID %>').val();
-                var mobileNo = $('#<%= txtMobileNo.ClientID %>').val();
-                var primaryDesc = $('#<%= txtPrimaryDesc.ClientID %>').val();
-
-                if (patientName.trim() === "") {
-                    isValid = false;
-                    errorMessage += "Patient Name is required.\n";
-                }
-                if (age.trim() === "" || isNaN(age) || age <= 0) {
-                    isValid = false;
-                    errorMessage += "Valid Age is required.\n";
-                }
-                if (dob.trim() === "") {
-                    isValid = false;
-                    errorMessage += "Date of Birth is required.\n";
-                }
-                if (mobileNo.trim() === "" || !/^\d{10}$/.test(mobileNo)) {
-                    isValid = false;
-                    errorMessage += "Valid Mobile No is required (10 digits).\n";
-                }
-                if (primaryDesc.trim() === "") {
-                    isValid = false;
-                    errorMessage += "Primary Description is required.\n";
-                }
-
-                if (!isValid) {
-                    alert(errorMessage);
-                }
-
-                return isValid;
-            }
-
-            function saveNewPatient() {
-                if (!validateForm()) {
-                    return;
-                }
-
-                // Collect data from the form
-                var patientName = $('#<%= txtPatientName.ClientID %>').val();
-                var age = $('#<%= txtAge.ClientID %>').val();
-                var dob = $('#<%= dtpDOB.ClientID %>').val();
-                var mobileNo = $('#<%= txtMobileNo.ClientID %>').val();
-                var primaryDesc = $('#<%= txtPrimaryDesc.ClientID %>').val();
-
-                // Perform an AJAX request to save the patient data
-                $.ajax({
-                    type: "POST",
-                    url: "ACC_GNTransactionAddEdit.aspx/SaveNewPatient",
-                    data: JSON.stringify({ PatientName: patientName, Age: age, DOB: dob, MobileNo: mobileNo, PrimaryDesc: primaryDesc }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (response) { 
-                        var result = JSON.parse(response.d);
-                        console.log(result); // Log the response to verify it
-
-
-                        if (result != -1) {
-                            alert("New Patient Added Successfully"); 
-                              
-                            $('#<%= txtPatientName.ClientID %>').val('');
-                            $('#<%= txtAge.ClientID %>').val('');
-                            $('#<%= dtpDOB.ClientID %>').val('');
-                            $('#<%= txtMobileNo.ClientID %>').val('');
-                            $('#<%= txtPrimaryDesc.ClientID %>').val('');
-
-
-                            // Collapse the form
-                            $('#pnlAddPatient').collapse('hide');
-                            refreshPatientDropdown(result.Value);
-                            console.log(result.Value); 
-
-
-                        }
-                        else { 
-                            alert("New Patient Added Failed");  
-                        } 
-                    },
-                    error: function (error) {
-                        console.log(error);
-                    }
-                });
-            }
-            function refreshPatientDropdown(selectedVal) {
-                // Make AJAX call to get updated patient list
-                $.ajax({
-                    type: "POST",
-                    url: "ACC_GNTransactionAddEdit.aspx/GetPatientsDDL",
-                    data: "{}",
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (response) {
-                        console.log(response.d);
-                        // Clear existing options
-
-                        var ddl = $("#<%= ddlPatientID.ClientID %>");
-                        ddl.empty();
-                        ddl.append($('<option></option>').val('').text('Select Patient'));
-
-                        // Add new options from response
-                        $.each(response.d, function (index, item) {
-                            ddl.append($('<option></option>').val(item.Value).text(item.Text));
-                        });
-
-                        ddl.val(selectedVal);
-
-
-                    },
-                    error: function (xhr, status, error) {
-                        alert("An error occurred while refreshing patients: " + error);
-                    }
-                });
-            }
-
-
-        </script>
-    </asp:Content>
+<asp:Content ID="cntScripts" ContentPlaceHolderID="cphScripts" runat="Server">
+    <script> 
+        function toggleAddPatientForm() {
+            $('#pnlAddPatient').collapse('toggle');
+        }
+    </script>
+</asp:Content>

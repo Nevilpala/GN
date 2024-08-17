@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using GNForm3C.ENT;
+using System.Web.Util;
 
 namespace GNForm3C.DAL
 {
@@ -91,8 +92,10 @@ namespace GNForm3C.DAL
             }
         }
 
-        public SqlInt32 InsertPatient(MST_PatientENTBase entMST_Patient)
+        public SqlInt32 InsertPatient(MST_PatientENT entMST_Patient)
         {
+            SqlInt32 PatientID = -1;
+
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
@@ -104,6 +107,7 @@ namespace GNForm3C.DAL
                 sqlDB.AddInParameter(dbCMD, "@MobileNo", SqlDbType.NVarChar, entMST_Patient.MobileNo);
                 sqlDB.AddInParameter(dbCMD, "@DOB", SqlDbType.DateTime, entMST_Patient.DOB);
                 sqlDB.AddInParameter(dbCMD, "@PrimaryDesc", SqlDbType.NVarChar, entMST_Patient.PrimaryDesc);
+                sqlDB.AddInParameter(dbCMD, "@PatientPhotoPath", SqlDbType.NVarChar, entMST_Patient.PatientPhotoPath);
                 sqlDB.AddInParameter(dbCMD, "@UserID", SqlDbType.Int, entMST_Patient.UserID);
                 sqlDB.AddInParameter(dbCMD, "@Created", SqlDbType.DateTime, entMST_Patient.Created);
                 sqlDB.AddInParameter(dbCMD, "@Modified", SqlDbType.DateTime, entMST_Patient.Modified);
@@ -111,23 +115,27 @@ namespace GNForm3C.DAL
                 DataBaseHelper DBH = new DataBaseHelper();
                 DBH.ExecuteNonQuery(sqlDB, dbCMD);
 
-                entMST_Patient.PatientID = (SqlInt32)Convert.ToInt32(dbCMD.Parameters["@PatientID"].Value);
+                if (!(dbCMD.Parameters["@PatientID"].Value).Equals(DBNull.Value))
+                {
+                    entMST_Patient.PatientID = (SqlInt32)Convert.ToInt32(dbCMD.Parameters["@PatientID"].Value);
+                    PatientID = entMST_Patient.PatientID;
+                }
 
-                return entMST_Patient.PatientID;
+                return PatientID;
             }
             catch (SqlException sqlex)
             {
                 Message = SQLDataExceptionMessage(sqlex);
                 if (SQLDataExceptionHandler(sqlex))
                     throw;
-                return -1;
+                return PatientID;
             }
             catch (Exception ex)
             {
                 Message = ExceptionMessage(ex);
                 if (ExceptionHandler(ex))
                     throw;
-                return -1;
+                return PatientID;
             }
         }
 
@@ -532,7 +540,40 @@ namespace GNForm3C.DAL
         #endregion
 
 
+        #region Report
+        public DataTable PatientReceiptByGNTransationID(SqlInt32 TransactionID)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(myConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PP_ACC_GNTransaction_PatientReceipt");
 
+                sqlDB.AddInParameter(dbCMD, "@TransactionID", SqlDbType.Int, TransactionID);
+
+                DataTable dtACC_GNTransaction = new DataTable("PP_ACC_GNTransaction_PatientReceipt");
+
+                DataBaseHelper DBH = new DataBaseHelper();
+                DBH.LoadDataTable(sqlDB, dbCMD, dtACC_GNTransaction);
+
+                return dtACC_GNTransaction;
+            }
+            catch (SqlException sqlex)
+            {
+                Message = SQLDataExceptionMessage(sqlex);
+                if (SQLDataExceptionHandler(sqlex))
+                    throw;
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Message = ExceptionMessage(ex);
+                if (ExceptionHandler(ex))
+                    throw;
+                return null;
+            }
+
+        }
+        #endregion
 
 
     }

@@ -67,10 +67,7 @@ public partial class Default_Export : System.Web.UI.Page
             if (Request.QueryString["All"] == null)
                 if (dc.ColumnName.EndsWith("ID") || dc.ColumnName.Contains("Lock") || dc.ColumnName.Contains("Created") || dc.ColumnName.Contains("Modified") || dc.ColumnName.Contains("Path"))
                     continue;
-
-           
-
-
+             
             Response.Write("<Td>");
             Response.Write("<B>");
             if (Request.QueryString["All"] != null && dc.ColumnName.EndsWith("ID"))

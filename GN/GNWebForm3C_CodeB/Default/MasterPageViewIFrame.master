@@ -48,7 +48,7 @@
 
     <!-- BEGIN CUSTOM STYLES -->
     <link href="<%=ResolveClientUrl("~/Default/CSS/gn-globals.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
-   <link href="<%=ResolveClientUrl("~/Default/CSS/GNCustom.css?V=2_20191022?V=2") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Default/CSS/GNCustom.css?V=2_20191022?V=2") %>" rel="stylesheet" type="text/css" />
     <link href="<%=ResolveClientUrl("~/Default/CSS/gnmis.css?V=2_20191022?V=2") %>" rel="stylesheet" type="text/css" />
     <link href="<%=ResolveClientUrl("~/Default/CSS/_modal.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
     <link href="<%=ResolveClientUrl("~/Default/CSS/GNColor.css?V=2_20191022") %>" rel="stylesheet" type="text/css" />
@@ -130,7 +130,6 @@
     <!-- END CUSTOM SCRIPTS -->
 
     <asp:ContentPlaceHolder ID="cphScripts" runat="server">
-       
     </asp:ContentPlaceHolder>
 </body>
 </html>
