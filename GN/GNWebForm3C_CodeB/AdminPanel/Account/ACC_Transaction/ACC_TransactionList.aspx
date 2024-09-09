@@ -275,7 +275,7 @@
                         <div class="portlet-body">
                             <div class="row" runat="server" id="Div_SearchResult" visible="false">
                                 <div class="col-md-12">
-                                    <div id="TableContent">
+                                    <div id="TableContent" >
                                         <table class="table table-bordered table-advanced table-striped table-hover" id="sample_1">
                                             <%-- Table Header --%>
                                             <thead>
@@ -330,7 +330,7 @@
                                                             <td>
                                                             	<%#Eval("Treatment") %>
                                                             </td>
-                                                            <td>
+                                                            <td class="text-right"> 
                                                             	<%#Eval("Amount",GNForm3C.CV.DefaultCurrencyFormatWithOutDecimalPoint) %>
                                                             </td>
                                                             <td>
@@ -339,38 +339,38 @@
                                                             <td>
                                                             	<%#Eval("ReferenceDoctor") %>
                                                             </td>
-                                                            <td>
+                                                            <td class="text-center">
                                                             	<%#Eval("Count") %>
                                                             </td>
-                                                            <td>
+                                                            <td class="text-center">
                                                             	<%#Eval("ReceiptNo") %>
                                                             </td>
                                                             <td class="text-center">
                                                             	<%#Eval("Date", GNForm3C.CV.DefaultDateFormatForGrid) %>
                                                             </td>
-                                                            <td>
+                                                            <td class="text-center">
                                                             	<%#Eval("DateOfAdmission") %>
                                                             </td>
-                                                            <td>
+                                                            <td class="text-center">
                                                             	<%#Eval("DateOfDischarge") %>
                                                             </td>
-                                                            <td>
+                                                            <td class="text-right">
                                                             	<%#Eval("Deposite") %>
                                                             </td>
-                                                            <td>
+                                                            <td class="text-right">
                                                             	<%#Eval("NetAmount",GNForm3C.CV.DefaultCurrencyFormatWithOutDecimalPoint) %>
                                                             </td>
-                                                            <td>
+                                                            <td class="text-center">
                                                             	<%#Eval("NoOfDays") %>
                                                             </td>
                                                             <td>
-                                                            	<%#Eval("HospitalID") %>
+                                                            	<%#Eval("Hospital") %>
+                                                            </td>
+                                                            <td class="text-center">
+                                                            	<%#Eval("FinYearName") %>
                                                             </td>
                                                             <td>
-                                                            	<%#Eval("FinYearID") %>
-                                                            </td>
-                                                            <td>
-                                                            	<%#Eval("ReceiptTypeID") %>
+                                                            	<%#Eval("ReceiptTypeName") %>
                                                             </td>
                                                             <td class="text-nowrap text-center">
                                                                 <asp:HyperLink ID="hlView" SkinID="View" NavigateUrl='<%# "~/AdminPanel/Account/ACC_Transaction/ACC_TransactionView.aspx?TransactionID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("TransactionID").ToString()) %>' data-target="#viewiFrameReg" data-toggle="modal" runat="server"></asp:HyperLink>

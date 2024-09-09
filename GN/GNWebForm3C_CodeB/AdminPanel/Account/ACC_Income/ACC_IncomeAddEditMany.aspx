@@ -31,6 +31,8 @@
     <asp:UpdatePanel ID="upACC_Income" runat="server" EnableViewState="true" UpdateMode="Conditional" ChildrenAsTriggers="false">
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
+            <asp:AsyncPostBackTrigger ControlID="btnSaveXML" EventName="Click" />
+            <asp:AsyncPostBackTrigger ControlID="btnAdd" EventName="Click" />
         </Triggers>
         <ContentTemplate>
             <asp:UpdatePanel ID="upACC_Income2" runat="server" EnableViewState="true" UpdateMode="Conditional" ChildrenAsTriggers="false">
@@ -172,12 +174,12 @@
 
 
                                                                     <td>
-                                                                        <asp:DropDownList ID="ddlIncomeTypeID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
+                                                                        <asp:DropDownList ID="ddlIncomeTypeID" CssClass="form-control select2me" runat="server" ></asp:DropDownList>
                                                                     </td>
 
                                                                     <td>
                                                                         <div class="input-group input-medium date date-picker" data-date-format='<%=GNForm3C.CV.DefaultHTMLDateFormat.ToString()%>'>
-                                                                            <asp:TextBox ID="dtpIncomeDate" CssClass="form-control" runat="server" placeholder="Income Date" Text='<%#Eval("IncomeDate", "{0:dd-mm-yyyy}") %>'></asp:TextBox>
+                                                                            <asp:TextBox ID="dtpIncomeDate" CssClass="form-control" runat="server" placeholder="Income Date" Text='<%#Eval("IncomeDate",GNForm3C.CV.DefaultDateFormat) %>'></asp:TextBox>
                                                                             <span class="input-group-btn">
                                                                                 <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                                             </span>
@@ -206,7 +208,8 @@
                                                 <div class="col-md-offset-1 col-md-9">
                                                     <asp:LinkButton ID="btnAdd" runat="server" OnClick="btnAdd_Click" SkinID="lbtnAddRow" Visible="true">
                                                     </asp:LinkButton>
-                                                    <asp:Button ID="btnSave" runat="server" SkinID="btnSave" OnClick="btnSave_Click" />
+                                                    <asp:Button ID="btnSaveXML" runat="server" SkinID="btnSaveEmpty" OnClick="btnSave_ClickXML" Text="Save XML" ToolTip="Save/XML "/>
+                                                    <asp:Button ID="btnSave" runat="server" SkinID="btnSaveEmpty" OnClick="btnSave_Click" Text="Save DataTable" ToolTip="Save/DataTable "/>
                                                     <asp:HyperLink ID="hlCancel" runat="server" SkinID="hlCancel" NavigateUrl="~/AdminPanel/Account/ACC_Income/ACC_IncomeList.aspx"></asp:HyperLink>
                                                 </div>
                                             </div>

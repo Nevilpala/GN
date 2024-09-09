@@ -84,7 +84,7 @@
                                             </span>
                                             <asp:TextBox ID="dtpFromDate" CssClass="form-control" runat="server" placeholder="From Date"></asp:TextBox>
                                         </div>
-                                    <asp:RequiredFieldValidator ID="rfvExpenseDate" runat="server" ControlToValidate="dtpFromDate" ErrorMessage="Enter From Date" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="rfvExpenseDate" runat="server" ControlToValidate="dtpFromDate" ErrorMessage="Enter From Date" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
 
                                     </div>
                                 </div>
@@ -101,7 +101,7 @@
                                             </span>
                                             <asp:TextBox ID="dtpToDate" CssClass="form-control" runat="server" placeholder="To Date"></asp:TextBox>
                                         </div>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="dtpToDate" ErrorMessage="Enter To Date" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="dtpToDate" ErrorMessage="Enter To Date" Display="Dynamic" Type="Date"></asp:RequiredFieldValidator>
 
                                     </div>
                                 </div>
@@ -110,8 +110,13 @@
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <asp:Button ID="btnSearch" SkinID="btnSearch" runat="server" Text="Show" OnClick="btnSearch_Click" />
+                                    <asp:Button ID="btnSearch" SkinID="btnSearch" runat="server" OnClick="btnSearch_Click" />
                                     <asp:Button ID="btnClear" runat="server" SkinID="btnClear" Text="Clear" OnClick="btnClear_Click" />
+                                    <asp:LinkButton ID="lbtnExportPDF_Custom" runat="server" SkinID="lbtnExportPDF_Custom" CommandArgument="PDF" OnClick="lbtnExport_Click"></asp:LinkButton>
+                                    <asp:LinkButton ID="lbtnExportExcel_Custom" runat="server" SkinID="lbtnExportExcel_Custom" CommandArgument="Excel" OnClick="lbtnExport_Click"></asp:LinkButton>
+                                    <asp:LinkButton ID="lbtnExportWord_Custom" runat="server" SkinID="lbtnExportWord_Custom" CommandArgument="WORDOPENXML" OnClick="lbtnExport_Click"></asp:LinkButton>
+                               
+                                        
                                 </div>
                             </div>
                         </div>
@@ -168,80 +173,71 @@
                         <div class="portlet-body">
                             <div class="row" runat="server" id="Div_SearchResult" visible="false">
                                 <div class="col-md-12">
-                                    <div id="TableContent">
-                                        <table class="table table-bordered table-advanced table-striped table-hover" id="sample_1">
-                                            <%-- Table Header --%>
-                                            <thead>
-                                                <tr class="TRDark">
-                                                    <th>
-                                                        <asp:Label ID="lbhExpenseTypeID" runat="server" Text="Expense Type"></asp:Label>
-                                                    </th>
-                                                    <th class="text-right">
-                                                        <asp:Label ID="lbhAmount" runat="server" Text="Amount"></asp:Label>
-                                                    </th>
-                                                    <th class="text-center">
-                                                        <asp:Label ID="lbhExpenseDate" runat="server" Text="Expense Date"></asp:Label>
-                                                    </th>
-                                                    <th>
-                                                        <asp:Label ID="lbhHospitalID" runat="server" Text="Hospital"></asp:Label>
-                                                    </th>
-                                                    <th>
-                                                        <asp:Label ID="lbhFinYearID" runat="server" Text="Fin Year"></asp:Label>
-                                                    </th>
-                                                    <th>
-                                                        <asp:Label ID="lbhTagName" runat="server" Text="TagName"></asp:Label>
-                                                    </th>
 
-                                                </tr>
-                                            </thead>
-                                            <%-- END Table Header --%>
 
-                                            <tbody>
-                                                <asp:Repeater ID="rpData" runat="server">
-                                                    <ItemTemplate>
-                                                        <%-- Table Rows --%>
-                                                        <tr class="odd gradeX">
-                                                            <td>
-                                                                <asp:HyperLink ID="hlViewExpenseID" NavigateUrl='<%# "~/AdminPanel/Account/ACC_Expense/ACC_ExpenseView.aspx?ExpenseID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("ExpenseID").ToString()) %>' data-target="#viewiFrameReg" CssClass="modalButton" data-toggle="modal" runat="server"><%#Eval("ExpenseType") %></asp:HyperLink>
-                                                            </td>
-                                                            <td class="text-right">
-                                                                <%#Eval("Amount",GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <%#Eval("ExpenseDate", GNForm3C.CV.DefaultDateFormatForGrid) %>
-                                                            </td>
-                                                            <td>
-                                                                <%#Eval("Hospital") %>
-                                                            </td>
-                                                            <td>
-                                                                <%#Eval("FinYearName") %>
-                                                            </td>
-                                                            <td>
-                                                                <%#Eval("TagName") %>
-                                                            </td>
+                                    <table class="table table-bordered   table-striped table-hover" id="sample_1">
+                                        <asp:Repeater ID="rptGroupedExpenses" runat="server" OnItemDataBound="rptGroupedExpenses_ItemDataBound">
 
-                                                        </tr>
-                                                        <%-- END Table Rows --%>
-                                                    </ItemTemplate>
-                                                </asp:Repeater>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                            <ItemTemplate>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="TRDark">
+                                                            <strong><%# Eval("ExpenseDate",  GNForm3C.CV.DefaultDateFormatForGrid) %> </strong>
+                                                        </th>
+                                                        <th colspan="3"></th>
+                                                    </tr>
 
+                                                    <tr class="table-header TRDark">
+                                                        <th>Fin Year</th>
+                                                        <th>Expense Type</th>
+                                                        <th class="text-right">Amount</th>
+                                                        <th>Tag Name</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <asp:Repeater ID="rptExpenses" runat="server">
+                                                        <ItemTemplate>
+                                                            <tr>
+                                                                <td><%# Eval("FinYearName") %></td>
+                                                                <td>
+                                                                    <asp:HyperLink ID="hlViewExpenseID" NavigateUrl='<%# "~/AdminPanel/Account/ACC_Expense/ACC_ExpenseView.aspx?ExpenseID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("ExpenseID").ToString()) %>' data-target="#viewiFrameReg" CssClass="modalButton" data-toggle="modal" runat="server"><%#Eval("ExpenseType") %></asp:HyperLink>
+                                                                </td>
+                                                                <td class="text-right"><%# Eval("Amount", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %></td>
+                                                                <td><%# Eval("TagName") %></td>
+                                                            </tr>
+
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                    <tr>
+                                                        <td></td>
+                                                        <th class="text-right">
+                                                            <asp:Label ID="lbhTotalAmount" runat="server" Text="Total Amount"></asp:Label>
+                                                        </th>
+                                                        <th class="text-right">
+                                                            <asp:Label ID="lblTotalAmount" runat="server" Text="0.00"></asp:Label>
+                                                        </th>
+                                                        <td></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="4" rowspan="2">&nbsp;</th>
+                                                    </tr>
+                                                </tbody>
+                                            </ItemTemplate>
+
+                                        </asp:Repeater>
+                                    </table>
                                     <%-- Pagination --%>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label class="control-label">
-                                                <asp:Label ID="lblRecordInfoBottom" Text="No entries found" runat="server">
-
+                                                <asp:Label ID="lblRecordInfoBottom" Text="No entries found" runat="server"> 
                                                 </asp:Label>
-
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                    </div>
-                                    <%-- END Pagination --%>
+                                    <div class="row"></div>
+                                    <%--END Pagination--%>
                                 </div>
                             </div>
                         </div>
@@ -255,6 +251,9 @@
             <asp:AsyncPostBackTrigger ControlID="btnClear" EventName="Click" />
             <asp:PostBackTrigger ControlID="lbtnExportExcel" />
             <asp:PostBackTrigger ControlID="lbtnExportPDF" />
+            <asp:PostBackTrigger ControlID="lbtnExportPDF_Custom" />
+            <asp:PostBackTrigger ControlID="lbtnExportExcel_Custom" />
+            <asp:PostBackTrigger ControlID="lbtnExportWord_Custom" />
         </Triggers>
     </asp:UpdatePanel>
     <%-- END List --%>
@@ -271,9 +270,8 @@
     <%-- END Loading  --%>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="cphScripts" runat="Server">
-    <script>
 
-
+    <script type="text/javascript"> 
         SearchGridUI('<%=btnSearch.ClientID%>', 'sample_1', 1);
     </script>
 </asp:Content>

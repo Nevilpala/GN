@@ -3,100 +3,88 @@
   "WorkspaceRootPath": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\reports\\rpt_acc_gntransaction\\rpt_acc_gntransactionpatientreceipt.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\reports\\rpt_acc_gntransaction\\rpt_acc_gntransactionpatientreceipt.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\reports\\rpt_acc_expense\\rpt_hospitalwisedatewiseexpenselist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\reports\\rpt_acc_expense\\rpt_hospitalwisedatewiseexpenselist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\reports\\rpt_acc_gntransaction\\rpt_acc_gntransactionpatientreceipt.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}|XML",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\reports\\rpt_acc_gntransaction\\rpt_acc_gntransactionpatientreceipt.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}|XML"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\reports\\rpt_acc_expense\\rpt_hospitalwisedatewiseexpenselist.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\reports\\rpt_acc_expense\\rpt_hospitalwisedatewiseexpenselist.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\account\\acc_gntransaction\\acc_gntransactionaddedit.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_gntransaction\\acc_gntransactionaddedit.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\account\\acc_gntransaction\\acc_gntransactionaddedit.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_gntransaction\\acc_gntransactionaddedit.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\reports\\rpt_acc_gntransaction\\rpt_acc_gntransactionpatientreceipt.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\reports\\rpt_acc_gntransaction\\rpt_acc_gntransactionpatientreceipt.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\reports\\rpt_acc_gntransaction\\rpt_acc_gntransactionpatientreceipt.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\reports\\rpt_acc_gntransaction\\rpt_acc_gntransactionpatientreceipt.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\default\\export.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:default\\export.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\account\\acc_gntransaction\\acc_gntransactionlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_gntransaction\\acc_gntransactionlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\account\\acc_gntransaction\\acc_gntransactionlist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_gntransaction\\acc_gntransactionlist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\reports\\rpt_acc_income\\rpt_acc_incomebyfinyearlist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\reports\\rpt_acc_income\\rpt_acc_incomebyfinyearlist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\master\\datatree\\mst_hospital_datatree.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\master\\datatree\\mst_hospital_datatree.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\default\\masterpage.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
       "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:default\\masterpage.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\app_code\\dataset\\acc_gntransaction\\dsacc_gntransaction.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\dataset\\acc_gntransaction\\dsacc_gntransaction.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\master\\datatree\\mst_hospital_datatree.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\master\\datatree\\mst_hospital_datatree.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\reports\\rpt_acc_expense\\rpt_hospitalwiseexpenselist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\reports\\rpt_acc_expense\\rpt_hospitalwiseexpenselist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\master\\mst_hospital\\mst_hospitallist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\master\\mst_hospital\\mst_hospitallist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\account\\acc_gntransaction\\acc_gntransactionview.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_gntransaction\\acc_gntransactionview.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\master\\mst_hospital\\mst_hospitallist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\master\\mst_hospital\\mst_hospitallist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\app_themes\\admin\\admin.skin||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_themes\\admin\\admin.skin||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\account\\acc_gntransaction\\acc_gntransactionaddedit.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_gntransaction\\acc_gntransactionaddedit.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\app_code\\bal\\master\\mst_hospital_datatreebalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\bal\\master\\mst_hospital_datatreebalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\app_code\\dal\\master\\mst_hospital_datatreedalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\dal\\master\\mst_hospital_datatreedalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\app_code\\bal\\master\\mst_hospitalbalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\bal\\master\\mst_hospitalbalbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\app_code\\dal\\master\\mst_hospital_datatreedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\dal\\master\\mst_hospital_datatreedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\account\\acc_transaction\\acc_transactionlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_transaction\\acc_transactionlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\app_code\\bal\\master\\mst_hospital_datatreebal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\bal\\master\\mst_hospital_datatreebal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\dashboard3.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\dashboard3.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\reports\\rpt_acc_expense\\rpt_hospitalwisedatewiseexpenselist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\reports\\rpt_acc_expense\\rpt_hospitalwisedatewiseexpenselist.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\account\\acc_gntransaction\\acc_gntransactionview.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\account\\acc_gntransaction\\acc_gntransactionview.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\reports\\rpt_acc_expense\\rpt_hospitalwisedatewiseexpenselist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\reports\\rpt_acc_expense\\rpt_hospitalwisedatewiseexpenselist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\reports\\rpt_acc_income\\rpt_hospitalwiseincometypewisedata.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\reports\\rpt_acc_income\\rpt_hospitalwiseincometypewisedata.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|n:\\nevil\\github\\gn\\gn\\gnwebform3c_codeb\\adminpanel\\dashboard3.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\dashboard3.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\reports\\rpt_acc_expense\\rpt_hospitalwiseexpenselist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\reports\\rpt_acc_expense\\rpt_hospitalwiseexpenselist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\dashboard2.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\dashboard2.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\reports\\rpt_acc_income\\rpt_acc_incomebyfinyearlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\reports\\rpt_acc_income\\rpt_acc_incomebyfinyearlist.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\app_code\\commonfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\commonfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\adminpanel\\reports\\rpt_acc_income\\rpt_hospitalwiseincometypewisedata.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:adminpanel\\reports\\rpt_acc_income\\rpt_hospitalwiseincometypewisedata.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\app_code\\dataset\\acc_income\\dsacc_income.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\dataset\\acc_income\\dsacc_income.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\app_code\\dataset\\acc_expense\\dsacc_expense.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
-      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:app_code\\dataset\\acc_expense\\dsacc_expense.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+      "AbsoluteMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{114C6AD1-DE29-4012-9E4B-F51FC6E5BCB6}|http://localhost:36742|solutionrelative:default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -109,130 +97,66 @@
           "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RPT_ACC_GNTransactionPatientReceipt.aspx.cs",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.aspx.cs",
-              "RelativeDocumentMoniker": "AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.aspx.cs",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.aspx.cs",
-              "RelativeToolTip": "AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.aspx.cs",
-              "ViewState": "AQIAAEkAAAAAAAAAAAAYwFkAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T06:45:41.894Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RPT_ACC_GNTransactionPatientReceipt.aspx",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.aspx",
-              "RelativeDocumentMoniker": "AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.aspx",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.aspx",
-              "RelativeToolTip": "AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.aspx",
+              "DocumentIndex": 2,
+              "Title": "MST_Hospital_DataTree.aspx",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Master\\DataTree\\MST_Hospital_DataTree.aspx",
+              "RelativeDocumentMoniker": "AdminPanel\\Master\\DataTree\\MST_Hospital_DataTree.aspx",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Master\\DataTree\\MST_Hospital_DataTree.aspx",
+              "RelativeToolTip": "AdminPanel\\Master\\DataTree\\MST_Hospital_DataTree.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-08-16T06:17:56.913Z",
+              "WhenOpened": "2024-09-09T07:04:47.356Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RPT_ACC_GNTransactionPatientReceipt.rdlc [Design]",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.rdlc",
-              "RelativeDocumentMoniker": "AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.rdlc",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.rdlc [Design]",
-              "RelativeToolTip": "AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.rdlc [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
-              "WhenOpened": "2024-08-16T08:43:53.126Z",
+              "Title": "MST_Hospital_DataTree.aspx.cs",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Master\\DataTree\\MST_Hospital_DataTree.aspx.cs",
+              "RelativeDocumentMoniker": "AdminPanel\\Master\\DataTree\\MST_Hospital_DataTree.aspx.cs",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Master\\DataTree\\MST_Hospital_DataTree.aspx.cs",
+              "RelativeToolTip": "AdminPanel\\Master\\DataTree\\MST_Hospital_DataTree.aspx.cs",
+              "ViewState": "AQIAAOMAAAAAAAAAAAAswCEBAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T11:50:09.237Z",
               "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RPT_ACC_GNTransactionPatientReceipt.rdlc [XML]",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.rdlc",
-              "RelativeDocumentMoniker": "AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.rdlc",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.rdlc [XML]",
-              "RelativeToolTip": "AdminPanel\\Reports\\RPT_ACC_GNTransaction\\RPT_ACC_GNTransactionPatientReceipt.rdlc [XML]",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGULAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
-              "WhenOpened": "2024-08-17T07:17:38.912Z",
-              "EditorCaption": " [XML]"
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "RPT_HospitalWiseDateWiseExpenseList.rdlc [Design]",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.rdlc",
-              "RelativeDocumentMoniker": "AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.rdlc",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.rdlc [Design]",
-              "RelativeToolTip": "AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.rdlc [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
-              "WhenOpened": "2024-08-17T06:51:09.969Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RPT_HospitalWiseDateWiseExpenseList.aspx",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx",
-              "RelativeDocumentMoniker": "AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx",
-              "RelativeToolTip": "AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-08-17T06:51:07.832Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Export.aspx.cs",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\Default\\Export.aspx.cs",
-              "RelativeDocumentMoniker": "Default\\Export.aspx.cs",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\Default\\Export.aspx.cs",
-              "RelativeToolTip": "Default\\Export.aspx.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAYwC4AAAAFAAAA",
+              "Title": "MST_HospitalList.aspx.cs",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Master\\MST_Hospital\\MST_HospitalList.aspx.cs",
+              "RelativeDocumentMoniker": "AdminPanel\\Master\\MST_Hospital\\MST_HospitalList.aspx.cs",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Master\\MST_Hospital\\MST_HospitalList.aspx.cs",
+              "RelativeToolTip": "AdminPanel\\Master\\MST_Hospital\\MST_HospitalList.aspx.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAuwN4AAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T06:11:34.25Z",
+              "WhenOpened": "2024-09-09T06:15:05.781Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "MasterPage.master",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\Default\\MasterPage.master",
-              "RelativeDocumentMoniker": "Default\\MasterPage.master",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\Default\\MasterPage.master",
-              "RelativeToolTip": "Default\\MasterPage.master",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-08-17T05:47:38.012Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ACC_GNTransactionAddEdit.aspx.cs",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx.cs",
-              "RelativeDocumentMoniker": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx.cs",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx.cs",
-              "RelativeToolTip": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx.cs",
-              "ViewState": "AQIAABQBAAAAAAAAAAAEwCgBAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T04:50:22.493Z",
+              "Title": "MST_HospitalList.aspx",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Master\\MST_Hospital\\MST_HospitalList.aspx",
+              "RelativeDocumentMoniker": "AdminPanel\\Master\\MST_Hospital\\MST_HospitalList.aspx",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Master\\MST_Hospital\\MST_HospitalList.aspx",
+              "RelativeToolTip": "AdminPanel\\Master\\MST_Hospital\\MST_HospitalList.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-09-09T06:13:15.427Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ACC_GNTransactionAddEdit.aspx",
               "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx",
               "RelativeDocumentMoniker": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx",
@@ -240,180 +164,215 @@
               "RelativeToolTip": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionAddEdit.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-08-16T13:00:31.584Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ACC_GNTransactionList.aspx",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx",
-              "RelativeDocumentMoniker": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx",
-              "RelativeToolTip": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-08-16T07:59:22.074Z",
+              "WhenOpened": "2024-09-09T10:55:20.527Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "ACC_GNTransactionList.aspx.cs",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx.cs",
-              "RelativeDocumentMoniker": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx.cs",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx.cs",
-              "RelativeToolTip": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionList.aspx.cs",
-              "ViewState": "AQIAAIIBAAAAAAAAAAAIwOcBAAAAAAAA",
+              "Title": "MST_Hospital_DataTreeDAL.cs",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\DAL\\Master\\MST_Hospital_DataTreeDAL.cs",
+              "RelativeDocumentMoniker": "App_Code\\DAL\\Master\\MST_Hospital_DataTreeDAL.cs",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\DAL\\Master\\MST_Hospital_DataTreeDAL.cs",
+              "RelativeToolTip": "App_Code\\DAL\\Master\\MST_Hospital_DataTreeDAL.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T07:59:36.477Z",
+              "WhenOpened": "2024-09-09T07:42:05.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MST_Hospital_DataTreeDALBase.cs",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\DAL\\Master\\MST_Hospital_DataTreeDALBase.cs",
+              "RelativeDocumentMoniker": "App_Code\\DAL\\Master\\MST_Hospital_DataTreeDALBase.cs",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\DAL\\Master\\MST_Hospital_DataTreeDALBase.cs",
+              "RelativeToolTip": "App_Code\\DAL\\Master\\MST_Hospital_DataTreeDALBase.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAADgv04AAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T07:41:28.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MST_HospitalBALBase.cs",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\BAL\\Master\\MST_HospitalBALBase.cs",
+              "RelativeDocumentMoniker": "App_Code\\BAL\\Master\\MST_HospitalBALBase.cs",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\BAL\\Master\\MST_HospitalBALBase.cs",
+              "RelativeToolTip": "App_Code\\BAL\\Master\\MST_HospitalBALBase.cs",
+              "ViewState": "AQIAAGQAAAAAAAAAAAAYwGIAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T07:39:02.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MST_Hospital_DataTreeBALBase.cs",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\BAL\\Master\\MST_Hospital_DataTreeBALBase.cs",
+              "RelativeDocumentMoniker": "App_Code\\BAL\\Master\\MST_Hospital_DataTreeBALBase.cs",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\BAL\\Master\\MST_Hospital_DataTreeBALBase.cs",
+              "RelativeToolTip": "App_Code\\BAL\\Master\\MST_Hospital_DataTreeBALBase.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAcwD4AAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T07:38:19.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MST_Hospital_DataTreeBAL.cs",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\BAL\\Master\\MST_Hospital_DataTreeBAL.cs",
+              "RelativeDocumentMoniker": "App_Code\\BAL\\Master\\MST_Hospital_DataTreeBAL.cs",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\BAL\\Master\\MST_Hospital_DataTreeBAL.cs",
+              "RelativeToolTip": "App_Code\\BAL\\Master\\MST_Hospital_DataTreeBAL.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T07:37:43.015Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "RPT_ACC_IncomeByFinYearList.aspx.cs",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Income\\RPT_ACC_IncomeByFinYearList.aspx.cs",
-              "RelativeDocumentMoniker": "AdminPanel\\Reports\\RPT_ACC_Income\\RPT_ACC_IncomeByFinYearList.aspx.cs",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Income\\RPT_ACC_IncomeByFinYearList.aspx.cs",
-              "RelativeToolTip": "AdminPanel\\Reports\\RPT_ACC_Income\\RPT_ACC_IncomeByFinYearList.aspx.cs",
-              "ViewState": "AQIAAD4AAAAAAAAAAAAgwEoAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T06:58:54.956Z",
+              "Title": "ACC_TransactionList.aspx",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_Transaction\\ACC_TransactionList.aspx",
+              "RelativeDocumentMoniker": "AdminPanel\\Account\\ACC_Transaction\\ACC_TransactionList.aspx",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_Transaction\\ACC_TransactionList.aspx",
+              "RelativeToolTip": "AdminPanel\\Account\\ACC_Transaction\\ACC_TransactionList.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-09-09T05:43:18.529Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ACC_GNTransactionView.aspx.cs",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx.cs",
-              "RelativeDocumentMoniker": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx.cs",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx.cs",
-              "RelativeToolTip": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAQwCUAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T06:53:06.21Z"
+              "DocumentIndex": 1,
+              "Title": "MasterPage.master",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\Default\\MasterPage.master",
+              "RelativeDocumentMoniker": "Default\\MasterPage.master",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\Default\\MasterPage.master",
+              "RelativeToolTip": "Default\\MasterPage.master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-09-09T05:40:14.23Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ACC_GNTransactionView.aspx",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx",
-              "RelativeDocumentMoniker": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx",
-              "RelativeToolTip": "AdminPanel\\Account\\ACC_GNTransaction\\ACC_GNTransactionView.aspx",
+              "DocumentIndex": 13,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Default.aspx",
+              "RelativeDocumentMoniker": "AdminPanel\\Default.aspx",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Default.aspx",
+              "RelativeToolTip": "AdminPanel\\Default.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-08-16T06:53:04.034Z"
+              "WhenOpened": "2024-09-09T04:43:42.866Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "RPT_HospitalWiseExpenseList.aspx.cs",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseExpenseList.aspx.cs",
-              "RelativeDocumentMoniker": "AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseExpenseList.aspx.cs",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseExpenseList.aspx.cs",
-              "RelativeToolTip": "AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseExpenseList.aspx.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAAmwE8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T06:45:08.252Z",
+              "Title": "Dashboard3.aspx",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Dashboard3.aspx",
+              "RelativeDocumentMoniker": "AdminPanel\\Dashboard3.aspx",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Dashboard3.aspx",
+              "RelativeToolTip": "AdminPanel\\Dashboard3.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-09-07T13:07:37.768Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "RPT_HospitalWiseExpenseList.aspx",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseExpenseList.aspx",
-              "RelativeDocumentMoniker": "AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseExpenseList.aspx",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseExpenseList.aspx",
-              "RelativeToolTip": "AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseExpenseList.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-08-16T06:45:05.101Z",
+              "DocumentIndex": 17,
+              "Title": "Dashboard3.aspx.cs",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Dashboard3.aspx.cs",
+              "RelativeDocumentMoniker": "AdminPanel\\Dashboard3.aspx.cs",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Dashboard3.aspx.cs",
+              "RelativeToolTip": "AdminPanel\\Dashboard3.aspx.cs",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAYwCcAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-07T13:13:23.98Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "RPT_HospitalWiseDateWiseExpenseList.aspx.cs",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx.cs",
-              "RelativeDocumentMoniker": "AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx.cs",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx.cs",
-              "RelativeToolTip": "AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx.cs",
-              "ViewState": "AQIAAFIAAAAAAAAAAAAiwF4AAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T06:44:56.788Z",
+              "Title": "RPT_HospitalWiseDateWiseExpenseList.aspx",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx",
+              "RelativeDocumentMoniker": "AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx",
+              "RelativeToolTip": "AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-09-07T06:26:33.018Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "RPT_HospitalWiseIncomeTypeWiseData.aspx.cs",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Income\\RPT_HospitalWiseIncomeTypeWiseData.aspx.cs",
-              "RelativeDocumentMoniker": "AdminPanel\\Reports\\RPT_ACC_Income\\RPT_HospitalWiseIncomeTypeWiseData.aspx.cs",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Income\\RPT_HospitalWiseIncomeTypeWiseData.aspx.cs",
-              "RelativeToolTip": "AdminPanel\\Reports\\RPT_ACC_Income\\RPT_HospitalWiseIncomeTypeWiseData.aspx.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T06:44:48.114Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "RPT_HospitalWiseIncomeTypeWiseData.aspx",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Income\\RPT_HospitalWiseIncomeTypeWiseData.aspx",
-              "RelativeDocumentMoniker": "AdminPanel\\Reports\\RPT_ACC_Income\\RPT_HospitalWiseIncomeTypeWiseData.aspx",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Income\\RPT_HospitalWiseIncomeTypeWiseData.aspx",
-              "RelativeToolTip": "AdminPanel\\Reports\\RPT_ACC_Income\\RPT_HospitalWiseIncomeTypeWiseData.aspx",
+              "Title": "Dashboard2.aspx",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Dashboard2.aspx",
+              "RelativeDocumentMoniker": "AdminPanel\\Dashboard2.aspx",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Dashboard2.aspx",
+              "RelativeToolTip": "AdminPanel\\Dashboard2.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-08-16T06:44:37.068Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "RPT_ACC_IncomeByFinYearList.aspx",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Income\\RPT_ACC_IncomeByFinYearList.aspx",
-              "RelativeDocumentMoniker": "AdminPanel\\Reports\\RPT_ACC_Income\\RPT_ACC_IncomeByFinYearList.aspx",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Income\\RPT_ACC_IncomeByFinYearList.aspx",
-              "RelativeToolTip": "AdminPanel\\Reports\\RPT_ACC_Income\\RPT_ACC_IncomeByFinYearList.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-08-16T06:39:49.718Z",
+              "WhenOpened": "2024-09-07T13:07:34.228Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "dsACC_Income.xsd",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\Dataset\\ACC_Income\\dsACC_Income.xsd",
-              "RelativeDocumentMoniker": "App_Code\\Dataset\\ACC_Income\\dsACC_Income.xsd",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\Dataset\\ACC_Income\\dsACC_Income.xsd",
-              "RelativeToolTip": "App_Code\\Dataset\\ACC_Income\\dsACC_Income.xsd",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
-              "WhenOpened": "2024-08-16T06:39:37.215Z"
+              "DocumentIndex": 19,
+              "Title": "CommonFunctions.cs",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\CommonFunctions.cs",
+              "RelativeDocumentMoniker": "App_Code\\CommonFunctions.cs",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\CommonFunctions.cs",
+              "RelativeToolTip": "App_Code\\CommonFunctions.cs",
+              "ViewState": "AQIAACABAAAAAAAAAAAlwCsBAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-07T11:17:25.145Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "dsACC_Expense.xsd",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\Dataset\\ACC_Expense\\dsACC_Expense.xsd",
-              "RelativeDocumentMoniker": "App_Code\\Dataset\\ACC_Expense\\dsACC_Expense.xsd",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\Dataset\\ACC_Expense\\dsACC_Expense.xsd",
-              "RelativeToolTip": "App_Code\\Dataset\\ACC_Expense\\dsACC_Expense.xsd",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
-              "WhenOpened": "2024-08-16T06:39:34.658Z"
+              "DocumentIndex": 20,
+              "Title": "Default.aspx.cs",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\Default.aspx.cs",
+              "RelativeDocumentMoniker": "Default.aspx.cs",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\Default.aspx.cs",
+              "RelativeToolTip": "Default.aspx.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAxwBAAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-07T10:41:24.3Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "dsACC_GNTransaction.xsd",
-              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\Dataset\\ACC_GNTransaction\\dsACC_GNTransaction.xsd",
-              "RelativeDocumentMoniker": "App_Code\\Dataset\\ACC_GNTransaction\\dsACC_GNTransaction.xsd",
-              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Code\\Dataset\\ACC_GNTransaction\\dsACC_GNTransaction.xsd",
-              "RelativeToolTip": "App_Code\\Dataset\\ACC_GNTransaction\\dsACC_GNTransaction.xsd",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
-              "WhenOpened": "2024-08-16T06:19:27.447Z",
+              "DocumentIndex": 5,
+              "Title": "Admin.skin",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Themes\\Admin\\Admin.skin",
+              "RelativeDocumentMoniker": "App_Themes\\Admin\\Admin.skin",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\App_Themes\\Admin\\Admin.skin",
+              "RelativeToolTip": "App_Themes\\Admin\\Admin.skin",
+              "ViewState": "AQIAADIBAAAAAAAAAAApwEIBAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002845|",
+              "WhenOpened": "2024-09-07T09:49:01.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RPT_HospitalWiseDateWiseExpenseList.aspx.cs",
+              "DocumentMoniker": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx.cs",
+              "RelativeDocumentMoniker": "AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx.cs",
+              "ToolTip": "N:\\Nevil\\Github\\GN\\GN\\GNWebForm3C_CodeB\\AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx.cs",
+              "RelativeToolTip": "AdminPanel\\Reports\\RPT_ACC_Expense\\RPT_HospitalWiseDateWiseExpenseList.aspx.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAQwBoAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-07T06:27:25.995Z",
               "EditorCaption": ""
             }
           ]

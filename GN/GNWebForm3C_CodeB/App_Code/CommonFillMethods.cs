@@ -108,6 +108,7 @@ namespace GNForm3C
         }
         public static void FillDropDownListIncomeTypeIDByFinYearID(DropDownList ddl, SqlInt32 FinYearID, SqlInt32 HospitalID)
         {
+            FinYearID = SqlInt32.Null;
             MST_IncomeTypeBAL balMST_IncomeType = new MST_IncomeTypeBAL();
             ddl.DataSource = balMST_IncomeType.SelectComboBoxByFinYearID(FinYearID, HospitalID);
             ddl.DataValueField = "IncomeTypeID";
@@ -119,6 +120,15 @@ namespace GNForm3C
         {
             MST_IncomeTypeBAL balMST_IncomeType = new MST_IncomeTypeBAL();
             ddl.DataSource = balMST_IncomeType.SelectSingleComboBox();
+            ddl.DataValueField = "IncomeTypeID";
+            ddl.DataTextField = "IncomeType";
+            ddl.DataBind();
+            ddl.Items.Insert(0, new ListItem("Select Income Type", "-99"));
+        }
+        public static void FillSingleDropDownListIncomeTypeIDByHospitalID(DropDownList ddl,SqlInt32 HospitalID)
+        {
+            MST_IncomeTypeBAL balMST_IncomeType = new MST_IncomeTypeBAL();
+            ddl.DataSource = balMST_IncomeType.SelectComboBoxByHospitalID(HospitalID);
             ddl.DataValueField = "IncomeTypeID";
             ddl.DataTextField = "IncomeType";
             ddl.DataBind();

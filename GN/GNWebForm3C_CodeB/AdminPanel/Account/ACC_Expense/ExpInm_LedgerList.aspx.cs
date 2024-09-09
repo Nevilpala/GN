@@ -1,10 +1,7 @@
 ﻿using GNForm3C.BAL;
 using GNForm3C;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Web;
+using System; 
+using System.Data.SqlTypes; 
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;

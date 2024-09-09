@@ -10,12 +10,7 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
 {
-    //protected void Page_Load(object sender, EventArgs e)
-    //{
-    //    Session["UserID"] = 1;
-    //    Session["DisplayName"] = "Fixed Login";  
-
-    //}
+     
     #region Page Load Event
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -29,7 +24,7 @@ public partial class _Default : System.Web.UI.Page
             txtPassword.Text = "1";
             if (!string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text))
             {
-                lbtnLogin_Click(sender, e);
+                //lbtnLogin_Click(sender, e);
             }
             else
             {

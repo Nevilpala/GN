@@ -203,11 +203,11 @@
                                                     <th>
                                                         <asp:Label ID="lbhEnrollmentNo" runat="server" Text="EnrollmentNo"></asp:Label>
                                                     </th>
-                                                    <th>
+                                                    <th class="text-center">
                                                         <asp:Label ID="lbhRollNo" runat="server" Text="RollNo"></asp:Label>
                                                     </th>
 
-                                                    <th>
+                                                    <th class="text-center">
                                                         <asp:Label ID="lbhCurrentSem" runat="server" Text="Current sem"></asp:Label>
                                                     </th>
                                                     <th>
@@ -216,7 +216,7 @@
                                                     <th>
                                                         <asp:Label ID="lbhEmailPersonal" runat="server" Text="Persnol Email"></asp:Label>
                                                     </th>
-                                                    <th>
+                                                    <th class="text-center">
                                                         <asp:Label ID="lbhBirthDate" runat="server" Text="BirthDate"></asp:Label>
                                                     </th>
                                                     <th>
@@ -246,10 +246,10 @@
                                                             <td>
                                                                 <%#Eval("EnrollmentNo") %>
                                                             </td>
-                                                            <td>
+                                                            <td class="text-center">
                                                                 <%#Eval("RollNo") %>
                                                             </td>
-                                                            <td>
+                                                            <td class="text-center">
                                                                 <%#Eval("CurrentSem") %>
                                                             </td>
                                                             <td>
@@ -258,8 +258,8 @@
                                                             <td>
                                                                 <%#Eval("EmailPersonal") %>
                                                             </td>
-                                                            <td>
-                                                                <%#Eval("BirthDate") %>
+                                                            <td class="text-center">
+                                                                <%#Eval("BirthDate",GNForm3C.CV.DefaultDateFormatForGrid) %>
                                                             </td>
                                                             <td>
                                                                 <%#Eval("ContactNo") %>

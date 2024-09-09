@@ -8,7 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Microsoft.Reporting.WebForms;
+using Microsoft.Reporting.WebForms; 
 
 public partial class AdminPanel_Reports_RPT_ACC_Expense_RPT_HospitalWiseDateWiseExpenseList : System.Web.UI.Page
 {
@@ -45,7 +45,7 @@ public partial class AdminPanel_Reports_RPT_ACC_Expense_RPT_HospitalWiseDateWise
             SetDefaultDateTime();
 
             #endregion 12.2 Set Default Value
-          
+
 
             #region 12.3 Set Help Text
             ucHelp.ShowHelp("Help Text will be shown here");
@@ -124,8 +124,8 @@ public partial class AdminPanel_Reports_RPT_ACC_Expense_RPT_HospitalWiseDateWise
             Div_SearchResult.Visible = false;
             Div_ExportOption.Visible = false;
 
-            rpData.DataSource = null;
-            rpData.DataBind();
+            CommonFunctions.BindEmptyRepeater(rptGroupedExpenses);
+
             lblRecordInfoBottom.Text = CommonMessage.NoRecordFound();
             lblRecordInfoTop.Text = CommonMessage.NoRecordFound();
             ucMessage.ShowError("FromDate Must Be Less than ToDate");
@@ -143,25 +143,62 @@ public partial class AdminPanel_Reports_RPT_ACC_Expense_RPT_HospitalWiseDateWise
         {
             Div_SearchResult.Visible = true;
             Div_ExportOption.Visible = true;
-            rpData.DataSource = dtACC_Expense;
-            rpData.DataBind();
-
+            var groupedData = dtACC_Expense.AsEnumerable()
+               .GroupBy(row => row.Field<DateTime>("ExpenseDate"))
+               .Select(g => new
+               {
+                   ExpenseDate = g.Key,
+                   Details = g.CopyToDataTable(),
+                   TotalAmount = g.Sum(row => row.Field<decimal>("Amount"))
+               }).ToList();
+           
+            rptGroupedExpenses.DataSource = groupedData;
+            rptGroupedExpenses.DataBind(); 
+           
             lblRecordInfoBottom.Text = String.Empty;
             lblRecordInfoTop.Text = String.Empty;
             ShowReport();
 
         }
         else
-        {
-
-            rpData.DataSource = null;
-            rpData.DataBind();
+        {  
+            CommonFunctions.BindEmptyRepeater(rptGroupedExpenses);
             lblRecordInfoBottom.Text = CommonMessage.NoRecordFound();
             lblRecordInfoTop.Text = CommonMessage.NoRecordFound();
             ucMessage.ShowError(CommonMessage.NoRecordFound());
         }
     }
+    protected void rptGroupedExpenses_ItemDataBound(object sender, RepeaterItemEventArgs e)
+    {
+        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+        {
 
+            var dataItem = (dynamic)e.Item.DataItem;
+            var expenseDate = dataItem.ExpenseDate;
+            var dtDetails = dataItem.Details;
+
+            Label lblTotalAmount = (Label)e.Item.FindControl("lblTotalAmount"); 
+            lblTotalAmount.Text = string.Format(CV.DefaultCurrencyFormatWithDecimalPoint, dataItem.TotalAmount);
+
+            var rptExpenses = (Repeater)e.Item.FindControl("rptExpenses");
+            rptExpenses.DataSource = dtDetails;
+            rptExpenses.DataBind();
+        }
+    }
+    //protected void rptGroupedExpenses_ItemDataBound(object sender, RepeaterItemEventArgs e)
+    //{
+    //    if (e.Item.ItemType == ListItemType.DataItem)
+    //    {
+    //        var dataItem = (dynamic)e.Item.DataItem;
+    //        var rptExpenses = (Repeater)e.Item.FindControl("rptExpenses");
+
+    //        if (rptExpenses != null)
+    //        {
+    //            rptExpenses.DataSource = dataItem.Expenses;
+    //            rptExpenses.DataBind();
+    //        }
+    //    }
+    //}
     #endregion 15.2 Search Function
 
     #endregion 15.0 Search
@@ -178,7 +215,7 @@ public partial class AdminPanel_Reports_RPT_ACC_Expense_RPT_HospitalWiseDateWise
     #region 17.0 ItemDataBound Event
 
     #endregion 17.0 ItemDataBound Event
-     
+
     #region 18.0 Export Data
 
     #region 18.1 Excel Export Button Click Event
@@ -205,7 +242,7 @@ public partial class AdminPanel_Reports_RPT_ACC_Expense_RPT_HospitalWiseDateWise
 
         if (ddlHospitalID.SelectedIndex > 0)
             HospitalID = Convert.ToInt32(ddlHospitalID.SelectedValue);
-         
+
         #endregion Gather Data
 
         ACC_ExpenseBAL balACC_Expense = new ACC_ExpenseBAL();
@@ -220,29 +257,12 @@ public partial class AdminPanel_Reports_RPT_ACC_Expense_RPT_HospitalWiseDateWise
     private void ExportReport(string format)
     {
         try
-        {
-            string mimeType, encoding, extension;
-            Warning[] warnings;
-            string[] streamIds;
-
-            byte[] bytes = rvExpense.LocalReport.Render(format,
-                                                        null,
-                                                        out mimeType,
-                                                        out encoding,
-                                                        out extension,
-                                                        out streamIds,
-                                                        out warnings);
-
-            Response.Clear();
-            Response.ContentType = mimeType;
-            Response.AddHeader("Content-Disposition", "attachment; filename=report." + extension);
-            Response.BinaryWrite(bytes);
-            Response.End();
-
+        { 
+            CommonFunctions.ExportRDLC(rvExpense.LocalReport,"Report", format, Response); 
         }
         catch (Exception ex)
         {
-            ucMessage.ShowError(format + " is Not Correct Format");
+            ucMessage.ShowError(format + " is Not Correct Format"); 
         }
 
     }
@@ -259,7 +279,7 @@ public partial class AdminPanel_Reports_RPT_ACC_Expense_RPT_HospitalWiseDateWise
     }
 
     #endregion 19.0 Cancel Button Event
-     
+
     #region 20.0 ClearControls
 
     private void ClearControls()
@@ -276,7 +296,7 @@ public partial class AdminPanel_Reports_RPT_ACC_Expense_RPT_HospitalWiseDateWise
     }
 
     #endregion 20.0 ClearControls
-     
+
     #region 21.0 SetDefaultDateTime
     private void SetDefaultDateTime()
     {
@@ -286,7 +306,7 @@ public partial class AdminPanel_Reports_RPT_ACC_Expense_RPT_HospitalWiseDateWise
         dtpToDate.Text = Convert.ToDateTime(dateTime).AddMonths(1).AddDays(-1).Date.ToString("dd-MM-yyyy");
     }
     #endregion 21.0 SetDefaultDateTime
-     
+
     #region 22.0 REPORT
 
     #region  22.1  ShowReport

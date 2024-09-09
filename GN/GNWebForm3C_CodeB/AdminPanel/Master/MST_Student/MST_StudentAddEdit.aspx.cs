@@ -185,9 +185,6 @@ public partial class AdminPanel_Master_MST_Student_MST_StudentAddEdit : System.W
                 if (txtEnrollmentNo.Text.Trim() != String.Empty)
                     entMST_Student.EnrollmentNo = txtEnrollmentNo.Text.Trim();
 
-                if (txtEnrollmentNo.Text.Trim() != String.Empty)
-                    entMST_Student.EnrollmentNo = txtEnrollmentNo.Text.Trim();
-
                 if (txtRollNo.Text.Trim() != String.Empty)
                     entMST_Student.RollNo = Convert.ToInt32(txtRollNo.Text.Trim());
 
@@ -202,9 +199,6 @@ public partial class AdminPanel_Master_MST_Student_MST_StudentAddEdit : System.W
 
                 if (txtContactNo.Text.Trim() != String.Empty)
                     entMST_Student.ContactNo = txtContactNo.Text.Trim();
-
-                if (txtEnrollmentNo.Text.Trim() != String.Empty)
-                    entMST_Student.EnrollmentNo = txtEnrollmentNo.Text.Trim();
 
                 if (ddlCurrentSem.SelectedIndex > 0)
                     entMST_Student.CurrentSem = Convert.ToInt32(ddlCurrentSem.SelectedValue);

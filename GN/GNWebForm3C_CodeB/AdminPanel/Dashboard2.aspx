@@ -1,16 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default/MasterPage.master" AutoEventWireup="true" CodeFile="Dashboard2.aspx.cs" Inherits="AdminPanel_Dashboard2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphPageHeader" runat="Server">
-    <asp:Label ID="lblPageHeader_XXXXX" Text="Master Dashboard" runat="server"></asp:Label>
+    <asp:Label ID="lblPageHeader_XXXXX" Text="Master Dashboard By Finyear" runat="server"></asp:Label>
     <span class="pull-right">
         <small>
-            <asp:HyperLink ID="hlShowHelp" SkinID="hlShowHelp" runat="server"></asp:HyperLink>2
+            <asp:HyperLink ID="hlShowHelp" SkinID="hlShowHelp" runat="server"></asp:HyperLink>
         </small>
     </span>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphBreadcrumb" runat="Server">
+    <li>
+        <i class="fa fa-home"></i>
+        <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/AdminPanel/Dashboard2.aspx" Text="Dashboard"></asp:HyperLink>
+    </li>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphPageContent" runat="Server">
     <ucHelp:ShowHelp ID="ucHelp" runat="server" />
@@ -74,8 +79,7 @@
                         </div>
                     </div>
                     <div class="row" id="displayContent" runat="server">
-                        <div class="col-md-12">
-
+                        <div class="col-md-12"> 
                             <asp:UpdatePanel ID="upCount" runat="server" EnableViewState="true" UpdateMode="Conditional" ChildrenAsTriggers="false">
                                 <ContentTemplate>
                                     <div class="portlet light">
@@ -140,6 +144,31 @@
                                 </ContentTemplate>
                             </asp:UpdatePanel>
 
+                            <asp:UpdatePanel ID="upChart" runat="server" EnableViewState="true" UpdateMode="Conditional" ChildrenAsTriggers="false">
+                                <ContentTemplate>
+                                    <div class="portlet light">
+                                        <div class="portlet-title">
+                                            <div class="caption font-green">
+                                                <i class="fa fa-line-chart font-green"></i>
+                                                <span class="caption-subject bold uppercase">Chart</span>
+                                            </div>
+                                            <div class="tools"></div>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-horizontal" role="form">
+                                                <div class="form-body">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div id="chart_div"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+
                             <asp:UpdatePanel ID="UpList" runat="server" EnableViewState="true" UpdateMode="Conditional" ChildrenAsTriggers="false">
                                 <ContentTemplate>
                                     <div class="portlet">
@@ -159,7 +188,7 @@
 
                             <asp:UpdatePanel ID="upTabview" runat="server" EnableViewState="true" UpdateMode="Conditional" ChildrenAsTriggers="false">
                                 <ContentTemplate>
-                                    <div class="portlet">
+                                    <div class="portlet"> 
                                         <div class="portlet-body form">
                                             <div class="form-horizontal" role="form">
                                                 <div class="form-body">
@@ -169,7 +198,7 @@
                                                             <div class="portlet box yellow">
                                                                 <div class="portlet-title">
                                                                     <div class="caption">
-                                                                        <i class="fa fa-h-square "></i></i>  TabView
+                                                                        <i class="fa fa-h-square "></i></i>  Analysis
                                                                     </div>
                                                                     <div class="tools">
                                                                         <a href="javascript:;" class="collapse" data-original-title="" title=""></a>
@@ -179,16 +208,16 @@
                                                                     <div class="tools ">
                                                                         <ul class="nav nav-tabs">
                                                                             <li class="active">
-                                                                                <asp:LinkButton ID="lbtnCol" runat="server" href="#tab_Inc_CategoryWiseIncomeTotalList" Text="CategoryWiseIncomeTotalList" data-toggle="tab"></asp:LinkButton>
+                                                                                <asp:LinkButton ID="lbtnCol" runat="server" href="#tab_Inc_CategoryWiseIncomeTotalList" Text="Category Wise Income Total List" data-toggle="tab"></asp:LinkButton>
                                                                             </li>
                                                                             <li class="">
-                                                                                <asp:LinkButton ID="LinkButton3" runat="server" href="#tab_Inc_CategoryWiseExpenseTotalList" Text="CategoryWiseExpenseTotalList" data-toggle="tab"></asp:LinkButton>
+                                                                                <asp:LinkButton ID="LinkButton3" runat="server" href="#tab_Inc_CategoryWiseExpenseTotalList" Text="Category Wise Expense Total List" data-toggle="tab"></asp:LinkButton>
                                                                             </li>
                                                                             <li class="">
-                                                                                <asp:LinkButton ID="LinkButton4" runat="server" href="#tab_Inc_HospitalWisePatientCountList" Text="HospitalWisePatientCountList" data-toggle="tab"></asp:LinkButton>
+                                                                                <asp:LinkButton ID="LinkButton4" runat="server" href="#tab_Inc_HospitalWisePatientCountList" Text="Hospital Wise Patient Count List" data-toggle="tab"></asp:LinkButton>
                                                                             </li>
                                                                             <li class="">
-                                                                                <asp:LinkButton ID="LinkButton1" runat="server" href="#tab_Inc_AccountTranscationList" Text="AccountTranscationList" data-toggle="tab"></asp:LinkButton>
+                                                                                <asp:LinkButton ID="LinkButton1" runat="server" href="#tab_Inc_AccountTranscationList" Text="Account Transcation List" data-toggle="tab"></asp:LinkButton>
                                                                             </li>
                                                                         </ul>
                                                                     </div>
@@ -208,8 +237,12 @@
                                                                                                         <th class="text-center">
                                                                                                             <asp:Label runat="server" Text="Sr."></asp:Label>
                                                                                                         </th>
+
                                                                                                         <th class="text-center">
                                                                                                             <asp:Label ID="lbhIncomeType" runat="server" Text="Income Type"></asp:Label>
+                                                                                                        </th>
+                                                                                                        <th class="text-center">
+                                                                                                            <asp:Label ID="lbhHospital" runat="server" Text="Hospital"></asp:Label>
                                                                                                         </th>
                                                                                                         <th class="text-center">
                                                                                                             <asp:Label ID="lbhTotal" runat="server" Text="Total"></asp:Label>
@@ -228,8 +261,12 @@
                                                                                                                 <td>
                                                                                                                     <%# Container.ItemIndex + 1 %>
                                                                                                                 </td>
+
                                                                                                                 <td class="">
                                                                                                                     <%#Eval("IncomeType")%>
+                                                                                                                </td>
+                                                                                                                <td class="">
+                                                                                                                    <%#Eval("Hospital")%>
                                                                                                                 </td>
                                                                                                                 <td class="text-right">
                                                                                                                     <%#Eval("Total", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
@@ -259,6 +296,9 @@
                                                                                                             <asp:Label ID="lblExpenseType" runat="server" Text="Expense Type"></asp:Label>
                                                                                                         </th>
                                                                                                         <th class="text-center">
+                                                                                                            <asp:Label ID="Label2" runat="server" Text="Hospital"></asp:Label>
+                                                                                                        </th>
+                                                                                                        <th class="text-center">
                                                                                                             <asp:Label ID="lblTotal" runat="server" Text="Total"></asp:Label>
                                                                                                         </th>
 
@@ -275,8 +315,12 @@
                                                                                                                 <td>
                                                                                                                     <%# Container.ItemIndex + 1 %>
                                                                                                                 </td>
+
                                                                                                                 <td class="">
                                                                                                                     <%#Eval("ExpenseType")%>
+                                                                                                                </td>
+                                                                                                                <td class="">
+                                                                                                                    <%#Eval("Hospital")%>
                                                                                                                 </td>
                                                                                                                 <td class="text-right">
                                                                                                                     <%#Eval("Total", GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint) %>
@@ -415,16 +459,16 @@
                                                                                                                 <td>
                                                                                                                     <%#Eval("Treatment") %>
                                                                                                                 </td>
-                                                                                                                <td>
+                                                                                                                <td class="text-right">
                                                                                                                     <%#Eval("Amount",GNForm3C.CV.DefaultCurrencyFormatWithOutDecimalPoint) %>
                                                                                                                 </td>
-                                                                                                                <td>
+                                                                                                                <td class="text-center">
                                                                                                                     <%#Eval("SerialNo") %>
                                                                                                                 </td>
                                                                                                                 <td>
                                                                                                                     <%#Eval("ReferenceDoctor") %>
                                                                                                                 </td>
-                                                                                                                <td>
+                                                                                                                <td class="text-center">
                                                                                                                     <%#Eval("Count") %>
                                                                                                                 </td>
                                                                                                                 <td>
@@ -433,25 +477,25 @@
                                                                                                                 <td class="text-center">
                                                                                                                     <%#Eval("Date", GNForm3C.CV.DefaultDateFormatForGrid) %>
                                                                                                                 </td>
-                                                                                                                <td>
+                                                                                                                <td class="text-center">
                                                                                                                     <%#Eval("DateOfAdmission") %>
                                                                                                                 </td>
-                                                                                                                <td>
+                                                                                                                <td class="text-center">
                                                                                                                     <%#Eval("DateOfDischarge") %>
                                                                                                                 </td>
-                                                                                                                <td>
+                                                                                                                <td class="text-right">
                                                                                                                     <%#Eval("Deposite") %>
                                                                                                                 </td>
-                                                                                                                <td>
+                                                                                                                <td class="text-right">
                                                                                                                     <%#Eval("NetAmount",GNForm3C.CV.DefaultCurrencyFormatWithOutDecimalPoint) %>
                                                                                                                 </td>
-                                                                                                                <td>
+                                                                                                                <td class="text-center">
                                                                                                                     <%#Eval("NoOfDays") %>
                                                                                                                 </td>
                                                                                                                 <td>
                                                                                                                     <%#Eval("Hospital") %>
                                                                                                                 </td>
-                                                                                                                <td>
+                                                                                                                <td class="text-center">
                                                                                                                     <%#Eval("FinYearName") %>
                                                                                                                 </td>
                                                                                                                 <td>
@@ -508,4 +552,39 @@
     <%-- END Loading  --%>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="cphScripts" runat="Server">
+    <script type="text/javascript">
+
+        function chartLoad(data) {
+            google.charts.load('current', { 'packages': ['corechart'] });
+
+            google.charts.setOnLoadCallback(function () {
+                drawChart(data);
+            });
+
+        }
+        function drawChart(chartData) {
+            var dataTable = new google.visualization.DataTable();
+            dataTable.addColumn('string', 'Hospital');
+            dataTable.addColumn('number', 'TotalIncome');
+            dataTable.addColumn('number', 'TotalExpense');
+
+            var data = chartData.map(function (row) {
+                return [row.Hospital, row.TotalIncome, row.TotalExpense];
+            });
+            dataTable.addRows(data);
+
+            var options = {
+                title: 'Treatment Wise Summary',
+                hAxis: { title: 'Hospital', titleTextStyle: { color: '#333' } },
+                vAxis: { title: 'Amount', minValue: 0 },
+                legend: { position: 'top' },
+                bars: 'vertical', // Set to vertical for a column chart
+                height: 1000
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+            chart.draw(dataTable, options);
+        }
+</script>
+
 </asp:Content>

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Newtonsoft.Json;
 
 public partial class AdminPanel_Dashboard2 : System.Web.UI.Page
 {
@@ -46,6 +47,7 @@ public partial class AdminPanel_Dashboard2 : System.Web.UI.Page
             #region 11.3 Set Help Text
             ucHelp.ShowHelp("Help Text will be shown here");
             #endregion 12.3 Set Help Text
+ 
         }
     }
 
@@ -57,7 +59,7 @@ public partial class AdminPanel_Dashboard2 : System.Web.UI.Page
     {
         if (ddlFinYearID.SelectedIndex > 0)
         {
-            SqlInt32 FinYearID = (SqlInt32) Convert.ToInt32(ddlFinYearID.SelectedValue);
+            SqlInt32 FinYearID = (SqlInt32)Convert.ToInt32(ddlFinYearID.SelectedValue);
 
             upDashboard.Visible = true;
 
@@ -74,6 +76,11 @@ public partial class AdminPanel_Dashboard2 : System.Web.UI.Page
             BindHospitalWisePatientCountList(FinYearID);
             BindAccountTranscationList(FinYearID);
 
+
+            string JsonData = ShowChart(FinYearID); 
+
+            ScriptManager.RegisterStartupScript(this, GetType(), "hello", "chartLoad(" + JsonData + ");", true);
+
         }
 
     }
@@ -81,12 +88,18 @@ public partial class AdminPanel_Dashboard2 : System.Web.UI.Page
     {
         if (ddlFinYearID.SelectedIndex <= 0)
         {
-            upDashboard.Visible = false;
+            upDashboard.Visible = false; 
         }
+        else
+        {
+            SqlInt32 FinYearID = (SqlInt32)Convert.ToInt32(ddlFinYearID.SelectedValue);
+            string JsonData = ShowChart(FinYearID);
+            ScriptManager.RegisterStartupScript(this, GetType(), "hello", "chartLoad(" + JsonData + ");", true);
+        }
+   
     }
     protected void btnShow_Click(object sender, EventArgs e)
-    {
-        //upDashboard.Visible = true;
+    { 
         Search(1);
 
     }
@@ -217,4 +230,19 @@ public partial class AdminPanel_Dashboard2 : System.Web.UI.Page
 
     #endregion 14.0 DropDownList
 
+
+    #region Chart
+
+    private string ShowChart(SqlInt32 FinYearID)
+    {
+        MST_DSB2BAL balMST_DSB2 = new MST_DSB2BAL();
+
+        DataTable dtchartData = balMST_DSB2.IncomeExpenseSumHospitalWise(FinYearID);
+
+        var jsonData = JsonConvert.SerializeObject(dtchartData); 
+
+        return jsonData;
+    }
+
+    #endregion Chart
 }

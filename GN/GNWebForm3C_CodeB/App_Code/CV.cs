@@ -139,6 +139,8 @@ namespace GNForm3C
         #region Default Display Formats
         public static string DefaultSQLDateFormat = "yyyy-MM-dd";
 
+        public static string DefaultSQLDateTimeFormat = "yyyy-MM-dd hh:mm tt";
+
 
         public static string DefaultDateFormat = "dd-MM-yyyy";
         public static string DefaultTimeFormat = "hh:mm tt";
@@ -158,6 +160,7 @@ namespace GNForm3C
         public static string DefaultCurrencyFormat = "{0:#,0}";
         public static string DefaultCurrencyFormatWithOutDecimalPoint = "{0:#,0}";
         public static string DefaultCurrencyFormatWithDecimalPoint = "{0:#,0.00}";
+        public static string DefaultCurrencyFormatWithDecimalPointCulture = "{0:C}";
         public static string DefaultDecimalFormat = "{0:0.00}";
         public static string DefaultDecimalFormat2DecimalPoints = "F";
         public static string DefaultNumberFormat = "{0:00}";
@@ -205,6 +208,7 @@ namespace GNForm3C
         public static string CommonImagePath = "~/Images/defaultIcon.jpg";
         public static string NoImagePath = "~/Images/noimage.png";
         public static string FacultyNoImagePath = "~/Images/Faculty_NoImg.jpeg";
+        public static string DefaultNoImagePath = "~/Default/Images/noImage.png";
         #endregion Default Images
 
         #region Default Units

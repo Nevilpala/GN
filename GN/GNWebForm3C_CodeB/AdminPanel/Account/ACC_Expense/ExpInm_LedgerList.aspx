@@ -153,9 +153,9 @@
                                                 <asp:Repeater ID="rpData" runat="server" OnItemCommand="rpData_ItemCommand" OnItemDataBound="rpData_ItemDataBound" OnPreRender="rpData_PreRender">
                                                     <ItemTemplate>
                                                         <%-- Table Rows --%>
-                                                        <tr id="trRow" class="odd gradeX" style="background-color: <%# Eval("ACC_ExpInm_LedgerType").ToString() == "Income" ? "lightgreen" : "lightcoral" %>;">
+                                                        <tr id="trRow" class="odd gradeX" style='<%# Eval("ACC_ExpInm_LedgerType").ToString() == "Income" ? "background-color:lightgreen;" : "background-color:lightcoral;" %>;'>
                                                             <td class="text-center">
-                                                                <%#Convert.ToDateTime(Eval("ACC_ExpInm_LedgerDate")).ToString("dd/MM/yyyy") %>
+                                                                <%#Convert.ToDateTime(Eval("ACC_ExpInm_LedgerDate")).ToString(GNForm3C.CV.DefaultDateFormat) %>
                                                             </td>
                                                             <td class="text-center">
                                                                 <%#Eval("ACC_ExpInm_LedgerType") %>

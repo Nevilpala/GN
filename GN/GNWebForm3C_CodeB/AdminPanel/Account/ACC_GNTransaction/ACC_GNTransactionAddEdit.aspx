@@ -69,7 +69,7 @@
                                             <asp:Label ID="lblFinYearID_XXXXX" runat="server" Text="Fin Year"></asp:Label>
                                         </label>
                                         <div class="col-md-5">
-                                            <asp:DropDownList ValidationGroup="vgTransaction" ID="ddlFinYearID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
+                                            <asp:DropDownList ValidationGroup="vgTransaction" ID="ddlFinYearID" CssClass="form-control select2me" runat="server" Enabled="false"></asp:DropDownList>
                                             <asp:RequiredFieldValidator ValidationGroup="vgTransaction" ID="rfvFinYearID" SetFocusOnError="True" runat="server" Display="Dynamic" ControlToValidate="ddlFinYearID" ErrorMessage="Select Fin Year" InitialValue="-99"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
@@ -110,7 +110,7 @@
                                         <asp:UpdatePanel ID="upPatient" runat="server" UpdateMode="Conditional">
 
                                             <ContentTemplate>
-                                                <div class="well" role="form" enctype="multipart/form-data">
+                                                <div class="well" role="form">
                                                     <div class="form-group row">
                                                         <label class="col-md-3 control-label" for="txtPatientName">Patient Name</label>
                                                         <div class="col-md-5">
@@ -175,7 +175,7 @@
                                                                     <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput">Remove </a>
 
                                                                 </div>
-                                     
+
                                                             </div>
 
 
@@ -189,12 +189,12 @@
                                                     </div>
                                                 </div>
                                             </ContentTemplate>
-                                      
+
                                         </asp:UpdatePanel>
                                     </asp:Panel>
 
 
-                                    <div class="form-group">
+                                    <div class="form-group" id="divTreatmentID" runat="server">
                                         <label class="col-md-3 control-label">
                                             <span class="required">*</span>
                                             <asp:Label ID="lblTreatmentID_XXXXX" runat="server" Text="Treatment"></asp:Label>
@@ -212,7 +212,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group" id="divQuantity" runat="server">
                                         <label class="col-md-3 control-label">
                                             <span class="required">*</span>
 
@@ -222,11 +222,11 @@
                                             <asp:TextBox ValidationGroup="vgTransaction" ID="txtQuantity" CssClass="form-control" runat="server" onkeypress="return IsPositiveInteger(event)" PlaceHolder="Enter Quantity" Text="1"></asp:TextBox>
                                             <asp:CompareValidator ValidationGroup="vgTransaction" ID="cvQuantity" runat="server" ControlToValidate="txtQuantity" ErrorMessage="Enter Quantity" SetFocusOnError="True" Operator="DataTypeCheck" Display="Dynamic" Type="Integer"></asp:CompareValidator>
                                             <asp:RequiredFieldValidator ValidationGroup="vgTransaction" ID="RequiredFieldValidator4" SetFocusOnError="True" Display="Dynamic" runat="server" ControlToValidate="txtQuantity" ErrorMessage="Enter Amount"></asp:RequiredFieldValidator>
-                                       
-                                            </div>
+
+                                        </div>
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group" id="divAmount" runat="server">
                                         <label class="col-md-3 control-label">
                                             <span class="required">*</span>
                                             <asp:Label ID="lblAmount_XXXXX" runat="server" Text="Amount"></asp:Label>
@@ -259,9 +259,9 @@
                                         </label>
                                         <div class="col-md-5">
                                             <div class="input-group input-medium date date-picker" data-date-format='<%=GNForm3C.CV.DefaultHTMLDateFormat.ToString()%>'>
-                                                <asp:TextBox ValidationGroup="vgTransaction" ID="dtpDateOfAdmission" CssClass="form-control" runat="server" placeholder="Date Of Admission" ReadOnly="true"></asp:TextBox>
+                                                <asp:TextBox ValidationGroup="vgTransaction" ID="dtpDateOfAdmission" CssClass="form-control" runat="server" placeholder="Date Of Admission"></asp:TextBox>
                                                 <span class="input-group-btn">
-                                                    <button class="btn default" type="button" disabled><i class="fa fa-calendar"></i></button>
+                                                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
                                                 </span>
                                             </div>
                                         </div>
@@ -353,7 +353,7 @@
             </div>
         </ContentTemplate>
         <Triggers>
-            <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
+            <asp:PostBackTrigger ControlID="btnSave"  />
             <asp:AsyncPostBackTrigger ControlID="ddlPatientID" />
             <asp:PostBackTrigger ControlID="btnSavePatient" />
 

@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default/MasterPage.master" AutoEventWireup="true" CodeFile="ACC_GNTransactionList.aspx.cs" Inherits="AdminPanel_Account_ACC_GNTransaction_ACC_GNTransactionList" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphPageHeader" runat="Server">
@@ -52,10 +55,48 @@
                                             <span class="input-group-addon">
                                                 <i class="fa fa-search"></i>
                                             </span>
-                                            <asp:DropDownList ID="ddlPatientID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddlHospitalID" CssClass="form-control select2me" runat="server" AutoPostBack="true"></asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <asp:TextBox ID="txtPatientID" CssClass="form-control" runat="server" PlaceHolder="Enter Patient" AutoPostBack="true" OnTextChanged="OnTextChanged_txtPatientID"></asp:TextBox>
+                                            <asp:HiddenField ID="hfPatientID" runat="server" />
+                                            <asp:AutoCompleteExtender
+                                                ID="acePatientID"
+                                                runat="server"
+                                                TargetControlID="txtPatientID"
+                                                ServiceMethod="GetPatientList"
+                                                ServicePath="~/WebServices/WebService_MST_Patient.asmx"
+                                                MinimumPrefixLength="2"
+                                                CompletionSetCount="10"
+                                                CompletionListCssClass="list-group fix-height"
+                                                CompletionListItemCssClass="list-group-item"
+                                                CompletionListHighlightedItemCssClass="list-group-item bg-grey hover-cursor"
+                                                FirstRowSelected="true"
+                                                EnableCaching="true"
+                                                OnClientItemSelected="ClientItemSelectedPatient"
+                                                ContextKey=""
+                                                UseContextKey="true">
+                                            </asp:AutoCompleteExtender>
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-filter"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%-- <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                            <asp:DropDownList ID="ddlPatientID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
+                                        </div>
+                                    </div>
+                                </div>--%>
                                 <%--	<div class="col-md-4">
 									<div class="form-group">
 										<div class="input-group">
@@ -73,17 +114,6 @@
                                                 <i class="fa fa-search"></i>
                                             </span>
                                             <asp:DropDownList ID="ddlReceiptTypeID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-search"></i>
-                                            </span>
-                                            <asp:DropDownList ID="ddlFinYearID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +135,7 @@
                                             <span class="input-group-addon">
                                                 <i class="fa fa-search"></i>
                                             </span>
-                                            <asp:DropDownList ID="ddlHospitalID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddlFinYearID" CssClass="form-control select2me" runat="server"></asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>
@@ -391,7 +421,7 @@
                                                             </td>
                                                             <td class="text-nowrap text-center">
                                                                 <asp:HyperLink ID="hlView" SkinID="View" NavigateUrl='<%# "~/AdminPanel/Account/ACC_GNTransaction/ACC_GNTransactionView.aspx?TransactionID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("TransactionID").ToString()) %>' data-target="#viewiFrameReg" data-toggle="modal" runat="server"></asp:HyperLink>
-                                                                <%--<asp:HyperLink ID="hlEdit" SkinID="Edit" NavigateUrl='<%# "~/AdminPanel/Account/ACC_GNTransaction/ACC_GNTransactionAddEdit.aspx?TransactionID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("TransactionID").ToString()) %>' runat="server"></asp:HyperLink>--%>
+                                                                <asp:HyperLink ID="hlEdit" SkinID="Edit" NavigateUrl='<%# "~/AdminPanel/Account/ACC_GNTransaction/ACC_GNTransactionAddEdit.aspx?TransactionID=" + GNForm3C.CommonFunctions.EncryptBase64(Eval("TransactionID").ToString()) %>' runat="server"></asp:HyperLink>
                                                                 <asp:LinkButton ID="LinkButton1" runat="server"
                                                                     SkinID="Delete"
                                                                     OnClientClick="javascript:return confirm('Are you sure you want to Discharge?');"
@@ -506,5 +536,22 @@
         });
 
         SearchGridUI('<%=btnSearch.ClientID%>', 'sample_1', 1);
+
+        function ClientItemSelectedPatient(sender, e) {
+            $('<%= hfPatientID.ClientID %>').val(e.get_value().split(' - ')[0]);
+        }
+        $(document).ready(function () {
+
+            $('#<%= ddlHospitalID.ClientID %>').on('change', function () {
+                var autoCompleteExtender = $find('<%= acePatientID.ClientID %>');
+                if (autoCompleteExtender) {
+                    autoCompleteExtender.set_contextKey($(this).val());
+
+                }
+                console.log("ID : ");
+                console.log($(this).val());
+
+            });
+        });
     </script>
 </asp:Content>

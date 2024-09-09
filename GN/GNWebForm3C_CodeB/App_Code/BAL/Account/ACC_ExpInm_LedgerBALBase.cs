@@ -78,8 +78,25 @@ namespace GNForm3C.BAL
 
         #region ComboBox
 
-        
+
 
         #endregion ComboBox
+
+
+        #region Report
+        public DataTable RPT_FinYearWiseHospitalWiseIncomeExpense()
+        {
+            ACC_ExpInm_LedgerDAL dalACC_Expense = new ACC_ExpInm_LedgerDAL();
+            return dalACC_Expense.RPT_FinYearWiseHospitalWiseIncomeExpense();
+        }
+
+
+        public DataTable RPT_LedgerIncomeExpense(SqlInt32 HospitalID, SqlInt32 FinYearID, SqlDateTime FromDate, SqlDateTime ToDate)
+        {
+            ACC_ExpInm_LedgerDAL dalACC_Expense = new ACC_ExpInm_LedgerDAL();
+            return dalACC_Expense.RPT_LedgerIncomeExpense(HospitalID,FinYearID,FromDate,ToDate);
+        }
+
+        #endregion Report
     }
 }

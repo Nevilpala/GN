@@ -22,11 +22,17 @@ using System.Security.Cryptography;
 using Microsoft.Reporting.Map.WebForms.BingMaps;
 using Microsoft.Reporting.WebForms;
 using Microsoft.Reporting.WinForms;
+using System.Drawing.Imaging;
+using ZXing;
 
 namespace GNForm3C
 {
     public class CommonFunctions
     {
+
+
+
+
         #region Constructor
         public CommonFunctions()
         {
@@ -40,7 +46,7 @@ namespace GNForm3C
         public static string EncryptPassword(String Password)
         {
             return Password;
-            
+
 
 
         }
@@ -146,7 +152,7 @@ namespace GNForm3C
 
         }
 
-       
+
         public static bool IsBase64Encoded(String str)
         {
             try
@@ -423,7 +429,7 @@ namespace GNForm3C
         }
 
 
-       
+
         public static string GetAcceptanceStatusLabelText(String Status)
         {
             string StatusText = string.Empty;
@@ -1230,7 +1236,7 @@ namespace GNForm3C
 
         #region FillDropDownList
 
-        
+
         #region Master
 
         public static void FillDropDownListAdmissionYear(DropDownList ddl)
@@ -1266,7 +1272,7 @@ namespace GNForm3C
             ddl.Items.Insert(0, new ListItem(" Select " + DropDownName, "-99"));
         }
 
-    
+
         public static void FillDropDownListYear(DropDownList ddl)
         {
             // Replace 2000 to Desired Starting Year
@@ -1442,7 +1448,7 @@ namespace GNForm3C
         {
             try
             {
-                
+
                 return true;
             }
             catch (Exception ex)
@@ -1452,7 +1458,7 @@ namespace GNForm3C
         }
         public static Boolean SendEmail(MailMessage mm, SqlInt32 EmailTemplateID, SqlString strParameters, SqlString FromEmail)
         {
-            
+
 
             try
             {
@@ -1471,7 +1477,7 @@ namespace GNForm3C
         {
             try
             {
-               
+
 
                 return true;
 
@@ -1487,7 +1493,7 @@ namespace GNForm3C
         {
             try
             {
-               
+
 
                 return true;
 
@@ -1505,12 +1511,12 @@ namespace GNForm3C
         public static void SaveErrorToDb(Exception ex)
         {
 
-          
+
         }
 
-                public static void Error(string message)
+        public static void Error(string message)
         {
-           
+
             return;
         }
 
@@ -1531,7 +1537,7 @@ namespace GNForm3C
 
         public static string GetClientIP()
         {
-          
+
             return HttpContext.Current.Request.UserHostAddress;
         }
 
@@ -1741,13 +1747,13 @@ namespace GNForm3C
             return Convert.ToInt32(DateTime.Parse(HourFormat).Hour) * 60 + Convert.ToInt32(DateTime.Parse(HourFormat).Minute);
         }
 
-    
+
 
         #endregion Common
 
-      
 
-        
+
+
 
 
         #region Get CSS Class
@@ -1785,7 +1791,7 @@ namespace GNForm3C
                 return CSSClass.False;
         }
 
-      
+
 
         public static string GetPendingCountCssClass(Int32 Count)
         {
@@ -1804,7 +1810,7 @@ namespace GNForm3C
         }
         #endregion Get CSS Class
 
-       
+
 
 
         #region Document
@@ -2146,8 +2152,91 @@ namespace GNForm3C
         #endregion Column Name of DataTable
 
 
-       
 
+        public static byte[] GenerateBarcode(string data)
+        {
+            var barcodeWriter = new BarcodeWriter
+            {
+                Format = BarcodeFormat.CODE_128, // Specify the barcode format
+                Options = new ZXing.Common.EncodingOptions
+                {
+                    Height = 100,
+                    Width = 300
+                }
+            };
+
+            using (Bitmap bitmap = barcodeWriter.Write(data))
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    bitmap.Save(ms, ImageFormat.Png);
+                    return ms.ToArray(); // Return the barcode as a byte array
+                }
+            }
+        }
+
+
+        public static byte[] ConvertImagePathToPngBytes(string relativePath)
+        {
+            try
+            {
+                // Step 1: Get the physical path from the relative path
+                string physicalPath = HttpContext.Current.Server.MapPath(relativePath);
+
+                if (File.Exists(physicalPath))
+                {
+                    // Step 2: Read the image and convert it to PNG format
+                    using (MemoryStream outputStream = new MemoryStream())
+                    {
+                        using (System.Drawing.Image image = System.Drawing.Image.FromFile(physicalPath))
+                        {
+                            image.Save(outputStream, ImageFormat.Png);
+                            return outputStream.ToArray();
+                        }
+                    }
+                }
+                return null;
+
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+
+
+            }
+        }
+        public static void ExportRDLC(Microsoft.Reporting.WebForms.LocalReport localReport, string fileName, string format, HttpResponse response, Action<string> errorCallback = null)
+        {
+            try
+            {
+                // Render the report
+                string mimeType, encoding, extension;
+                Microsoft.Reporting.WebForms.Warning[] warnings;
+                string[] streamIds;
+
+                byte[] bytes = localReport.Render(
+                    format, // The format of the report ("PDF","Excel", "WORDOPENXML", etc.)
+                    null,   // DeviceInfo parameter
+                    out mimeType,
+                    out encoding,
+                    out extension,
+                    out streamIds,
+                    out warnings);
+
+                // Send the rendered bytes to the response
+                response.Clear();
+                response.ContentType = mimeType;
+                response.AddHeader("Content-Disposition", "attachment; filename=" + fileName + "." + extension);
+                response.BinaryWrite(bytes);
+                response.End();
+            }
+            catch (Exception ex)
+            {
+                // Trigger the error callback if provided, otherwise log the exception. 
+                //throw new Exception(ex.Message);
+            }
+        }
     }
 
 }

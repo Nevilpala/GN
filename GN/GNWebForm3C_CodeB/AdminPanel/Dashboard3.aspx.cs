@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Web.UI.HtmlControls;
+using Newtonsoft.Json;
 
 public partial class AdminPanel_Dashboard3 : System.Web.UI.Page
 {
@@ -37,7 +38,7 @@ public partial class AdminPanel_Dashboard3 : System.Web.UI.Page
             #endregion 11.1 DropDown List Fill Section
 
             #region 11.2 Set Default Value  
-
+            //lblSearchHeader.Text = "FinYear Wise Analysis";
             upr.DisplayAfter = CV.UpdateProgressDisplayAfter;
 
             #endregion 11.2 Set Default Value 
@@ -48,6 +49,8 @@ public partial class AdminPanel_Dashboard3 : System.Web.UI.Page
             #endregion 12.3 Set Help Text
 
             BindData();
+
+            //ScriptManager.RegisterStartupScript(this, GetType(), "hello", "drawChart();", true);
         }
     }
 
@@ -62,7 +65,6 @@ public partial class AdminPanel_Dashboard3 : System.Web.UI.Page
 
         rpFinYear.DataSource = dtFinYear;
         rpFinYear.DataBind();
-
 
         foreach (RepeaterItem rpAc in rpFinYear.Items)
         {
@@ -95,6 +97,7 @@ public partial class AdminPanel_Dashboard3 : System.Web.UI.Page
             lExpenseCount.Text = string.Format(GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint, Convert.ToDecimal(dtCount.Rows[0]["ExpenseCount"].ToString()));
             lDifferenceCount.Text = string.Format(GNForm3C.CV.DefaultCurrencyFormatWithDecimalPoint, Convert.ToDecimal(dtCount.Rows[0]["DifferenceCount"].ToString()));
 
+            //GetChartData(FinYearID); 
 
         }
 
@@ -237,8 +240,58 @@ public partial class AdminPanel_Dashboard3 : System.Web.UI.Page
 
     #endregion 14.0 DropDownList
 
-    public void rpData_OnItemDataBound(object sender, EventArgs e)
+    public void rpData_OnItemDataBound(object sender, RepeaterItemEventArgs e)
     {
-        SqlInt32 FinYearID = SqlInt32.Null;  
+
+        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+        {
+            // Find the HiddenField control in the current item
+            HiddenField hdFinyearID = (HiddenField)e.Item.FindControl("hdFinyearID");
+
+            // Get the FinYearID value from the HiddenField
+            SqlInt32 finYearID = Convert.ToInt32(hdFinyearID.Value);
+
+            // Fetch chart data specific to the repeater item
+            var chartData = GetChartData(finYearID);
+            var jsonData = JsonConvert.SerializeObject(chartData);
+
+            // Create a unique chartData variable for each repeater item
+            ClientScript.RegisterStartupScript(this.GetType(), "chartData_" + e.Item.ItemIndex,
+                "var chartData_" + e.Item.ItemIndex + " = " + jsonData + ";", true);
+        }
+
     }
+
+
+
+    #region Chart
+
+    //private void ShowChart()
+    //{
+    //    var chartData = GetChartData();
+    //    var jsonData = JsonConvert.SerializeObject(chartData);
+    //    ClientScript.RegisterStartupScript(this.GetType(), "chartData", "var chartData = "+jsonData+";", true);
+    //}
+    //private void GetChartData(SqlInt32 FinYearID)
+    //{
+    //    MST_DSB2BAL balMST_DSB2 = new MST_DSB2BAL();
+
+    //    DataTable dtchartData = balMST_DSB2.IncomeExpenseSumHospitalWise(FinYearID);
+    //    var jsonDataTable = JsonConvert.SerializeObject(dtchartData);
+
+
+    //    ClientScript.RegisterStartupScript(this.GetType(), "chartData", "var chartData_" + FinYearID + " = " + jsonDataTable + ";", true);
+    //    //return dtchartData;
+    //}
+    private DataTable GetChartData(SqlInt32 FinYearID)
+    {
+        MST_DSB2BAL balMST_DSB2 = new MST_DSB2BAL();
+
+        DataTable dtchartData = balMST_DSB2.IncomeExpenseSumHospitalWise(FinYearID);
+        var jsonDataTable = JsonConvert.SerializeObject(dtchartData);
+
+        return dtchartData;
+        //return dtchartData;
+    }
+    #endregion Chart
 }

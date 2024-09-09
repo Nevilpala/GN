@@ -288,13 +288,13 @@
                                     <li class="nav-item start ">
                                         <a href='<%=ResolveClientUrl("~/AdminPanel/Dashboard2.aspx") %>' class="kt-menu__link ">
                                             <i class="kt-menu__link-icon flaticon2-architecture-and-city"></i>
-                                            <span class="kt-menu__link-text">Master Dashboard 2</span>
+                                            <span class="kt-menu__link-text">Master Dashboard By Finyear</span>
                                         </a>
                                     </li>
                                     <li class="nav-item start ">
                                         <a href='<%=ResolveClientUrl("~/AdminPanel/Dashboard3.aspx") %>' class="kt-menu__link ">
                                             <i class="kt-menu__link-icon flaticon2-architecture-and-city"></i>
-                                            <span class="kt-menu__link-text">Master Dashboard 3</span>
+                                            <span class="kt-menu__link-text">Master Dashboard Wise All Finyear</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -309,6 +309,12 @@
                                     <span class="arrow"></span>
                                 </a>
                                 <ul class="sub-menu" style="display: none;">
+
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_Patient/MST_PatientList.aspx") %>' class="nav-link ">
+                                            <span class="title">Patient</span>
+                                        </a>
+                                    </li>
                                     <li class="nav-item  ">
                                         <a href='<%=ResolveClientUrl("~/AdminPanel/Master/MST_BranchIntake/MST_BranchIntakeMatrixAddEdit.aspx") %>' class="nav-link ">
                                             <span class="title">Branch Intake Matrix</span>
@@ -449,7 +455,21 @@
 
                                 </ul>
                             </li>
+                            <li class="nav-item">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Data Tree</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu" style="display: none;">
+                                    <li class="nav-item  ">
+                                        <a href='<%=ResolveClientUrl("~/AdminPanel/Master/DataTree/MST_Hospital_DataTree.aspx") %>' class="nav-link ">
+                                            <span class="title">Hospital DataTree (Income)</span>
+                                        </a>
+                                    </li>
 
+                                </ul>
+                            </li>
                             <li class="nav-item">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="icon-wrench"></i>
@@ -493,7 +513,33 @@
                                         </ul>
                                     </li>
 
+                                    <li class="nav-item ">
+                                        <a class="nav-link nav-toggle" href="javascript:void(0)">RPT Ledger <span class="arrow "></span></a>
+                                        <ul class="sub-menu">
+                                            <li class="nav-item  ">
+                                                <a href='<%=ResolveClientUrl("~/AdminPanel/Reports/RPT_ACC_Ledger/RPT_FinYearWiseHospitalWiseIncomeExpenseMatrix.aspx") %>' class="nav-link ">
+                                                    <span class="title">FinYearWise | HospitalWise IncomeExpenseMatrix </span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item  ">
+                                                <a href='<%=ResolveClientUrl("~/AdminPanel/Reports/RPT_ACC_Ledger/RPT_LedgerIncomeExpense.aspx") %>' class="nav-link ">
+                                                    <span class="title">Ledger</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
 
+                                    <li class="nav-item ">
+                                        <a class="nav-link nav-toggle" href="javascript:void(0)">RPT Patient <span class="arrow "></span></a>
+                                        <ul class="sub-menu">
+                                            <li class="nav-item  ">
+                                                <a href='<%=ResolveClientUrl("~/AdminPanel/Reports/RPT_MST_Patient/RPT_PatientIDCard.aspx") %>' class="nav-link ">
+                                                    <span class="title">Patient ID Card </span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
 
 
                                 </ul>
@@ -558,6 +604,13 @@
                 <div class="modal-body">
                     <iframe class="auto-height" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen msallowfullscreen="true" style="border: 0px; width: 100%;"
                         onload="this.height=this.contentWindow.document.body.scrollHeight;"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="viewiFrameSM" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-body">
+                    <iframe class="auto-height" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen msallowfullscreen="true" style="border: 0px; width: 100%;" onload="this.height=this.contentWindow.document.body.scrollHeight;"></iframe>
                 </div>
             </div>
         </div>

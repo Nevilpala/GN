@@ -132,16 +132,17 @@ public partial class AdminPanel_Master_MST_FinYear_MST_FinYearAddEditPopup : Sys
                 if (ErrorMsg != String.Empty)
                 {
                     ErrorMsg = CommonMessage.ErrorPleaseCorrectFollowing() + ErrorMsg;
-                    ucMessage1.ShowError(ErrorMsg);
-
+                    //ucMessage1.ShowError(ErrorMsg);
                     // Set the data-target attribute dynamically
-                    //btnSaveModel.Attributes["data-target"] = "#viewiFrameReg";
-                    //btnSaveModel.Attributes["data-toggle"] = "modal";
+                    btnSaveModel.Attributes["data-target"] = "#viewiFrameReg";
+                    btnSaveModel.Attributes["data-toggle"] = "modal";
 
                     // Use JavaScript to show the modal again
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "MasterPageView", "parent.$('#viewiFrameReg').modal('show');", true);
 
-                    IsValidate = false;
+                    IsValidate = false; 
+
+                    throw new Exception(ErrorMsg);
 
                 }
 
@@ -225,16 +226,14 @@ public partial class AdminPanel_Master_MST_FinYear_MST_FinYearAddEditPopup : Sys
             }
             catch (Exception ex)
             {
-
                 ucMessage1.ShowError(ex.Message);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "MasterPageView", "$('#viewiFrameReg').modal('show');", true);
-
-                return;
+                //throw;
             }
         }
         else
         {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "MasterPageView", "parent.$('#viewiFrameReg').modal('show');", true);
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "MasterPageView", "parent.$('#viewiFrameReg').modal('show');", true);
 
 
         }

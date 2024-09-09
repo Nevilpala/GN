@@ -170,15 +170,14 @@ public partial class AdminPanel_Reports_RPT_ACC_GNTransaction_RPT_ACC_GNTransact
     #region 22.3 SetReportParamater
     protected void SetReportParamater()
     {
-        String ReportTitle = "Hospital Wise | Date Wise Expense Report";
-        String ReportSubTitle = "";
+        String ReportTitle = "Hospital";
+        String ReportSubTitle = "RECEIPT";
         DateTime PrintDate = DateTime.Now;
         ReportParameter rptReportTitle = new ReportParameter("ReportTitle", ReportTitle);
         ReportParameter rptReportSubTitle = new ReportParameter("ReportSubTitle", ReportSubTitle);
         ReportParameter rptPrintDate = new ReportParameter("PrintDate", PrintDate.ToString());
 
         this.rvPatientReceipt.LocalReport.SetParameters(new ReportParameter[] { rptReportTitle, rptReportSubTitle, rptPrintDate });
-
     }
     #endregion 22.3 SetReportParamater 
 

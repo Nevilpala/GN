@@ -9,19 +9,26 @@ public partial class UserControl_ucPatient : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!IsPostBack)
+        {
+            hlPrint.DataBind();
 
+        }
     }
 
     public void ShowPatient(SqlInt32 PatientID)
     {
         MST_PatientBAL balMST_Patient = new MST_PatientBAL();
         System.Data.DataTable dtPatient = balMST_Patient.SelectView(PatientID);
+        imhPatient.ImageUrl = CV.DefaultNoImagePath;
 
         if (dtPatient != null)
         {
             foreach (DataRow dr in dtPatient.Rows)
             {
 
+                if (!dr["PatientID"].Equals(DBNull.Value))
+                    ViewState["PatientID"] = dr["PatientID"].ToString();
 
                 if (!dr["PatientName"].Equals(DBNull.Value))
                 {
@@ -34,7 +41,7 @@ public partial class UserControl_ucPatient : System.Web.UI.UserControl
                     lblucPatietAge.Text = Convert.ToString(dr["Age"]);
 
                 if (!dr["DOB"].Equals(DBNull.Value))
-                    lblucDOB.Text = Convert.ToDateTime(dr["DOB"]).ToString(CV.DefaultDateTimeFormat);
+                    lblucDOB.Text = Convert.ToDateTime(dr["DOB"]).ToString(CV.DefaultDateFormat);
 
                 if (!dr["MobileNo"].Equals(DBNull.Value))
                     lblucMobileNo.Text = Convert.ToString(dr["MobileNo"]);
@@ -43,14 +50,8 @@ public partial class UserControl_ucPatient : System.Web.UI.UserControl
                     lblucPrimaryDesc.Text = Convert.ToString(dr["PrimaryDesc"]);
 
                 if (!dr["PatientPhotoPath"].Equals(DBNull.Value))
-                {
                     imhPatient.ImageUrl = dr["PatientPhotoPath"].ToString();
-                }
-                else
-                {
-                    imhPatient.ImageUrl = "~/Default/Images/profile_user.jpg";
 
-                }
 
 
             }

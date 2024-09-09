@@ -38,6 +38,7 @@ Default skin template. The following skins are provided as examples only.
 <asp:Button SkinID="btnUpdate" runat="server" CssClass="btn blue" Text="Update" />
 
 <asp:Button SkinID="btnSave" runat="server" CssClass="btn green" Text="Save" />
+<asp:Button SkinID="btnSaveEmpty" runat="server" CssClass="btn green"/>
 <asp:Button SkinID="btnEdit" runat="server" CssClass="btn btn-xs btn-circle blue-soft tooltips " Text="Edit"/>
 <asp:Button SkinID="btnCancel" runat="server" CssClass="btn default" Text="Cancel"/>
 <asp:Button SkinID="btnLoad" runat="server" CssClass="btn blue" Text="Load" />
@@ -348,9 +349,24 @@ Default skin template. The following skins are provided as examples only.
       <i class="fa fa-file-pdf-o"></i> PDF
  </asp:LinkButton>
 
+ <asp:LinkButton SkinID="lbtnExportPDF_Custom" CssClass="btn default btn-sm red"  runat="server">
+      <i class="fa fa-file-pdf-o"></i> PDF
+ </asp:LinkButton>
+  
+<asp:LinkButton SkinID="lbtnExportWord_Custom" CssClass="btn default btn-sm yellow"  runat="server">
+     <i class="fa fa-file-pdf-o"></i> Word
+</asp:LinkButton>
+
+
+  <asp:LinkButton SkinID="lbtnExportExcel_Custom"  CssClass="btn default btn-sm green" runat="server" >
+      <i class="fa fa-file-excel-o"></i> Excel
+ </asp:LinkButton> 
+
   <asp:LinkButton SkinID="lbtnExportExcel" runat="server" >
       <i class="fa fa-file-excel-o"></i> Excel
  </asp:LinkButton>
+
+ 
 
 
   <asp:LinkButton SkinID="lbtnExportExcelAll" runat="server" >

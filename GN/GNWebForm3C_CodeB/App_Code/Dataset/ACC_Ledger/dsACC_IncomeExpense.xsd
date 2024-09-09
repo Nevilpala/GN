@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsACC_IncomeExpense" targetNamespace="http://tempuri.org/dsACC_IncomeExpense.xsd" xmlns:mstns="http://tempuri.org/dsACC_IncomeExpense.xsd" xmlns="http://tempuri.org/dsACC_IncomeExpense.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsACC_IncomeExpense" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsACC_IncomeExpense" msprop:Generator_DataSetName="dsACC_IncomeExpense">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtACC_IncomeExpense" msprop:Generator_RowEvHandlerName="dtACC_IncomeExpenseRowChangeEventHandler" msprop:Generator_RowDeletedName="dtACC_IncomeExpenseRowDeleted" msprop:Generator_RowDeletingName="dtACC_IncomeExpenseRowDeleting" msprop:Generator_RowEvArgName="dtACC_IncomeExpenseRowChangeEvent" msprop:Generator_TablePropName="dtACC_IncomeExpense" msprop:Generator_RowChangedName="dtACC_IncomeExpenseRowChanged" msprop:Generator_UserTableName="dtACC_IncomeExpense" msprop:Generator_RowChangingName="dtACC_IncomeExpenseRowChanging" msprop:Generator_RowClassName="dtACC_IncomeExpenseRow" msprop:Generator_TableClassName="dtACC_IncomeExpenseDataTable" msprop:Generator_TableVarName="tabledtACC_IncomeExpense">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FinYearName" msprop:Generator_ColumnPropNameInTable="FinYearNameColumn" msprop:Generator_ColumnPropNameInRow="FinYearName" msprop:Generator_UserColumnName="FinYearName" msprop:Generator_ColumnVarNameInTable="columnFinYearName" type="xs:string" minOccurs="0" />
+              <xs:element name="Hospital" msprop:Generator_ColumnPropNameInTable="HospitalColumn" msprop:Generator_ColumnPropNameInRow="Hospital" msprop:Generator_UserColumnName="Hospital" msprop:Generator_ColumnVarNameInTable="columnHospital" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalIncome" msprop:Generator_ColumnPropNameInTable="TotalIncomeColumn" msprop:Generator_ColumnPropNameInRow="TotalIncome" msprop:Generator_UserColumnName="TotalIncome" msprop:Generator_ColumnVarNameInTable="columnTotalIncome" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalExpense" msprop:Generator_ColumnPropNameInTable="TotalExpenseColumn" msprop:Generator_ColumnPropNameInRow="TotalExpense" msprop:Generator_UserColumnName="TotalExpense" msprop:Generator_ColumnVarNameInTable="columnTotalExpense" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalPatients" msdata:Caption="TotalPatient" msprop:Generator_ColumnPropNameInTable="TotalPatientsColumn" msprop:Generator_ColumnPropNameInRow="TotalPatients" msprop:Generator_UserColumnName="TotalPatients" msprop:Generator_ColumnVarNameInTable="columnTotalPatients" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtACC_Ledger_IncomeExpense" msprop:Generator_RowEvHandlerName="dtACC_Ledger_IncomeExpenseRowChangeEventHandler" msprop:Generator_RowDeletedName="dtACC_Ledger_IncomeExpenseRowDeleted" msprop:Generator_RowDeletingName="dtACC_Ledger_IncomeExpenseRowDeleting" msprop:Generator_RowEvArgName="dtACC_Ledger_IncomeExpenseRowChangeEvent" msprop:Generator_TablePropName="dtACC_Ledger_IncomeExpense" msprop:Generator_RowChangedName="dtACC_Ledger_IncomeExpenseRowChanged" msprop:Generator_UserTableName="dtACC_Ledger_IncomeExpense" msprop:Generator_RowChangingName="dtACC_Ledger_IncomeExpenseRowChanging" msprop:Generator_RowClassName="dtACC_Ledger_IncomeExpenseRow" msprop:Generator_TableClassName="dtACC_Ledger_IncomeExpenseDataTable" msprop:Generator_TableVarName="tabledtACC_Ledger_IncomeExpense">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ACC_LedgerID" msprop:Generator_ColumnPropNameInTable="ACC_LedgerIDColumn" msprop:Generator_ColumnPropNameInRow="ACC_LedgerID" msprop:Generator_UserColumnName="ACC_LedgerID" msprop:Generator_ColumnVarNameInTable="columnACC_LedgerID" type="xs:int" minOccurs="0" />
+              <xs:element name="ACC_LedgerType" msprop:Generator_ColumnPropNameInTable="ACC_LedgerTypeColumn" msprop:Generator_ColumnPropNameInRow="ACC_LedgerType" msprop:Generator_UserColumnName="ACC_LedgerType" msprop:Generator_ColumnVarNameInTable="columnACC_LedgerType" type="xs:string" minOccurs="0" />
+              <xs:element name="Particular" msprop:Generator_ColumnPropNameInTable="ParticularColumn" msprop:Generator_ColumnPropNameInRow="Particular" msprop:Generator_UserColumnName="Particular" msprop:Generator_ColumnVarNameInTable="columnParticular" type="xs:string" minOccurs="0" />
+              <xs:element name="ACC_LedgerAmount" msprop:Generator_ColumnPropNameInTable="ACC_LedgerAmountColumn" msprop:Generator_ColumnPropNameInRow="ACC_LedgerAmount" msprop:Generator_UserColumnName="ACC_LedgerAmount" msprop:Generator_ColumnVarNameInTable="columnACC_LedgerAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ACC_LedgerDate" msprop:Generator_ColumnPropNameInTable="ACC_LedgerDateColumn" msprop:Generator_ColumnPropNameInRow="ACC_LedgerDate" msprop:Generator_UserColumnName="ACC_LedgerDate" msprop:Generator_ColumnVarNameInTable="columnACC_LedgerDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ACC_LedgerNote" msprop:Generator_ColumnPropNameInTable="ACC_LedgerNoteColumn" msprop:Generator_ColumnPropNameInRow="ACC_LedgerNote" msprop:Generator_UserColumnName="ACC_LedgerNote" msprop:Generator_ColumnVarNameInTable="columnACC_LedgerNote" type="xs:string" minOccurs="0" />
+              <xs:element name="Hospital" msprop:Generator_ColumnPropNameInTable="HospitalColumn" msprop:Generator_ColumnPropNameInRow="Hospital" msprop:Generator_UserColumnName="Hospital" msprop:Generator_ColumnVarNameInTable="columnHospital" type="xs:string" minOccurs="0" />
+              <xs:element name="OpeningBalance" msprop:Generator_ColumnPropNameInTable="OpeningBalanceColumn" msprop:Generator_ColumnPropNameInRow="OpeningBalance" msprop:Generator_UserColumnName="OpeningBalance" msprop:Generator_ColumnVarNameInTable="columnOpeningBalance" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ACC_LedgerBalance" msprop:Generator_ColumnPropNameInRow="ACC_LedgerBalance" msprop:Generator_ColumnPropNameInTable="ACC_LedgerBalanceColumn" msprop:Generator_ColumnVarNameInTable="columnACC_LedgerBalance" msprop:Generator_UserColumnName="ACC_LedgerBalance" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

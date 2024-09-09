@@ -115,10 +115,14 @@ public partial class AdminPanel_Account_ACC_GNTransaction_ACC_GNTransactionAddEd
             entACC_GNTransaction = balACC_GNTransaction.SelectPK(CommonFunctions.DecryptBase64Int32(Request.QueryString["TransactionID"]));
 
             if (!entACC_GNTransaction.PatientID.IsNull)
+            {
                 ddlPatientID.Text = entACC_GNTransaction.PatientID.Value.ToString();
+                ucPatient.ShowPatient(Convert.ToInt32(entACC_GNTransaction.PatientID.Value.ToString()));
 
-            if (!entACC_GNTransaction.TreatmentID.IsNull)
-                ddlTreatmentID.SelectedValue = entACC_GNTransaction.TreatmentID.Value.ToString();
+            }
+
+            //if (!entACC_GNTransaction.TreatmentID.IsNull)
+            //    ddlTreatmentID.SelectedValue = entACC_GNTransaction.TreatmentID.Value.ToString();
 
             if (!entACC_GNTransaction.Amount.IsNull)
                 txtAmount.Text = entACC_GNTransaction.Amount.Value.ToString();
@@ -147,8 +151,8 @@ public partial class AdminPanel_Account_ACC_GNTransaction_ACC_GNTransactionAddEd
             //if (!entACC_GNTransaction.NoOfDays.IsNull)
             //	txtNoOfDays.Text = entACC_GNTransaction.NoOfDays.Value.ToString();
 
-            if (!entACC_GNTransaction.Quantity.IsNull)
-                txtQuantity.Text = entACC_GNTransaction.Quantity.Value.ToString();
+            //if (!entACC_GNTransaction.Quantity.IsNull)
+            //    txtQuantity.Text = entACC_GNTransaction.Quantity.Value.ToString();
 
             //if (!entACC_GNTransaction.Rate.IsNull)
             //    txtRate.Text = entACC_GNTransaction.Rate.Value.ToString();
@@ -164,6 +168,11 @@ public partial class AdminPanel_Account_ACC_GNTransaction_ACC_GNTransactionAddEd
 
             if (!entACC_GNTransaction.ReceiptTypeID.IsNull)
                 ddlReceiptTypeID.SelectedValue = entACC_GNTransaction.ReceiptTypeID.Value.ToString();
+
+
+            divTreatmentID.Visible = false;
+            divQuantity.Visible = false;
+            divAmount.Visible = false;
 
         }
     }
@@ -188,9 +197,9 @@ public partial class AdminPanel_Account_ACC_GNTransaction_ACC_GNTransactionAddEd
                 String ErrorMsg = String.Empty;
                 if (ddlPatientID.SelectedIndex == 0)
                     ErrorMsg += " - " + CommonMessage.ErrorRequiredField("Patient");
-                if (ddlTreatmentID.SelectedIndex == 0)
+                if (ddlTreatmentID.SelectedIndex == 0 && Request.QueryString["TransactionID"] == null)
                     ErrorMsg += " - " + CommonMessage.ErrorRequiredFieldDDL("Treatment");
-                if (txtAmount.Text.Trim() == String.Empty)
+                if (txtAmount.Text.Trim() == String.Empty && Request.QueryString["TransactionID"] == null)
                     ErrorMsg += " - " + CommonMessage.ErrorRequiredField("Amount");
                 if (dtpDate.Text.Trim() == String.Empty)
                     ErrorMsg += " - " + CommonMessage.ErrorRequiredField("Date");
@@ -295,7 +304,6 @@ public partial class AdminPanel_Account_ACC_GNTransaction_ACC_GNTransactionAddEd
                         {
                             ucMessage.ShowSuccess(CommonMessage.RecordSaved("Transaction"));
                             ClearControls();
-                            //ClearPatientControls();
 
                         }
                     }
